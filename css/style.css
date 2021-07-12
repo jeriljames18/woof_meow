@@ -1,0 +1,151 @@
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.signupContents{
+    padding: 2%;
+}
+h3{
+    font-family: 'Roboto', sans-serif;;
+}
+
+.innerWrap{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.registrationInputClass{
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: 25px;
+    /* width: 250px; */
+}
+.buttonRegistration{
+    background-color: #fa5c00;
+    color: white;
+    padding: 0 30% 0 30%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+}
+.logoTitle{
+    width: 30px;
+}
+.iconTitle{
+    padding-top: 20px;
+    width: 20px;
+}
+.titleImages{
+    display: flex;
+    flex-flow: column;
+}
+.forgetPassword, .joinClass,.loginList{
+    color: #fa5c00;
+}
+.signupList{
+    color: #CCC921;
+}
+.footerSection{
+    border-top: solid grey 1px;
+    box-shadow:  10px 0 0 0 #000000;
+    height: 8%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.copywright{
+    padding-left: 10%;
+    bottom: 0;
+    position: absolute;
+}
+header{
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow:  0 0 5px #000000
+}
+.menuNav{
+    width: 100%;
+    display: flex;
+}
+.menu{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2%;
+}
+.menu li{
+    padding-left: 5%;
+    font-weight: 600;
+}
+.menu li a{
+    text-decoration: none;
+}
+.logo{
+    width: 30vw;
+    padding-left: 10%;
+}
+.petSitterServiceTitle{
+    padding-top: 15%;
+    text-align: center;
+    color: #4B4B4A;
+}
+@media screen and (max-width:600px) {
+    header,footer{
+        display: none;
+    }
+    .userRegistration, .signupTitle, .userLogin{
+        padding: 0 10% 0 10%;
+    }
+    .innerWrap{
+        display: flex;
+        flex-flow: column;
+    }
+    .registrationButton{
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .buttonRegistration{
+        padding: 0 30% 0 30%;
+    }
+}
+@media screen and (min-width:600px) {
+    .registrationInputClass{
+        width: 20vw;
+    }
+    .titleImages{
+        display: none;
+    }
+    .signupTitle{
+        text-align: center;
+    }
+    .userRegistration{
+        padding: 0 10% 0 10%;
+        display: grid;
+        grid-column-gap: 3rem;
+        grid-row-gap: 1vw;
+        grid-template-columns: repeat(2,1fr );
+    }
+    .userLogin{
+        padding: 0 30% 0 30%;
+        display: flex;
+        flex-flow: column;
+    }
+    .innerWrap{
+        display: flex;
+        justify-content: space-between;
+    }
+    .registrationButton{
+        display: flex;
+        justify-content: center;
+        padding: 5% 30% 0 30%;
+    }
+    .forget{
+        padding-top: 10%;
+    }
+}
