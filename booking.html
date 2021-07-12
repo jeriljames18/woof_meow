@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+    <title>Booking Confirmation</title>
+</head>
+
+<body>
+    <div class='absolute-header'>
+        <header>
+            <h1>LOGO</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="">Services</a></li>
+                <li><a href="">Browse Pet-Sitters</a></li>
+                <li><a href="">Register as Pet-Sitter</a></li>
+                <li><a href="">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h2 class="booking-title">Booking Confirmation</h2>
+    <div class="wrapper">
+
+        <div id="sitter-info">
+
+            <img id="profile-booking" src="./icon/pexels-photo-8090146.jpeg" alt="">
+
+            <p class="booking-description">
+                Your day boarding booking will be with Martin.
+            </p>
+
+
+            <div class="time">
+                <label for="booking_date">Date</label>
+                <input type="text" id="booking_date" name="fname">
+            </div>
+
+            <div class="date">
+                <label for="booking_time">Time</label>
+                <input type="text" id="booking_time" name="country" readonly><br>
+            </div>
+
+
+        </div>
+
+        <div class="map">
+            <h3 class="location">
+                Location
+            </h3>
+            <p class="address">
+                123 Sample Address, City Postal Code
+            </p>
+            <div id="tracking_map">
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgoU0N7zevRRvC0lmUftyCBlP8yCIysFg&callback=initMap&libraries=&v=weekly" async>
+                </script>
+            </div>
+
+            <h3 class="contact">
+                Contact
+            </h3>
+            <p class="mobile">123-456-789</p>
+            <p class="email">email@email.com</p>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-wrapper">
+            <p>2021 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
