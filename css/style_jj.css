@@ -41,7 +41,7 @@ h3{
 .forgetPassword, .joinClass,.loginList{
     color: #fa5c00;
 }
-.signupList{
+.signupList,.serviceShortDesc{
     color: #CCC921;
 }
 .footerSection{
@@ -93,6 +93,26 @@ header{
     text-align: center;
     color: #4B4B4A;
 }
+.serviceH4{
+    color: rgba(75, 75, 74, 0.6);
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+.serviceLocationH4{
+    color: rgba(75, 75, 74, 1.0);
+}
+.serviceShortDesc{
+    margin: 5%;
+}
+.petServicePetBoadingLocation{
+    margin: 15px;
+}
+.locationInput{
+    width: 100%;
+    border-width:  0 0 1px;
+    border-color: rgba(75, 75, 74, 0.5);
+}
+
 @media screen and (max-width:600px) {
     header,footer{
         display: none;
@@ -112,6 +132,17 @@ header{
     }
     .buttonRegistration{
         padding: 0 30% 0 30%;
+    }
+    .petServicePetBoading{
+        margin: 15px;
+        border:  rgba(75, 75, 74, 0.6) solid 1px;
+        border-radius: 10px ;
+        text-align: center;
+
+    }
+    .locationLabelClass{
+        margin-left: 15px;
+        margin-top: 20px;
     }
 }
 @media screen and (min-width:600px) {
