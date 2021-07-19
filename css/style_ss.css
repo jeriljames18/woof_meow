@@ -126,3 +126,10 @@ h1, h2, h3 {
   .question-div {
       margin-bottom: 15px;
   }
+
+  .message-area {
+    display: none;
+    text-align: center;
+    color: red;
+    margin-top: 5px;
+}
