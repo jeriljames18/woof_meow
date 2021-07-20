@@ -33,6 +33,9 @@ h1, h2, h3 {
     text-align: center;
     max-width: 150px;
     margin: 150px auto 20px auto;
+    display: flex;
+    border: 0;
+    cursor: pointer;
     
     
   }
@@ -47,6 +50,13 @@ h1, h2, h3 {
   .textbar {
       width: 98%;
       margin: 10px 0;
+      
+  }
+
+  .form-div {
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 50px;
   }
 
   #profile-picture {
@@ -88,12 +98,8 @@ h1, h2, h3 {
   }
 
   #ps2next {
-      position: absolute;
-      bottom: 0;
-      margin-left: auto;
-      margin-right: auto;
-      right: 0;
-      left: 0;
+      margin-top: 520px;
+      display: block;
 
   }
 
@@ -126,3 +132,40 @@ h1, h2, h3 {
   .question-div {
       margin-bottom: 15px;
   }
+
+  .back {
+      padding: 0 20px;
+      
+  }
+
+  .back:active {
+      color:#fa5c00;
+      background-color: black;
+  }
+    
+    
+ 
+
+  .back:hover {
+    cursor: pointer;
+  }
+
+  .message-area {
+      display: none;
+      text-align: center;
+      color: red;
+      margin-top: 5px;
+  }
+
+  .skip {
+      justify-content: center;
+      display: flex;
+      color:rgba(0, 0, 0, 0.6);
+  }
+
+  .skip:hover {
+      cursor: pointer;
+      color:#fa5c00;
+  }
+
+  

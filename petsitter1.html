@@ -14,7 +14,7 @@
        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
-        <script src="ps1.js" defer></script>
+        <script src="js/ps1.js" defer></script>
        
    </head>
    <body>
@@ -28,7 +28,7 @@
                <div class="form-div">
                    <label for="username">Username</label>
                    <br>
-                   <input class= "textbar" type="text" id="username">
+                   <input class= "textbar" type="text" id="username" required>
                    <br>
                    <label for="email">Email</label>
                    <br>
@@ -50,7 +50,10 @@
                    <input class= "textbar" type="password" name="password2" id="password2">
 
                </div>  
-               
+               <div class="message-area">
+                   
+                <i class="password-mismatch">Passwords do not match. Try again</i>
+            </div>
                
                    <p class="nav-btn" id="ps1next">Register</p>
                
