@@ -10,30 +10,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="./css/style_mark.css">
-    <script src="./js/main.js" defer></script>
+    <link rel="stylesheet" href="css/style_jj.css">
+
+
+    <script src="./js/main_mark.js" defer></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
 
     <title>Search Result</title>
 </head>
 
 <body>
-    <div class='absolute-header'>
-        <header>
-            <h1>LOGO</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="">Services</a></li>
-                <li><a href="">Browse Pet-Sitters</a></li>
-                <li><a href="">Register as Pet-Sitter</a></li>
-                <li><a href="">Profile</a></li>
+    <header>
+        <img class="logo" src="./icon/logo4.svg" alt="">
+        <nav class="menuNav">
+            <ul class="menu">
+                <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
+                <li>Become a Sitter</li>
+                <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
+                <li><a href="#" class="loginList">Login</a></li>
+                <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
-    </div>
+    </header>
 
 
     <div class="wrapper">
