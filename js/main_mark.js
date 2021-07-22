@@ -56,7 +56,8 @@ function showLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    initMap(latitude, longitude);
+    let isTracking = true;
+    initMap(latitude, longitude, isTracking);
     //saveGeolocation(localStorage.getItem("userAccountEmail"), localStorage.getItem("userAccountName"), latitude, longitude)
 }
 
@@ -68,9 +69,11 @@ function errorHandler(err) {
     }
 }
 
-function initMap(lat, long) {
+function initMap(lat, long, isTracking) {
 
-    getLocationUpdate();
+    if (isTracking) {
+        getLocationUpdate();
+    }
 
     if (typeof lat == 'undefined' && typeof long == 'undefined') {
         lat = 0;
@@ -97,8 +100,20 @@ function initMap(lat, long) {
 }
 
 
+function memberTrack(email, fullname) {
 
-function getMemberLocationByEmail(email) {
+    let currentEmailTrack = email;
+    let currentFullNameTrack = fullname;
+
+    /** Write function to get the geolocation of the family member on the database. 
+     * Promise .then(update the map) */
+    getMemberLocationByEmail(currentEmailTrack);
+
+}
+
+
+
+function getSitterLocationByBookingId(booking_id) {
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -106,17 +121,18 @@ function getMemberLocationByEmail(email) {
         firebase.app(); // if already initialized, use that one
     }
 
-    let objTracking;
+    let arrBookingList = new bookingInformation;
     var db = firebase.firestore();
 
 
-    var docRef = db.collection("dbServiceBooking").doc(email.replace(/\s/g, ''));
+
+    var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
 
     docRef.get().then((doc) => {
 
-        objTracking = doc.data();
+        arrBookingList = doc.data();
 
-        initMap(objTracking.trackLat, objTracking.trackLong);
+        initMap(arrBookingList.trackLat, arrBookingList.trackLong, );
 
     }).catch((error) => {
         console.log("Error getting document:", error);
@@ -144,33 +160,122 @@ function getBookinglist() {
             let petsittername = "SAMPLE NAME";
             arrBookingList = doc.data();
             console.log(doc.id);
+
+
+
+
             newRow = (
                 "<div>" +
                 "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
                 "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
                 "<p>" + petsittername + "</p>" +
                 "<p>" + arrBookingList.sbServiceType + "</p>" +
-                `<button class='booking-status' type='button' onclick='changeBookingStatus("${doc.id}")'> Pending </button>` +
-                `<button class = 'start-track' type='button' onclick='startLiveTracking("${doc.id}")'> Start Live Tracking </button>` +
+                `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
+                `<button class = 'start-track-${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}")'>  Start Live Tracking </button>` +
                 "</div>"
             );
 
 
+
+
+
+
             console.log(newRow);
 
-            $(".ongoing").append(newRow);
+            if (arrBookingList.sbStatus == 2) {
+                $(".previous_list").append(newRow);
+            } else {
+                $(".ongoing").append(newRow);
+            }
+
+            if (arrBookingList.sbStatus != 1) {
+                $(`.start-track-${doc.id}`).hide();
+            }
+
 
         });
     });
 }
 
-function changeBookingStatus(booking_id) {
+function getBookingStatus(intStatus) {
 
-    console.log("test");
+    switch (intStatus) {
+        case 0:
+            return "Pending";
+            break;
+        case 1:
+            return "Confirmed";
+            break;
+        default:
+            return "Completed";
+
+    }
 }
 
-function startLiveTracking(booking_id) {
-    console.log("test");
+
+function changeBookingStatus(booking_id) {
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+    var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
+
+    docRef.update("sbStatus", 1);
+    $(`.booking-status-${booking_id}`).html('Confirmed');
+    $(`.start-track-${booking_id}`).show();
+
+
+
+}
+
+function goToLiveTracking(booking_id) {
+    localStorage.setItem("bookingId", booking_id);
+    window.location.href = "./livetracking.html";
+}
+
+function startLiveTracking() {
+
+    let booking_id = localStorage.getItem("bookingId");
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    let arrBookingList = new bookingInformation;
+    var db = firebase.firestore();
+
+
+    var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
+
+    docRef.get().then((doc) => {
+
+        arrBookingList = doc.data();
+
+        let petsittername = "SAMPLE NAME";
+
+        let newRow = (
+            "<div>" +
+            "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+            "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+            "<p>" + petsittername + "</p>" +
+            "<p>" + arrBookingList.sbServiceType + "</p>" +
+            `<button class = 'end-track' type='button' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
+            "</div>"
+        );
+
+        $(".live-info").append(newRow);
+
+        getSitterLocationByBookingId(booking_id);
+
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
 }
 
 /********************************* SAVING FUNCTION *********************************/
@@ -218,7 +323,7 @@ function saveSchedule() {
     var db = firebase.firestore();
 
     db.collection("dbServiceBooking").doc().set({
-        sbUserEmail: "userEmail443@gmail.com",
+        sbUserEmail: "userEmail121111@gmail.com",
         sbSitterEmail: "sitterEmail543@yahoo.com",
         sbDateFrom: "24/7/2021",
         sbDateTo: "24/7/2021",
@@ -257,5 +362,5 @@ let evntlstener;
 
 evntlstener = document.getElementById('calendar_save');
 if (evntlstener) {
-    evntlstener.addEventListener('click', uploadHandleError);
+    evntlstener.addEventListener('click', saveSchedule);
 }
