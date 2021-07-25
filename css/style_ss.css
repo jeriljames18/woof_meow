@@ -32,10 +32,12 @@ h1, h2, h3 {
     text-decoration: none;
     text-align: center;
     max-width: 150px;
-    margin: 150px auto 20px auto;
+    margin: 100px auto 20px auto;
     display: flex;
     border: 0;
     cursor: pointer;
+    justify-content: center;
+    border: 1px solid white;
     
     
   }
@@ -50,6 +52,8 @@ h1, h2, h3 {
   .textbar {
       width: 98%;
       margin: 10px 0;
+      border-radius: 15px;
+      border: 1px solid black;
       
   }
 
@@ -99,7 +103,7 @@ h1, h2, h3 {
 
   #ps2next {
       margin-top: 520px;
-      display: block;
+     
 
   }
 
@@ -107,22 +111,27 @@ h1, h2, h3 {
       font-style: italic;
       font-size: small;
       padding-left: 15px;
+      display: block;
+      padding-top: 20px;
+      color: #CCC921;
   }
 
   .top {
-      display: inline-block;
+      display: block;
+      padding-left: 5px;
+      border: 1px solid black;
+      border-radius: 5px;
+      
   }
 
-  .ps-services {
-      border: 1px solid black;
-  }
+ 
 
   #house-sitting, #spet-boarding {
       margin-bottom: 1px;
   }
 
   .services-div {
-      margin-top: 15px;
+      margin-top: 5px;
   }
 
   #spet-boarding {
@@ -168,4 +177,66 @@ h1, h2, h3 {
       color:#fa5c00;
   }
 
-  
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #CCC921;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid white;
+}
+
+input[type=checkbox] {
+    display: none;
+ }
+
+ input[type=checkbox]:checked + label:before {
+    content: "✓ ";
+ }
+ 
+ /* <!--Add styling on check --> */
+ input[type=checkbox]:checked+label {
+    border: solid 2px #fa5c00;
+    color: #fa5c00;
+ }
+ 
+ .top:nth-child(2), .top:nth-child(4) {
+     margin-bottom: 3px;
+ }
+
+ .top:nth-child(2) {
+     border-bottom-right-radius: 0;
+     border-bottom-left-radius: 0;
+ }
+
+ .top:nth-child(4) {
+    border-radius: 0;
+ }
+
+ .top:nth-child(6) {
+     border-top-right-radius: 0;
+     border-top-left-radius: 0;
+ }
+ 
+ #ps3next {
+     margin-top: 200px;
+ }
