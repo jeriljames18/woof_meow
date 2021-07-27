@@ -1,0 +1,112 @@
+body{
+    margin-top: 100px;
+}
+ .title{
+
+    font-size: 20px;
+ 
+    margin-top: 5px; 
+    text-align: center;
+}
+.rate{
+
+    text-align: center;
+
+}
+html *{
+    -webkit-font-smoothing: antialiased;
+}
+.main {
+    background: #FFF;
+    position: relative;
+    z-index: 20;
+}
+
+.profile-page .profile {
+    text-align: center;
+}
+
+.profile-page .profile img {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-transform: translate3d(0,-50%,0);
+    -moz-transform: translate3d(0,-50%,0);
+    -o-transform: translate3d(0,-50%,0);
+    -ms-transform: translate3d(0,-50%,0);
+    transform: translate3d(0,-50%,0);
+}
+
+.img-raised {
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.img-fluid, .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.profile-page .description {
+    margin: 1.071rem auto 0;
+    max-width: 600px;
+    color: rgb(2, 2, 2);
+    font-weight: 700;
+}
+
+p {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.profile-page .profile-tabs {
+    margin-top: 4.284rem;
+}
+
+
+.tab-space {
+    padding: 20px 0 50px;
+}
+
+.profile-page .gallery {
+    margin-top: 3.213rem;
+    padding-bottom: 50px;
+}
+
+.profile-page .gallery img {
+    width: 100%;
+    margin-bottom: 2.142rem;
+}
+
+.profile-page .profile .name{
+    margin-top: -80px;
+}
+
+img.rounded {
+    border-radius: 6px!important;
+}
+
+iframe{
+
+     width: 100%;
+     height: 50%;    
+}
+
+.content {
+    font-size: 15px;
+    
+    padding-bottom: 20px;
+    width: 70%;
+}
+
+
+.pic {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px
+}
+

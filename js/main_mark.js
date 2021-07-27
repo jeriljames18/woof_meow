@@ -31,6 +31,28 @@ class bookingInformation {
 }
 
 
+class PetSitterProfile {
+    constructor(_username, _address, _mobile, _petboard, _housesit, _petwalk, _petboardrate, _housesitrate, _petwalkrate, _description, _arrayskills, _geolocation) {
+
+
+        this.Username = _username;
+        this.Address = _address;
+        this.Mobile = _mobile;
+        this.Petboard = _petboard;
+        this.HouseSit = _housesit;
+        this.PetWalk = _petwalk;
+        this.PetboardRate = _petboardrate;
+        this.HouseSitRate = _housesitrate;
+        this.PetWalkRate = _petwalkrate;
+        this.Description = _description;
+        this.ArraySkills = _arrayskills;
+        this.Geolocation = _geolocation;
+
+
+    }
+}
+
+
 
 /********************************* TRACKING FUNCTION *********************************/
 let map;
@@ -51,6 +73,68 @@ function getLocationUpdate() {
         alert("The device does not support geolocation!");
     }
 }
+
+var geocoder;
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var mapOptions = {
+        zoom: 15,
+        center: latlng
+    }
+    map = new google.maps.Map(document.getElementById('tracking_map'), mapOptions);
+}
+
+
+function showSitterLocation(strAddress, strName) {
+
+
+    const contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h2 id="firstHeading" class="firstHeading">' + strName + '</h2>' +
+        '<div id="bodyContent">' +
+        "<p><b>" + strAddress + "</b></p>" +
+        "</div>" +
+        "</div>";
+    const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+    });
+
+
+    initialize();
+
+    var icon = {
+        url: "./icon/location.svg", // url
+        scaledSize: new google.maps.Size(50, 50), // size
+    };
+
+    geocoder.geocode({ 'address': strAddress }, function(results, status) {
+        if (status == 'OK') {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                icon: icon,
+                position: results[0].geometry.location,
+                title: strName
+            });
+
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+            });
+
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
 
 function showLocation(position) {
     var latitude = position.coords.latitude;
@@ -195,6 +279,86 @@ function getBookinglist() {
 
         });
     });
+}
+
+function getSearchServiceParameters(strServiceName) {
+
+    switch (strServiceName) {
+        case "Pet Boarding":
+            return "upPetboard";
+            break;
+
+        case "Pet Walking":
+            return "upPetWalk";
+            break;
+        default:
+            return "upHouseSit";
+    }
+}
+
+function searchPetSitter() {
+
+    let strServiceType = "upPetWalk"; //getSearchServiceParameters(strServiceName);
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+    db.collection("dbUserProfile").where(strServiceType, "==", true).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+
+            let newRow = " ";
+            let arrProfileList = new PetSitterProfile;
+            arrProfileList = doc.data();
+            console.log(doc.id);
+
+
+            let strImageLocation = "";
+            let starIconShaded = "./icon/star.svg";
+            let starIconUnShaded = "./icon/star_shaded.svg";
+            let intNumberOfReturnedClient = "112";
+            let intSitterRate = "20";
+
+            newRow = (
+                "<div id='search-wrapper'>" +
+
+                "<div class='search'>" +
+                "<img class='profile' src='" + strImageLocation + "' alt=''>" +
+                "</div>" +
+                "<div class='info'>" +
+                "<p id='name'>" + arrProfileList.upUsername + "</p>" +
+                "<p id='description'>" + arrProfileList.upDescription + "</p>" +
+                "<picture class='stars'>" +
+                "<img src='" + starIconShaded + "' alt='star1'>" +
+                "<img src='" + starIconShaded + "' alt='star2'>" +
+                "<img src='" + starIconShaded + "' alt='star3'>" +
+                "<img src='" + starIconShaded + "' alt='star4'>" +
+                "<img src='" + starIconShaded + "' alt='star5'>" +
+                "</picture>" +
+                "<p id='clients'>" + intNumberOfReturnedClient + " repeat clients</p>" +
+                "<p id='price'>$" + intSitterRate + "CAD/hour</p>" +
+                "</div>" +
+                "</div>"
+            );
+
+
+            console.log(newRow);
+
+            showSitterLocation(arrProfileList.upAddress, arrProfileList.upUsername);
+
+            $(".profile-info").append(newRow);
+
+
+
+        });
+
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+
 }
 
 function getBookingStatus(intStatus) {
