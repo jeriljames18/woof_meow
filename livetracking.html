@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style_mark.css">
+    <link rel="stylesheet" href="./css/style_jj.css">
+
+
+    <script src="./js/main_mark.js" defer></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+
+    <title>Live Tracking</title>
+</head>
+
+<body onload="startLiveTracking()">
+    <header>
+        <img class="logo " src="./icon/logo4.svg " alt=" ">
+        <nav class="menuNav ">
+            <ul class="menu ">
+                <li><a href="./search.html " class="search-sitter ">Browse Sitters</a></li>
+                <li>Become a Sitter</li>
+                <li><a href="./bookinglist.html " class="bookingList ">Booking List</a></li>
+                <li><a href="# " class="loginList ">Login</a></li>
+                <li><a class="signupList " href="./user_signup.html ">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="wrapper">
+
+            <section class='live-info'>
+
+            </section>
+
+            <div id="tracking_map">
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgoU0N7zevRRvC0lmUftyCBlP8yCIysFg&callback=initMap&libraries=&v=weekly" async>
+                </script>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

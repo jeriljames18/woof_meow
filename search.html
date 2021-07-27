@@ -9,146 +9,40 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/main.js" defer></script>
+    <link rel="stylesheet" href="./css/style_mark.css">
+    <link rel="stylesheet" href="css/style_jj.css">
+
+
+    <script src="./js/main_mark.js" defer></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
 
     <title>Search Result</title>
 </head>
 
-<body>
-    <div class='absolute-header'>
-        <header>
-            <h1>LOGO</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="">Services</a></li>
-                <li><a href="">Browse Pet-Sitters</a></li>
-                <li><a href="">Register as Pet-Sitter</a></li>
-                <li><a href="">Profile</a></li>
+<body onload="searchPetSitter()">
+    <header>
+        <img class="logo" src="./icon/logo4.svg" alt="">
+        <nav class="menuNav">
+            <ul class="menu">
+                <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
+                <li>Become a Sitter</li>
+                <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
+                <li><a href="#" class="loginList">Login</a></li>
+                <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
-    </div>
+    </header>
 
 
     <div class="wrapper">
 
         <div class="profile-info">
 
-            <div id="search-wrapper">
 
-                <div class="search item1">
-                    <img class="profile" src="./icon/pexels-photo-8090146.jpeg" alt="">
-                </div>
-
-                <div class="info">
-                    <p id="name">Martin Jones</p>
-                    <p id="description">Dog Lover and cat walker. Sample description.</p>
-                    <picture class="stars">
-                        <img src="./icon/star.svg" alt="star1">
-                        <img src="./icon/star.svg" alt="star2">
-                        <img src="./icon/star.svg" alt="star3">
-                        <img src="./icon/star.svg" alt="star4">
-                        <img src="./icon/star.svg" alt="star5">
-                    </picture>
-
-                    <p id="clients">20 repeat clients</p>
-                    <p id="price">$20CAD/hour</p>
-                </div>
-            </div>
-
-            <div id="search-wrapper">
-
-                <div class="search item1">
-                    <img class="profile" src="./icon/pexels-photo-8090146.jpeg" alt="">
-                </div>
-
-                <div class="info">
-                    <p id="name">Martin Jones</p>
-                    <p id="description">Dog Lover and cat walker. Sample description.</p>
-                    <picture class="stars">
-                        <img src="./icon/star.svg" alt="star1">
-                        <img src="./icon/star.svg" alt="star2">
-                        <img src="./icon/star.svg" alt="star3">
-                        <img src="./icon/star.svg" alt="star4">
-                        <img src="./icon/star.svg" alt="star5">
-                    </picture>
-
-                    <p id="clients">20 repeat clients</p>
-                    <p id="price">$20CAD/hour</p>
-                </div>
-            </div>
-
-            <div id="search-wrapper">
-
-                <div class="search item1">
-                    <img class="profile" src="./icon/pexels-photo-8090146.jpeg" alt="">
-                </div>
-
-                <div class="info">
-                    <p id="name">Martin Jones</p>
-                    <p id="description">Dog Lover and cat walker. Sample description.</p>
-                    <picture class="stars">
-                        <img src="./icon/star.svg" alt="star1">
-                        <img src="./icon/star.svg" alt="star2">
-                        <img src="./icon/star.svg" alt="star3">
-                        <img src="./icon/star.svg" alt="star4">
-                        <img src="./icon/star.svg" alt="star5">
-                    </picture>
-
-                    <p id="clients">20 repeat clients</p>
-                    <p id="price">$20CAD/hour</p>
-                </div>
-            </div>
-
-            <div id="search-wrapper">
-
-                <div class="search item1">
-                    <img class="profile" src="./icon/pexels-photo-8090146.jpeg" alt="">
-                </div>
-
-                <div class="info">
-                    <p id="name">Martin Jones</p>
-                    <p id="description">Dog Lover and cat walker. Sample description.</p>
-                    <picture class="stars">
-                        <img src="./icon/star.svg" alt="star1">
-                        <img src="./icon/star.svg" alt="star2">
-                        <img src="./icon/star.svg" alt="star3">
-                        <img src="./icon/star.svg" alt="star4">
-                        <img src="./icon/star.svg" alt="star5">
-                    </picture>
-
-                    <p id="clients">20 repeat clients</p>
-                    <p id="price">$20CAD/hour</p>
-                </div>
-            </div>
-
-            <div id="search-wrapper">
-
-                <div class="search item1">
-                    <img class="profile" src="./icon/pexels-photo-8090146.jpeg" alt="">
-                </div>
-
-                <div class="info">
-                    <p id="name">Martin Jones</p>
-                    <p id="description">Dog Lover and cat walker. Sample description.</p>
-                    <picture class="stars">
-                        <img src="./icon/star.svg" alt="star1">
-                        <img src="./icon/star.svg" alt="star2">
-                        <img src="./icon/star.svg" alt="star3">
-                        <img src="./icon/star.svg" alt="star4">
-                        <img src="./icon/star.svg" alt="star5">
-                    </picture>
-
-                    <p id="clients">20 repeat clients</p>
-                    <p id="price">$20CAD/hour</p>
-                </div>
-            </div>
         </div>
 
 
@@ -157,6 +51,12 @@
             </script>
         </div>
 
+    </div>
+
+    <div class="button_info">
+        <button id="calendar_save"> Save Schedule </button>
+        <!--  <button id = "info_modify"> Modify</button>
+<button id = "info_delete"> Delete</button> -->
     </div>
 
     <footer>

@@ -1,25 +1,30 @@
-body{
+body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
 }
-.signupContents{
+
+.signupContents {
     padding: 2%;
 }
-h3{
-    font-family: 'Roboto', sans-serif;;
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    ;
 }
 
-.innerWrap{
+.innerWrap {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.registrationInputClass{
+
+.registrationInputClass {
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     height: 25px;
     /* width: 250px; */
 }
-.buttonRegistration{
+
+.buttonRegistration {
     background-color: #fa5c00;
     color: white;
     padding: 0 30% 0 30%;
@@ -27,48 +32,59 @@ h3{
     border-radius: 20px;
     border: none;
 }
-.logoTitle{
+
+.logoTitle {
     width: 30px;
 }
-.iconTitle{
+
+.iconTitle {
     padding-top: 20px;
     width: 20px;
 }
-.titleImages{
+
+.titleImages {
     display: flex;
     flex-flow: column;
 }
-.forgetPassword, .joinClass,.loginList{
+
+.forgetPassword,
+.joinClass,
+.loginList {
     color: #fa5c00;
 }
 .signupList,.serviceShortDesc{
     color: #CCC921;
 }
-.footerSection{
+
+.footerSection {
     border-top: solid grey 1px;
-    box-shadow:  10px 0 0 0 #000000;
+    box-shadow: 10px 0 0 0 #000000;
     height: 8%;
     position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #fff;
 }
-.copywright{
+
+.copywright {
     padding-left: 10%;
     bottom: 0;
     position: absolute;
 }
-header{
+
+header {
     padding: 1%;
     display: flex;
     justify-content: space-between;
-    box-shadow:  0 0 5px #000000
+    box-shadow: 0 0 5px #000000;
 }
-.menuNav{
+
+.menuNav {
     width: 100%;
     display: flex;
 }
-.menu{
+
+.menu {
     width: 100%;
     list-style-type: none;
     display: flex;
@@ -77,18 +93,22 @@ header{
     justify-content: flex-end;
     padding-right: 2%;
 }
-.menu li{
+
+.menu li {
     padding-left: 5%;
     font-weight: 600;
 }
-.menu li a{
+
+.menu li a {
     text-decoration: none;
 }
-.logo{
+
+.logo {
     width: 30vw;
     padding-left: 10%;
 }
-.petSitterServiceTitle{
+
+.petSitterServiceTitle {
     padding-top: 15%;
     text-align: center;
     color: #4B4B4A;
@@ -114,23 +134,26 @@ header{
 }
 
 @media screen and (max-width:600px) {
-    header,footer{
+    header,
+    footer {
         display: none;
     }
-    .userRegistration, .signupTitle, .userLogin{
+    .userRegistration,
+    .signupTitle,
+    .userLogin {
         padding: 0 10% 0 10%;
     }
-    .innerWrap{
+    .innerWrap {
         display: flex;
         flex-flow: column;
     }
-    .registrationButton{
+    .registrationButton {
         margin-top: 10%;
         display: flex;
         justify-content: center;
         align-content: center;
     }
-    .buttonRegistration{
+    .buttonRegistration {
         padding: 0 30% 0 30%;
     }
     .petServicePetBoading{
@@ -145,38 +168,39 @@ header{
         margin-top: 20px;
     }
 }
+
 @media screen and (min-width:600px) {
-    .registrationInputClass{
+    .registrationInputClass {
         width: 20vw;
     }
-    .titleImages{
+    .titleImages {
         display: none;
     }
-    .signupTitle{
+    .signupTitle {
         text-align: center;
     }
-    .userRegistration{
+    .userRegistration {
         padding: 0 10% 0 10%;
         display: grid;
         grid-column-gap: 3rem;
         grid-row-gap: 1vw;
-        grid-template-columns: repeat(2,1fr );
+        grid-template-columns: repeat(2, 1fr);
     }
-    .userLogin{
+    .userLogin {
         padding: 0 30% 0 30%;
         display: flex;
         flex-flow: column;
     }
-    .innerWrap{
+    .innerWrap {
         display: flex;
         justify-content: space-between;
     }
-    .registrationButton{
+    .registrationButton {
         display: flex;
         justify-content: center;
         padding: 5% 30% 0 30%;
     }
-    .forget{
+    .forget {
         padding-top: 10%;
     }
 }
