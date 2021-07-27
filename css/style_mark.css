@@ -45,6 +45,7 @@ nav {
     font-weight: bolder;
     color: black;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .absolute-header li:nth-child(4) {
@@ -84,6 +85,11 @@ nav {
     align-items: center;
     justify-items: center;
     margin-bottom: 2rem;
+}
+
+#search-wrapper:hover {
+    border: 2px solid #FA5C00;
+    cursor: pointer;
 }
 
 #name {
@@ -131,6 +137,45 @@ picture img {
     align-content: center;
 }
 
+#name {
+    padding-bottom: 1vh;
+}
+
+#description {
+    padding-bottom: 3vh;
+}
+
+#price {
+    text-align: center;
+    padding-top: 1vh;
+    height: 28px;
+    width: auto;
+    border-radius: 25px;
+    border: 1px solid #C4C4C4;
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+}
+
+.call-sitter,
+.start-track {
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid #FA5C00;
+    background-color: #FA5C00;
+    color: white;
+    height: 50%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+.call-sitter:hover,
+.start-track:hover {
+    background-color: white;
+    color: #FA5C00;
+    cursor: pointer;
+}
+
 #sitter-info img {
     object-fit: scale-down;
     height: auto;
@@ -159,6 +204,30 @@ picture img {
     display: grid;
     min-height: 600px;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.ongoing,
+.previous_list {
+    width: 100%;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 2rem;
+}
+
+#booking-box {
+    width: 90%;
+    box-shadow: 2px 5px 5px grey;
+    padding: 1vh 1vw 1vh 1vw;
+    align-items: center;
+    justify-items: center;
+}
+
+#booking-box:hover {
+    border: 2px solid #FA5C00;
+    cursor: pointer;
 }
 
 .footer-wrapper {

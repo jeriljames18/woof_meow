@@ -4,93 +4,107 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
     <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
-    <link rel="stylesheet" href="styles_dhruv.css">
-    <script src=main_dhruv.js></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles_dhruv.css">
+    <link rel="stylesheet" href="./css/style_jj.css">
+
+    <script src="./js/main_dhruv.js"></script>
+    <script src="./js/main_mark.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
 </head>
 
 <body class="profile-page" style="margin-top:100px;">
-             
-    
-      <div class="main main-raised">
-		<div class="profile-content">
+
+    <header>
+        <img class="logo" src="./icon/logo4.svg" alt="">
+        <nav class="menuNav">
+            <ul class="menu">
+                <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
+                <li>Become a Sitter</li>
+                <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
+                <li><a href="#" class="loginList">Login</a></li>
+                <li><a class="signupList" href="./user_signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main main-raised">
+        <div class="profile-content">
             <div class="container">
                 <div class="row">
-	                <div class="col-md-2 ml-auto mr-auto">
-        	           <div class="profile">
-	                        <div class="avatar" >
-	                            <img src="2.png" alt="Circle Image" class="img-raised rounded-circle img-fluid" class="img-fluid">
-	                        </div>
-	                        <div class="name">
-	                            <h3 class="title">Martin Jones</h3>
+                    <div class="col-md-2 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="2.png" alt="Circle Image" class="img-raised rounded-circle img-fluid" class="img-fluid">
+                            </div>
+                            <div class="name">
+                                <h3 class="title">Martin Jones</h3>
                                 <div class="rate">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                   <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
                                 </div>
-                                
-								 </div>
-	                    </div>
-    	            </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="description text-center">
                     <p>
-                        Dog Lover and having dog since childhood. Currently, living in vancouver 
-                    </p>    
+                        Dog Lover and having dog since childhood. Currently, living in vancouver
+                    </p>
+                    <div>
+                        <button type="button" class="btn btn-dark"><i class="fas fa-star"></i>4.5</button>
+                        <button type="button" class="btn btn-dark">10 repeat clients</button>
+                        <button type="button" class="btn btn-dark">$30 per night</button>
+
+                    </div>
+                </div>
                 <div>
-                    <button type="button" class="btn btn-dark"><i class="fas fa-star"></i>4.5</button>
-                    <button type="button" class="btn btn-dark">10 repeat clients</button>
-                    <button type="button" class="btn btn-dark">$30 per night</button>
+                    <h6>Martin Home</h6>
 
                 </div>
+                <div style="background-color: rgba(92, 86, 86, 0.212);">
+                    <ol>
+
+                        <li>No Children's present </li>
+                        <li>Lives in a apartment</li>
+                        <li>Non-smoking household</li>
+                        <li>Have a fence yard</li>
+                        <li>Crate-trained dogs only</li>
+                        <li>Dogs over 1 year old</li>
+                        <li>Potty breaks every 2-4 hours</li>
+                        <li>dogs allowed on bed</li>
+                        </li>
+                    </ol>
                 </div>
-			 <div>
-                 <h6>Martin Home</h6>
 
-             </div>
-             <div style="background-color: rgba(92, 86, 86, 0.212);">
-                <ol>
-                  
-                  <li>No Children's present </li>
-                  <li>Lives in a apartment</li> 
-                  <li>Non-smoking household</li> 
-                  <li>Have a fence yard</li> 
-                  <li>Crate-trained dogs only</li> 
-                   <li>Dogs over 1 year old</li>
-                   <li>Potty breaks every 2-4 hours</li>
-                   <li>dogs allowed on bed</li>
-                   </li>
-                </ol>
-            </div>
+                <div>
+                    <h6>About Sitter</h6>
+                </div>
+                <div style="background-color: rgba(92, 86, 86, 0.212);">
+                    <p style="width: 40%; font-size: 15px;">
 
-            <div>
-                <h6>About Sitter</h6>
-            </div>
-            <div style="background-color: rgba(92, 86, 86, 0.212);">
-                <p style="width: 40%; font-size: 15px;">
-                  
-                  I am professional pet-sitter for around 6
-                   years. I have two pets - sia and mia
-                   which are very friendly with other pets
-                   too. in past i have worked with different
-                   clients.
-                
+                        I am professional pet-sitter for around 6 years. I have two pets - sia and mia which are very friendly with other pets too. in past i have worked with different clients.
+
+                    </p>
+                </div>
+                <div>
+                    <h6>Location</h6>
+                </div>
+                <p style="background-color: rgba(92, 86, 86, 0.212);text-align: center; font-size: 15px;">
+
+                    3.4 Kms Away, Vancouver BC
                 </p>
-            </div>
-            <div>
-                <h6>Location</h6>
-            </div>
-            <p style="background-color: rgba(92, 86, 86, 0.212);text-align: center; font-size: 15px;">
 
-                3.4 Kms Away, Vancouver BC
-                </p>
-          
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10413.499601918835!2d-123.1493466216517!3d49.283665409361255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f143a94fb3%3A0xbb9196ea9b81f38b!2sVancouver%2C%20BC%2C%20Canada!5e0!3m2!1sen!2sin!4v1626868405196!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10413.499601918835!2d-123.1493466216517!3d49.283665409361255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f143a94fb3%3A0xbb9196ea9b81f38b!2sVancouver%2C%20BC%2C%20Canada!5e0!3m2!1sen!2sin!4v1626868405196!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
                 <div style="margin-top: 20px; font-size: 10px;">
                     <h6>All Reviews</h6>
                 </div>
@@ -98,75 +112,75 @@
                 <div class="card">
                     <div class="row ml-2 mt-2">
                         <div> <img class="profile-pic" style=" width: 150px; height: 100px;" src="1.png">
-                         </div>
+                        </div>
                         <div class="d-flex flex-column">
-                            <h5 >Maria Lara</h5>
+                            <h5>Maria Lara</h5>
                             <div>
-                               
-                         <p>
-                             <span class="text-muted"></span> 
-                             <span class="fa fa-star star-active ml-3"></span>
-                              <span class="fa fa-star star-active"></span> 
-                              <span class="fa fa-star star-active"></span> 
-                              <span class="fa fa-star star-active"></span> 
-                              <span> <i class="far fa-star"></i></span>
-                        </p>
-                        
-                  
+
+                                <p>
+                                    <span class="text-muted"></span>
+                                    <span class="fa fa-star star-active ml-3"></span>
+                                    <span class="fa fa-star star-active"></span>
+                                    <span class="fa fa-star star-active"></span>
+                                    <span class="fa fa-star star-active"></span>
+                                    <span> <i class="far fa-star"></i></span>
+                                </p>
+
+
+                            </div>
                         </div>
-                        </div>
-                        <p class="content">Martin jones is a amazing host for my dog,
-                            she took care for her very well And, 
-                            her prompt reply is amazing</p>
+                        <p class="content">Martin jones is a amazing host for my dog, she took care for her very well And, her prompt reply is amazing</p>
                     </div>
                     <div class="card">
                         <div class="row ml-2 mt-3">
                             <div>
-                                 <img class="profile-pic" style=" width: 150px; height: 100px;"src="1.png">
-                             </div>
+                                <img class="profile-pic" style=" width: 150px; height: 100px;" src="1.png">
+                            </div>
                             <div class="d-flex flex-column">
-                                <h5 >Maria Lara</h5>
+                                <h5>Maria Lara</h5>
                                 <div>
-                                   
-                             <p>
-                                 <span class="text-muted"></span> 
-                                 <span class="fa fa-star star-active ml-3"></span>
-                                  <span class="fa fa-star star-active"></span> 
-                                  <span class="fa fa-star star-active"></span> 
-                                  <span class="fa fa-star star-active"></span> 
-                                  <span> <i class="far fa-star"></i></span>
-                            </p>
-                            
-                      
-                            </div>
-                            </div>
-                            <p class="content">Martin jones is a amazing host for my dog,
-                                she took care for her very well And, 
-                                her prompt reply is amazing</p>
-                        </div>
-                     
-                      
-                </div>
- 
-          </div>
-       
 
-        
+                                    <p>
+                                        <span class="text-muted"></span>
+                                        <span class="fa fa-star star-active ml-3"></span>
+                                        <span class="fa fa-star star-active"></span>
+                                        <span class="fa fa-star star-active"></span>
+                                        <span class="fa fa-star star-active"></span>
+                                        <span> <i class="far fa-star"></i></span>
+                                    </p>
+
+
+                                </div>
+                            </div>
+                            <p class="content">Martin jones is a amazing host for my dog, she took care for her very well And, her prompt reply is amazing</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
             </div>
-            
+
         </div>
-        
-        
-	</div>
-    
-	
-	 
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+
+
+    </div>
+
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 
 
-   
+    <footer>
+        <div class="footerSection"></div>
+        <p class="copywright">Designed and Developed by Elite Group</p>
+        </div>
+    </footer>
 
 </body>

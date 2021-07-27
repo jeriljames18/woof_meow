@@ -3,7 +3,9 @@ body {
     margin: 15px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Roboto';
 }
 
@@ -38,53 +40,50 @@ h1, h2, h3 {
     cursor: pointer;
     justify-content: center;
     border: 1px solid white;
-    
-    
-  }
-  
-  .nav-btn:hover {
+}
+
+.nav-btn:hover {
     background: #fff;
     text-decoration: none;
-    color:#fa5c00;
+    color: #fa5c00;
     border: #fa5c00 solid 1px;
-  }
+}
 
-  .textbar {
-      width: 98%;
-      margin: 10px 0;
-      border-radius: 15px;
-      border: 1px solid black;
-      
-  }
+.textbar {
+    width: 98%;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid black;
+}
 
-  .form-div {
-      width: 50%;
-      margin: 0 auto;
-      margin-top: 50px;
-  }
+.form-div {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
 
-  #profile-picture {
-      height: 100%;
-      width: 100%;
-  }
-  
-  .profile-pic-div {
+#profile-picture {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-pic-div {
     height: 200px;
     width: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
-  }
+}
 
-  #pet-sitter-img {
-      display: none;
-  }
+#pet-sitter-img {
+    display: none;
+}
 
-  #upload-btn {
+#upload-btn {
     height: 40px;
     width: 100%;
     position: absolute;
@@ -99,85 +98,77 @@ h1, h2, h3 {
     font-size: 15px;
     cursor: pointer;
     display: none;
-  }
+}
 
-  #ps2next {
-      margin-top: 520px;
-     
+#ps2next {
+    margin-top: 520px;
+}
 
-  }
+.bottom {
+    font-style: italic;
+    font-size: small;
+    padding-left: 15px;
+    display: block;
+    padding-top: 20px;
+    color: #CCC921;
+}
 
-  .bottom {
-      font-style: italic;
-      font-size: small;
-      padding-left: 15px;
-      display: block;
-      padding-top: 20px;
-      color: #CCC921;
-  }
+.top {
+    display: block;
+    padding-left: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
 
-  .top {
-      display: block;
-      padding-left: 5px;
-      border: 1px solid black;
-      border-radius: 5px;
-      
-  }
+#house-sitting,
+#spet-boarding {
+    margin-bottom: 1px;
+}
 
- 
+.services-div {
+    margin-top: 5px;
+}
 
-  #house-sitting, #spet-boarding {
-      margin-bottom: 1px;
-  }
+#spet-boarding {
+    margin-top: 15px;
+}
 
-  .services-div {
-      margin-top: 5px;
-  }
+.question-div {
+    margin-bottom: 15px;
+}
 
-  #spet-boarding {
-      margin-top: 15px;
-  }
+.back {
+    padding: 0 20px;
+}
 
-  .question-div {
-      margin-bottom: 15px;
-  }
+.back:active {
+    color: #fa5c00;
+    background-color: black;
+}
 
-  .back {
-      padding: 0 20px;
-      
-  }
-
-  .back:active {
-      color:#fa5c00;
-      background-color: black;
-  }
-    
-    
- 
-
-  .back:hover {
+.back:hover {
     cursor: pointer;
-  }
+}
 
-  .message-area {
-      display: none;
-      text-align: center;
-      color: red;
-      margin-top: 5px;
-  }
+.message-area {
+    display: none;
+    text-align: center;
+    color: red;
+    margin-top: 5px;
+}
 
-  .skip {
-      justify-content: center;
-      display: flex;
-      color:rgba(0, 0, 0, 0.6);
-  }
+.skip {
+    justify-content: center;
+    display: flex;
+    color: rgba(0, 0, 0, 0.6);
+}
 
-  .skip:hover {
-      cursor: pointer;
-      color:#fa5c00;
-  }
+.skip:hover {
+    cursor: pointer;
+    color: #fa5c00;
+}
 
-  input[type='radio']:after {
+input[type='radio']:after {
     width: 15px;
     height: 15px;
     border-radius: 15px;
@@ -207,36 +198,39 @@ input[type='radio']:checked:after {
 
 input[type=checkbox] {
     display: none;
- }
+}
 
- input[type=checkbox]:checked + label:before {
+input[type=checkbox]:checked+label:before {
     content: "✓ ";
- }
- 
- /* <!--Add styling on check --> */
- input[type=checkbox]:checked+label {
+}
+
+
+/* <!--Add styling on check --> */
+
+input[type=checkbox]:checked+label {
     border: solid 2px #fa5c00;
     color: #fa5c00;
- }
- 
- .top:nth-child(2), .top:nth-child(4) {
-     margin-bottom: 3px;
- }
+}
 
- .top:nth-child(2) {
-     border-bottom-right-radius: 0;
-     border-bottom-left-radius: 0;
- }
+.top:nth-child(2),
+.top:nth-child(4) {
+    margin-bottom: 3px;
+}
 
- .top:nth-child(4) {
+.top:nth-child(2) {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.top:nth-child(4) {
     border-radius: 0;
- }
+}
 
- .top:nth-child(6) {
-     border-top-right-radius: 0;
-     border-top-left-radius: 0;
- }
- 
- #ps3next {
-     margin-top: 200px;
- }
+.top:nth-child(6) {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#ps3next {
+    margin-top: 200px;
+}

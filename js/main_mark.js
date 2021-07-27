@@ -172,14 +172,17 @@ function initMap(lat, long, isTracking) {
     });
 
 
-    const image =
-        "./icon/location.svg";
+    const image = {
+        url: "./images/dog.svg", // url
+        scaledSize: new google.maps.Size(50, 50), // size
+    };
+
 
 
     new google.maps.Marker({
         position: mapCoordinates,
         map,
-        title: "Sitter's name",
+        icon: image
     });
 }
 
@@ -216,7 +219,7 @@ function getSitterLocationByBookingId(booking_id) {
 
         arrBookingList = doc.data();
 
-        initMap(arrBookingList.trackLat, arrBookingList.trackLong, );
+        initMap(arrBookingList.trackLat, arrBookingList.trackLong, true);
 
     }).catch((error) => {
         console.log("Error getting document:", error);
@@ -224,7 +227,13 @@ function getSitterLocationByBookingId(booking_id) {
 }
 
 /********************************************************************************************************/
+function loadProfilePage() {
 
+}
+
+function callSitter(intMobileNumber) {
+    window.location.href = 'tel:' + intMobileNumber;
+}
 
 function getBookinglist() {
 
@@ -246,34 +255,34 @@ function getBookinglist() {
             console.log(doc.id);
 
 
-
-
             newRow = (
-                "<div>" +
-                "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
-                "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
-                "<p>" + petsittername + "</p>" +
-                "<p>" + arrBookingList.sbServiceType + "</p>" +
-                `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
-                `<button class = 'start-track-${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}")'>  Start Live Tracking </button>` +
+                "<div id='booking-box'>" +
+                "<h3>" + arrBookingList.sbServiceType + "</h3>" +
+                "<p>Date: " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+                "<p>Time: " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+                `<p  class='booking-status ${doc.id}' onclick='changeBookingStatus("${doc.id}")'>Status: ${getBookingStatus(arrBookingList.sbStatus)} </p>` +
+                "<p>Start Location: " + arrBookingList.sbGeolocation + "</p>" +
+                `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
+                // `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
+                `<button class = 'start-track ${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}")'>  Start Live Tracking </button>` +
                 "</div>"
             );
 
 
-
-
-
-
-            console.log(newRow);
-
             if (arrBookingList.sbStatus == 2) {
                 $(".previous_list").append(newRow);
+
             } else {
                 $(".ongoing").append(newRow);
             }
 
-            if (arrBookingList.sbStatus != 1) {
-                $(`.start-track-${doc.id}`).hide();
+            if (arrBookingList.sbStatus == 0 || arrBookingList.sbStatus == 2) {
+                $(`button.${doc.id}`).remove();
+            }
+
+            if (arrBookingList.sbStatus == 0) {
+                $(`p.${doc.id}`).css("color", "#FA5C00");
+                $(`p.${doc.id}`).css("font-weight", "bold");
             }
 
 
@@ -323,13 +332,13 @@ function searchPetSitter() {
             let intSitterRate = "20";
 
             newRow = (
-                "<div id='search-wrapper'>" +
+                `<div id='search-wrapper' onclick='goToProfilePage("${doc.id}")'>` +
 
                 "<div class='search'>" +
                 "<img class='profile' src='" + strImageLocation + "' alt=''>" +
                 "</div>" +
                 "<div class='info'>" +
-                "<p id='name'>" + arrProfileList.upUsername + "</p>" +
+                "<h3 id='name'><b>" + arrProfileList.upUsername + "</b></h3>" +
                 "<p id='description'>" + arrProfileList.upDescription + "</p>" +
                 "<picture class='stars'>" +
                 "<img src='" + starIconShaded + "' alt='star1'>" +
@@ -339,7 +348,7 @@ function searchPetSitter() {
                 "<img src='" + starIconShaded + "' alt='star5'>" +
                 "</picture>" +
                 "<p id='clients'>" + intNumberOfReturnedClient + " repeat clients</p>" +
-                "<p id='price'>$" + intSitterRate + "CAD/hour</p>" +
+                "<p id='price'>$" + intSitterRate + " per night</p>" +
                 "</div>" +
                 "</div>"
             );
@@ -394,6 +403,11 @@ function changeBookingStatus(booking_id) {
 
 
 
+}
+
+function goToProfilePage(email_id) {
+    localStorage.setItem("emailId", email_id);
+    location.replace("./index_dhruv.html");
 }
 
 function goToLiveTracking(booking_id) {
