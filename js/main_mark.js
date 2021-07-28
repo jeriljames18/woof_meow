@@ -347,7 +347,7 @@ function searchPetSitter() {
             let strImageLocation = "";
             let starIconShaded = "./icon/star.svg";
             let starIconUnShaded = "./icon/star_shaded.svg";
-            let intNumberOfReturnedClient = "112";
+            let intNumberOfReturnedClient = "2";
             let intSitterRate = "20";
 
             newRow = (
@@ -360,14 +360,14 @@ function searchPetSitter() {
                 "<h3 id='name'><b>" + arrProfileList.upUsername + "</b></h3>" +
                 "<p id='description'>" + arrProfileList.upDescription + "</p>" +
                 "<picture class='stars'>" +
-                "<img src='" + starIconShaded + "' alt='star1'>" +
-                "<img src='" + starIconShaded + "' alt='star2'>" +
-                "<img src='" + starIconShaded + "' alt='star3'>" +
-                "<img src='" + starIconShaded + "' alt='star4'>" +
+                "<img src='" + starIconUnShaded + "' alt='star1'>" +
+                "<img src='" + starIconUnShaded + "' alt='star2'>" +
+                "<img src='" + starIconUnShaded + "' alt='star3'>" +
+                "<img src='" + starIconUnShaded + "' alt='star4'>" +
                 "<img src='" + starIconShaded + "' alt='star5'>" +
                 "</picture>" +
                 "<p id='clients'>" + intNumberOfReturnedClient + " repeat clients</p>" +
-                "<p id='price'>$" + intSitterRate + " per night</p>" +
+                "<p id='price'>$" + intSitterRate + " per service</p>" +
                 "</div>" +
                 "</div>"
             );
