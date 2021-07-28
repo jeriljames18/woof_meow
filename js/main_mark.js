@@ -426,7 +426,7 @@ function changeBookingStatus(booking_id) {
 
 function goToProfilePage(email_id) {
     localStorage.setItem("emailId", email_id);
-    location.replace("./index_dhruv.html");
+    window.location.href("./index_dhruv.html");
 }
 
 function goToLiveTracking(booking_id, bookingName) {
