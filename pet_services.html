@@ -26,17 +26,17 @@
         <h3 class="petSitterServiceTitle">
             Pet-Sitter Services
         </h3>
-        <form id="userLogin" class="userLogin">
+        <form id="petServices" class="petServices">
             
-            <div class="petServicePetBoading">
+            <div class="petServicePetBoading" id="petServicePetBoading1" onclick="borderColor();" >
                 <h4 class="serviceH4">Pet Boarding</h4>
                 <p class="serviceShortDesc">In the sitter's place</p>
             </div>
-            <div class="petServicePetBoading">
+            <div class="petServicePetBoading" id="petServicePetBoading2" onclick="borderColor2();">
                 <h4 class="serviceH4">House Sitting</h4>
                 <p class="serviceShortDesc">In your home</p>
             </div>
-            <div class="petServicePetBoading">
+            <div class="petServicePetBoading" id="petServicePetBoading3" onclick="borderColor3();">
                 <h4 class="serviceH4">Pet Walking</h4>
                 <p class="serviceShortDesc"> In your neighnourhood</p>
             </div>
@@ -47,7 +47,7 @@
                 <input type="text" class="locationInput" name="field1" />
             </div>
             <div class="registrationButton">
-                <input type="submit" class="buttonRegistration" name="NEXT" value="SEARCH" >
+                <input type="button" onclick="borderColor();" class="buttonRegistration" name="NEXT" value="SEARCH" >
             </div>
         </form>
     </div>
