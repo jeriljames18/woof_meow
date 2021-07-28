@@ -168,7 +168,7 @@ function initMap(lat, long, isTracking) {
 
     map = new google.maps.Map(document.getElementById("tracking_map"), {
         center: mapCoordinates,
-        zoom: 15,
+        zoom: 18,
     });
 
 
@@ -415,6 +415,20 @@ function goToLiveTracking(booking_id) {
     window.location.href = "./livetracking.html";
 }
 
+function getLiveTrackingMessage(strServiceType) {
+
+    switch (strServiceType) {
+        case "Pet Boarding":
+        case "House Sitting":
+            return "Your sitter is currently taking care of your pet.";
+
+        default:
+            return "Your sitter is currently taking your pet out for a walk.";
+
+    }
+}
+
+
 function startLiveTracking() {
 
     let booking_id = localStorage.getItem("bookingId");
@@ -438,11 +452,15 @@ function startLiveTracking() {
         let petsittername = "SAMPLE NAME";
 
         let newRow = (
-            "<div>" +
-            "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
-            "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
-            "<p>" + petsittername + "</p>" +
+            "<div class='livebooking'>" +
+            "<p>Booking is currently active with <b>" + petsittername + "</b></p>" +
+            "<div class ='bookingtime'>" +
+            `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
+            "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+            "<p><b>Time:</b> " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+            "</div>" +
             "<p>" + arrBookingList.sbServiceType + "</p>" +
+            `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
             `<button class = 'end-track' type='button' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
             "</div>"
         );

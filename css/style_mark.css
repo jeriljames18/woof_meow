@@ -157,7 +157,8 @@ picture img {
 }
 
 .call-sitter,
-.start-track {
+.start-track,
+.end-track {
     border-radius: 25px;
     text-align: center;
     border: 1px solid #FA5C00;
@@ -170,7 +171,8 @@ picture img {
 }
 
 .call-sitter:hover,
-.start-track:hover {
+.start-track:hover,
+.end-track:hover {
     background-color: white;
     color: #FA5C00;
     cursor: pointer;
@@ -206,6 +208,34 @@ picture img {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.wrapper-livetrack {
+    margin-left: 2vw;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.live-info,
+.wrapper-livetrack #tracking_map {
+    padding-top: 0;
+    margin-top: 0;
+    height: 500px;
+    vertical-align: middle;
+    margin-bottom: 2vh;
+}
+
+.livebooking {
+    padding-top: 10%;
+    align-content: center;
+    text-align: center;
+}
+
+.wrapper-livetrack h2 {
+    height: 2%;
+    text-align: center;
+    grid-column: 2 span;
+}
+
 .ongoing,
 .previous_list {
     width: 100%;
@@ -217,7 +247,8 @@ picture img {
     margin-bottom: 2rem;
 }
 
-#booking-box {
+#booking-box,
+.live-info {
     width: 90%;
     box-shadow: 2px 5px 5px grey;
     padding: 1vh 1vw 1vh 1vw;
@@ -256,6 +287,12 @@ picture img {
     width: 80%;
 }
 
+.booking-list,
+.profile-info {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
 
 /*************Mobile View************/
 
@@ -279,6 +316,23 @@ picture img {
         margin-bottom: 1rem;
         order: 1;
         align-content: center;
+    }
+    .ongoing,
+    .previous_list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .wrapper-livetrack {
+        margin-left: 1vw;
+        margin-top: 1%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .live-info {
+        margin-bottom: 1rem;
+        order: 2;
+        align-content: center;
+        height: auto;
+        width: 100%;
     }
 }
 
