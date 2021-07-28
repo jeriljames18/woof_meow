@@ -293,11 +293,25 @@ picture img {
     margin-right: 1vw;
 }
 
+.topnav {
+    visibility: hidden;
+}
+
+#mobile {
+    display: none;
+}
+
 
 /*************Mobile View************/
 
 @media only screen and (max-width: 600px) {
-    .absolute-header {
+    #mobile {
+        display: block;
+        height: 50px;
+        padding: 0;
+        margin: 0 auto;
+    }
+    .menuNav {
         visibility: hidden;
         height: 0;
         width: 0;
@@ -333,6 +347,44 @@ picture img {
         align-content: center;
         height: auto;
         width: 100%;
+    }
+    .topnav {
+        visibility: visible;
+        overflow: hidden;
+        position: relative;
+        height: 10%;
+    }
+    .topnav #myLinks {
+        display: none;
+    }
+    .topnav a {
+        color: #fa5c00;
+        padding: 1vh 2vw;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        height: 50px;
+    }
+    .topnav a.icon {
+        display: block;
+        position: absolute;
+        height: 50px;
+        right: 0;
+        top: 0;
+    }
+    .topnav a:hover {
+        background-color: #fa5c00;
+        color: white;
+    }
+    .active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    .logo {
+        padding: 0;
+        margin: 0 auto;
+        transform: scale(0.5, 0.5);
+        object-fit: cover;
     }
 }
 

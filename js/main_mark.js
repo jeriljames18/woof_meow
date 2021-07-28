@@ -235,6 +235,25 @@ function callSitter(intMobileNumber) {
     window.location.href = 'tel:' + intMobileNumber;
 }
 
+
+function getSitterFullName(strEmailAddress) {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+
+    let docRef = db.collection("dbUserProfile").doc(strEmailAddress.replace(/\s/g, ''));
+    docRef.get().then((doc) => {
+        let arrProfileList = new PetSitterProfile;
+        arrProfileList = doc.data();
+        return arrProfileList.upUsername;
+    });
+
+}
+
 function getBookinglist() {
 
     if (!firebase.apps.length) {
@@ -245,26 +264,26 @@ function getBookinglist() {
 
     var db = firebase.firestore();
 
+
     db.collection("dbServiceBooking").where("sbUserEmail", "==", "userEmail@gmail.com").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
             let newRow = " ";
             let arrBookingList = new bookingInformation;
-            let petsittername = "SAMPLE NAME";
             arrBookingList = doc.data();
             console.log(doc.id);
-
 
             newRow = (
                 "<div id='booking-box'>" +
                 "<h3>" + arrBookingList.sbServiceType + "</h3>" +
+                `<p>Sitter's Name: <b>${arrBookingList.sbSitterName}</b></p>` +
                 "<p>Date: " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
                 "<p>Time: " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
                 `<p  class='booking-status ${doc.id}' onclick='changeBookingStatus("${doc.id}")'>Status: ${getBookingStatus(arrBookingList.sbStatus)} </p>` +
                 "<p>Start Location: " + arrBookingList.sbGeolocation + "</p>" +
                 `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
                 // `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
-                `<button class = 'start-track ${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}")'>  Start Live Tracking </button>` +
+                `<button class = 'start-track ${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}","${arrBookingList.sbSitterName}")'>  Start Live Tracking </button>` +
                 "</div>"
             );
 
@@ -410,8 +429,9 @@ function goToProfilePage(email_id) {
     location.replace("./index_dhruv.html");
 }
 
-function goToLiveTracking(booking_id) {
+function goToLiveTracking(booking_id, bookingName) {
     localStorage.setItem("bookingId", booking_id);
+    localStorage.setItem("bookingName", bookingName);
     window.location.href = "./livetracking.html";
 }
 
@@ -432,6 +452,7 @@ function getLiveTrackingMessage(strServiceType) {
 function startLiveTracking() {
 
     let booking_id = localStorage.getItem("bookingId");
+    let booking_name = localStorage.getItem("bookingName");
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -449,11 +470,9 @@ function startLiveTracking() {
 
         arrBookingList = doc.data();
 
-        let petsittername = "SAMPLE NAME";
-
         let newRow = (
             "<div class='livebooking'>" +
-            "<p>Booking is currently active with <b>" + petsittername + "</b></p>" +
+            "<p>Booking is currently active with <b>" + booking_name + "</b></p>" +
             "<div class ='bookingtime'>" +
             `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
             "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
@@ -553,6 +572,14 @@ function saveSchedule() {
 }
 
 /********************************************************************************************************/
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
 
 let evntlstener;
 
