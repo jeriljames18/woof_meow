@@ -5,20 +5,22 @@
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>Pet-Sitter Boarding</title>
-       <link rel="stylesheet" href="css/style_ss.css">
+       <link rel="stylesheet" href="style.css">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
        <script src="js/ps3.js" defer></script>
        
    </head>
    <body>
-           
+         
            <h2 class="back" id="back";>&#10094;</h2>
            <h2 class="registration-heading">Registering as Pet Sitter</h2>
 
        
        <main>
-           <form action="" class="form" id="pet-sitter-boarding-3">
+           <form action="pet-sitter4.html" class="form" id="pet-sitter-boarding-3">
                <div class="form-div">
                    <label for="pet-preference">Pet preferences:</label>
                    <br>
@@ -58,7 +60,7 @@
                            
                        
                    </div>
-                   <p id="ps3next" class="nav-btn">Next</p>
+                   <button type="submit" id="ps3next" class="nav-btn">Next</button>
                </div>
 
             </form>
