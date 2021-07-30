@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,35 +12,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style_jj.css">
 </head>
+
 <body>
     <header>
-        <img class="logo" src="images/logo_long.png" alt="">
+        <a href="./index.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
             <ul class="menu">
-                <li>Browse Sitters</li>
-                <li>Become a Sitter</li>
-                <li><a href="#" class="loginList">Login</a></li>
-                <li><a class="signupList" href="user_signup.html">Signup</a></li>
+                <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
+                <li><a href="pet-sitter1.html">Become a Sitter</a></li>
+                <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
+                <li><a href="./login.html" class="loginList">Login</a></li>
+                <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
     </header>
     <div class="signupContents">
         <div class="titleImages">
             <img class="logoTitle" src="images/Untitled-1.jpg">
-        <img class="iconTitle" src="images/chevron-left-solid.svg" alt="">
+            <img class="iconTitle" src="images/chevron-left-solid.svg" alt="">
         </div>
         <h3 class="signupTitle">
             Login
         </h3>
         <form id="userLogin" class="userLogin">
-            
+
             <div class="innerWrap">
                 <label>Username : </label>
                 <input type="text" class="registrationInputClass" name="field1" />
             </div>
             <div class="innerWrap">
                 <label>Password : </label>
-                <input type="text" class="registrationInputClass" name="field1" />
+                <input type="password" class="registrationInputClass" name="field1" />
             </div>
             <div class="innerWrap forget">
                 <label class="forgetPassword"> Forget Password? </label>
@@ -48,14 +51,15 @@
                 <label> Not a Member yet?<span class="joinClass"> Join Now!</span> </label>
             </div>
             <div class="registrationButton">
-                <input type="submit" class="buttonRegistration" name="NEXT" value="LOGIN" >
+                <input type="submit" onclick="loginUser();" class="buttonRegistration" name="NEXT" value="LOGIN">
             </div>
         </form>
     </div>
     <footer>
         <div class="footerSection"></div>
-            <p class="copywright">Designed and Developed by Elite Group</p>
+        <p class="copywright">Designed and Developed by Elite Group</p>
         </div>
     </footer>
 </body>
+
 </html>

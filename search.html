@@ -25,23 +25,38 @@
 
 <body onload="searchPetSitter()">
     <header>
-        <img class="logo" src="./icon/logo4.svg" alt="">
+        <a href="./index.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
             <ul class="menu">
                 <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
-                <li>Become a Sitter</li>
+                <li><a href="pet-sitter1.html">Become a Sitter</a></li>
                 <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
-                <li><a href="#" class="loginList">Login</a></li>
+                <li><a href="./login.html" class="loginList">Login</a></li>
                 <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
     </header>
 
+    <header id='mobile'>
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <img class="logo" src="./icon/logo3.svg" alt="">
+            <div id="myLinks">
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <img class="logo" src="./icon/menu.png" alt="">
+            </a>
+        </div>
+    </header>
 
     <div class="wrapper">
 
         <div class="profile-info">
 
+            <p class="no-of-sitter"></p>
 
         </div>
 
@@ -53,15 +68,15 @@
 
     </div>
 
-    <div class="button_info">
+    <!-- <div class="button_info">
         <button id="calendar_save"> Save Schedule </button>
         <!--  <button id = "info_modify"> Modify</button>
-<button id = "info_delete"> Delete</button> -->
-    </div>
+<button id = "info_delete"> Delete</button> 
+    </div> -->
 
     <footer>
-        <div class="footer-wrapper">
-            <p>2021 All Rights Reserved.</p>
+        <div class="footerSection"></div>
+        <p class="copywright">Designed and Developed by Elite Group</p>
         </div>
     </footer>
 </body>

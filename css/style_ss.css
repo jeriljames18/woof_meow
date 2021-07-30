@@ -32,12 +32,7 @@ h1, h2, h3 {
     text-decoration: none;
     text-align: center;
     max-width: 150px;
-    margin: 100px auto 20px auto;
-    display: flex;
-    border: 0;
-    cursor: pointer;
-    justify-content: center;
-    border: 1px solid white;
+    margin: 150px auto 20px auto;
     
     
   }
@@ -52,15 +47,6 @@ h1, h2, h3 {
   .textbar {
       width: 98%;
       margin: 10px 0;
-      border-radius: 15px;
-      border: 1px solid black;
-      
-  }
-
-  .form-div {
-      width: 50%;
-      margin: 0 auto;
-      margin-top: 50px;
   }
 
   #profile-picture {
@@ -73,14 +59,12 @@ h1, h2, h3 {
     width: 200px;
     position: absolute;
     top: 50%;
-    left: 54%;
+    left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
   }
-
- 
 
   #pet-sitter-img {
       display: none;
@@ -104,8 +88,12 @@ h1, h2, h3 {
   }
 
   #ps2next {
-      margin-top: 520px;
-     
+      position: absolute;
+      bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      right: 0;
+      left: 0;
 
   }
 
@@ -113,27 +101,22 @@ h1, h2, h3 {
       font-style: italic;
       font-size: small;
       padding-left: 15px;
-      display: block;
-      padding-top: 20px;
-      color: #CCC921;
   }
 
   .top {
-      display: block;
-      padding-left: 5px;
-      border: 1px solid black;
-      border-radius: 5px;
-      
+      display: inline-block;
   }
 
- 
+  .ps-services {
+      border: 1px solid black;
+  }
 
   #house-sitting, #spet-boarding {
       margin-bottom: 1px;
   }
 
   .services-div {
-      margin-top: 5px;
+      margin-top: 15px;
   }
 
   #spet-boarding {
@@ -143,124 +126,3 @@ h1, h2, h3 {
   .question-div {
       margin-bottom: 15px;
   }
-
-  .back {
-      padding: 0 20px;
-      
-      
-  }
-
-  .back:active {
-      color:#fa5c00;
-      background-color: black;
-  }
-    
-    
- 
-
-  .back:hover {
-    cursor: pointer;
-  }
-
-  .message-area {
-      display: none;
-      text-align: center;
-      color: red;
-      margin-top: 5px;
-  }
-
-  .skip {
-      justify-content: center;
-      display: flex;
-      color:rgba(0, 0, 0, 0.6);
-  }
-
-  .skip:hover {
-      cursor: pointer;
-      color:#fa5c00;
-  }
-
-  input[type='radio']:after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: #d1d3d1;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 2px solid white;
-}
-
-input[type='radio']:checked:after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: #CCC921;
-    content: '';
-    display: inline-block;
-    visibility: visible;
-    border: 1px solid white;
-}
-
-input[type=checkbox] {
-    display: none;
- }
-
- input[type=checkbox]:checked + label:before {
-    content: "✓ ";
- }
- 
- /* <!--Add styling on check --> */
- input[type=checkbox]:checked+label {
-    border: solid 2px #fa5c00;
-    color: #fa5c00;
- }
- 
- .top:nth-child(2), .top:nth-child(4) {
-     margin-bottom: 3px;
- }
-
- .top:nth-child(2) {
-     border-bottom-right-radius: 0;
-     border-bottom-left-radius: 0;
- }
-
- .top:nth-child(4) {
-    border-radius: 0;
- }
-
- .top:nth-child(6) {
-     border-top-right-radius: 0;
-     border-top-left-radius: 0;
- }
- 
- #ps3next {
-     margin-top: 200px;
- }
-
- .options {
-     display: block;
-     margin: 1px;
-     padding: 10px;
-     
- }
-
- .options:hover {
-     color: #fa5c00;
- }
-
- body {
-     display: grid;
-     grid-template-columns: 1fr 10fr;
- }
-
- main {
-     grid-column: span 1/3;
- }
-

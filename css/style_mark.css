@@ -45,6 +45,7 @@ nav {
     font-weight: bolder;
     color: black;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .absolute-header li:nth-child(4) {
@@ -84,6 +85,11 @@ nav {
     align-items: center;
     justify-items: center;
     margin-bottom: 2rem;
+}
+
+#search-wrapper:hover {
+    border: 2px solid #FA5C00;
+    cursor: pointer;
 }
 
 #name {
@@ -131,6 +137,47 @@ picture img {
     align-content: center;
 }
 
+#name {
+    padding-bottom: 1vh;
+}
+
+#description {
+    padding-bottom: 3vh;
+}
+
+#price {
+    text-align: center;
+    padding-top: 1vh;
+    height: 28px;
+    width: auto;
+    border-radius: 25px;
+    border: 1px solid #C4C4C4;
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+}
+
+.call-sitter,
+.start-track,
+.end-track {
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid #FA5C00;
+    background-color: #FA5C00;
+    color: white;
+    height: 50%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+.call-sitter:hover,
+.start-track:hover,
+.end-track:hover {
+    background-color: white;
+    color: #FA5C00;
+    cursor: pointer;
+}
+
 #sitter-info img {
     object-fit: scale-down;
     height: auto;
@@ -161,6 +208,59 @@ picture img {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.wrapper-livetrack {
+    margin-left: 2vw;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.live-info,
+.wrapper-livetrack #tracking_map {
+    padding-top: 0;
+    margin-top: 0;
+    height: 500px;
+    vertical-align: middle;
+    margin-bottom: 2vh;
+}
+
+.livebooking {
+    padding-top: 10%;
+    align-content: center;
+    text-align: center;
+}
+
+.wrapper-livetrack h2 {
+    height: 2%;
+    text-align: center;
+    grid-column: 2 span;
+}
+
+.ongoing,
+.previous_list {
+    width: 100%;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 2rem;
+}
+
+#booking-box,
+.live-info {
+    width: 90%;
+    box-shadow: 2px 5px 5px grey;
+    padding: 1vh 1vw 1vh 1vw;
+    align-items: center;
+    justify-items: center;
+}
+
+#booking-box:hover {
+    border: 2px solid #FA5C00;
+    cursor: pointer;
+}
+
 .footer-wrapper {
     box-shadow: 0 5px 5px grey;
     padding: 0;
@@ -187,11 +287,31 @@ picture img {
     width: 80%;
 }
 
+.booking-list,
+.profile-info {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.topnav {
+    visibility: hidden;
+}
+
+#mobile {
+    display: none;
+}
+
 
 /*************Mobile View************/
 
 @media only screen and (max-width: 600px) {
-    .absolute-header {
+    #mobile {
+        display: block;
+        height: 50px;
+        padding: 0;
+        margin: 0 auto;
+    }
+    .menuNav {
         visibility: hidden;
         height: 0;
         width: 0;
@@ -210,6 +330,61 @@ picture img {
         margin-bottom: 1rem;
         order: 1;
         align-content: center;
+    }
+    .ongoing,
+    .previous_list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .wrapper-livetrack {
+        margin-left: 1vw;
+        margin-top: 1%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .live-info {
+        margin-bottom: 1rem;
+        order: 2;
+        align-content: center;
+        height: auto;
+        width: 100%;
+    }
+    .topnav {
+        visibility: visible;
+        overflow: hidden;
+        position: relative;
+        height: 10%;
+    }
+    .topnav #myLinks {
+        display: none;
+    }
+    .topnav a {
+        color: #fa5c00;
+        padding: 1vh 2vw;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        height: 50px;
+    }
+    .topnav a.icon {
+        display: block;
+        position: absolute;
+        height: 50px;
+        right: 0;
+        top: 0;
+    }
+    .topnav a:hover {
+        background-color: #fa5c00;
+        color: white;
+    }
+    .active {
+        background-color: #04AA6D;
+        color: white;
+    }
+    .logo {
+        padding: 0;
+        margin: 0 auto;
+        transform: scale(0.5, 0.5);
+        object-fit: cover;
     }
 }
 

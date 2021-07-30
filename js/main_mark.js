@@ -168,18 +168,21 @@ function initMap(lat, long, isTracking) {
 
     map = new google.maps.Map(document.getElementById("tracking_map"), {
         center: mapCoordinates,
-        zoom: 15,
+        zoom: 18,
     });
 
 
-    const image =
-        "./icon/location.svg";
+    const image = {
+        url: "./images/dog.svg", // url
+        scaledSize: new google.maps.Size(50, 50), // size
+    };
+
 
 
     new google.maps.Marker({
         position: mapCoordinates,
         map,
-        title: "Sitter's name",
+        icon: image
     });
 }
 
@@ -216,7 +219,7 @@ function getSitterLocationByBookingId(booking_id) {
 
         arrBookingList = doc.data();
 
-        initMap(arrBookingList.trackLat, arrBookingList.trackLong, );
+        initMap(arrBookingList.trackLat, arrBookingList.trackLong, true);
 
     }).catch((error) => {
         console.log("Error getting document:", error);
@@ -224,7 +227,32 @@ function getSitterLocationByBookingId(booking_id) {
 }
 
 /********************************************************************************************************/
+function loadProfilePage() {
 
+}
+
+function callSitter(intMobileNumber) {
+    window.location.href = 'tel:' + intMobileNumber;
+}
+
+
+function getSitterFullName(strEmailAddress) {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+
+    let docRef = db.collection("dbUserProfile").doc(strEmailAddress.replace(/\s/g, ''));
+    docRef.get().then((doc) => {
+        let arrProfileList = new PetSitterProfile;
+        arrProfileList = doc.data();
+        return arrProfileList.upUsername;
+    });
+
+}
 
 function getBookinglist() {
 
@@ -236,44 +264,44 @@ function getBookinglist() {
 
     var db = firebase.firestore();
 
+
     db.collection("dbServiceBooking").where("sbUserEmail", "==", "userEmail@gmail.com").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
 
             let newRow = " ";
             let arrBookingList = new bookingInformation;
-            let petsittername = "SAMPLE NAME";
             arrBookingList = doc.data();
             console.log(doc.id);
 
-
-
-
             newRow = (
-                "<div>" +
-                "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
-                "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
-                "<p>" + petsittername + "</p>" +
-                "<p>" + arrBookingList.sbServiceType + "</p>" +
-                `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
-                `<button class = 'start-track-${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}")'>  Start Live Tracking </button>` +
+                "<div id='booking-box'>" +
+                "<h3>" + arrBookingList.sbServiceType + "</h3>" +
+                `<p>Sitter's Name: <b>${arrBookingList.sbSitterName}</b></p>` +
+                "<p>Date: " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+                "<p>Time: " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+                `<p  class='booking-status ${doc.id}' onclick='changeBookingStatus("${doc.id}")'>Status: ${getBookingStatus(arrBookingList.sbStatus)} </p>` +
+                "<p>Start Location: " + arrBookingList.sbGeolocation + "</p>" +
+                `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
+                // `<button class='booking-status-${doc.id}' type='button' onclick='changeBookingStatus("${doc.id}")'> ${getBookingStatus(arrBookingList.sbStatus)} </button>` +
+                `<button class = 'start-track ${doc.id}' type='button' onclick='goToLiveTracking("${doc.id}","${arrBookingList.sbSitterName}")'>  Start Live Tracking </button>` +
                 "</div>"
             );
 
 
-
-
-
-
-            console.log(newRow);
-
             if (arrBookingList.sbStatus == 2) {
                 $(".previous_list").append(newRow);
+
             } else {
                 $(".ongoing").append(newRow);
             }
 
-            if (arrBookingList.sbStatus != 1) {
-                $(`.start-track-${doc.id}`).hide();
+            if (arrBookingList.sbStatus == 0 || arrBookingList.sbStatus == 2) {
+                $(`button.${doc.id}`).remove();
+            }
+
+            if (arrBookingList.sbStatus == 0) {
+                $(`p.${doc.id}`).css("color", "#FA5C00");
+                $(`p.${doc.id}`).css("font-weight", "bold");
             }
 
 
@@ -319,27 +347,27 @@ function searchPetSitter() {
             let strImageLocation = "";
             let starIconShaded = "./icon/star.svg";
             let starIconUnShaded = "./icon/star_shaded.svg";
-            let intNumberOfReturnedClient = "112";
+            let intNumberOfReturnedClient = "2";
             let intSitterRate = "20";
 
             newRow = (
-                "<div id='search-wrapper'>" +
+                `<div id='search-wrapper' onclick='goToProfilePage("${doc.id}")'>` +
 
                 "<div class='search'>" +
                 "<img class='profile' src='" + strImageLocation + "' alt=''>" +
                 "</div>" +
                 "<div class='info'>" +
-                "<p id='name'>" + arrProfileList.upUsername + "</p>" +
+                "<h3 id='name'><b>" + arrProfileList.upUsername + "</b></h3>" +
                 "<p id='description'>" + arrProfileList.upDescription + "</p>" +
                 "<picture class='stars'>" +
-                "<img src='" + starIconShaded + "' alt='star1'>" +
-                "<img src='" + starIconShaded + "' alt='star2'>" +
-                "<img src='" + starIconShaded + "' alt='star3'>" +
-                "<img src='" + starIconShaded + "' alt='star4'>" +
+                "<img src='" + starIconUnShaded + "' alt='star1'>" +
+                "<img src='" + starIconUnShaded + "' alt='star2'>" +
+                "<img src='" + starIconUnShaded + "' alt='star3'>" +
+                "<img src='" + starIconUnShaded + "' alt='star4'>" +
                 "<img src='" + starIconShaded + "' alt='star5'>" +
                 "</picture>" +
                 "<p id='clients'>" + intNumberOfReturnedClient + " repeat clients</p>" +
-                "<p id='price'>$" + intSitterRate + "CAD/hour</p>" +
+                "<p id='price'>$" + intSitterRate + " per service</p>" +
                 "</div>" +
                 "</div>"
             );
@@ -396,14 +424,35 @@ function changeBookingStatus(booking_id) {
 
 }
 
-function goToLiveTracking(booking_id) {
+function goToProfilePage(email_id) {
+    localStorage.setItem("emailId", email_id);
+    window.location.href("./index_dhruv.html");
+}
+
+function goToLiveTracking(booking_id, bookingName) {
     localStorage.setItem("bookingId", booking_id);
+    localStorage.setItem("bookingName", bookingName);
     window.location.href = "./livetracking.html";
 }
+
+function getLiveTrackingMessage(strServiceType) {
+
+    switch (strServiceType) {
+        case "Pet Boarding":
+        case "House Sitting":
+            return "Your sitter is currently taking care of your pet.";
+
+        default:
+            return "Your sitter is currently taking your pet out for a walk.";
+
+    }
+}
+
 
 function startLiveTracking() {
 
     let booking_id = localStorage.getItem("bookingId");
+    let booking_name = localStorage.getItem("bookingName");
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -421,14 +470,16 @@ function startLiveTracking() {
 
         arrBookingList = doc.data();
 
-        let petsittername = "SAMPLE NAME";
-
         let newRow = (
-            "<div>" +
-            "<p>" + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
-            "<p>" + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
-            "<p>" + petsittername + "</p>" +
+            "<div class='livebooking'>" +
+            "<p>Booking is currently active with <b>" + booking_name + "</b></p>" +
+            "<div class ='bookingtime'>" +
+            `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
+            "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+            "<p><b>Time:</b> " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+            "</div>" +
             "<p>" + arrBookingList.sbServiceType + "</p>" +
+            `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
             `<button class = 'end-track' type='button' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
             "</div>"
         );
@@ -521,6 +572,14 @@ function saveSchedule() {
 }
 
 /********************************************************************************************************/
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
 
 let evntlstener;
 
