@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let db= firebase.firestore();
+let db = firebase.firestore();
 
 
 
@@ -26,20 +26,19 @@ function submitForm(e) {
     // e.preventDefault();
 
 
-let name = getInputVal('username');
-let email = getInputVal('email');
-let phone = getInputVal('phone');
-let address = getInputVal('address');
-let password = getInputVal('password');
-let cpassword = getInputVal('password2');
+    let name = getInputVal('username');
+    let email = getInputVal('email');
+    let phone = getInputVal('phone');
+    let address = getInputVal('address');
+    let password = getInputVal('password');
+    let cpassword = getInputVal('password2');
 
 
 
 
     if (password === cpassword) {
         saveMessage(name, email, phone, address, password);
-    }
-    else {
+    } else {
         e.preventDefault();
         document.querySelector('.message-area').style.display = "block";
         document.getElementById('password2').focus();
@@ -51,21 +50,22 @@ function saveMessage(name, email, phone, address, password) {
         name: name,
         email: email,
         phone: phone,
-        address:address,
-        password: password    
+        address: address,
+        password: password
     })
 
-    
+
 
     .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-    });
-    
-    
-        
+            localStorage.setItem('userEmailId', email);
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
+
+
 }
 
 
