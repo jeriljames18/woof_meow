@@ -494,8 +494,6 @@ function startLiveTracking() {
 }
 
 /********************************* SAVING FUNCTION *********************************/
-import "firebase/storage";
-import firebase from "firebase/app";
 
 function saveImage(strFileLocation) {
 

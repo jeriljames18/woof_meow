@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Pet-Sitter Boarding</title>
-       
-       <link rel="stylesheet" href="css/style_ss.css">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-       <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
-       <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
-       <script src="js/ps2.js" defer></script>
-       
-   </head>
-   <body>
-        
-           <h2 class="back" id="back">&#10094;</h2>
-           <h2 class="registration-heading">Registering as Pet Sitter</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-Sitter Boarding</title>
 
-       
-       <main>
-           <form action="pet-sitter3.html" class="form" id="pet-sitter-boarding">
-               <div class="profile-pic-div">
-                   <img src="images/profile-pic-default.png" alt="profile-picture" id="profile-picture">
-                   <input class= "textbar" type="file" id="pet-sitter-img" name="img" accept="image/*">
-                               <label for="pet-sitter-img" id="upload-btn">Upload Photo</label>
-                               
-                               
-                               
-               </div>
+    <link rel="stylesheet" href="css/style_ss.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="js/ps2.js" defer></script>
 
-               
-             
-               
-               <button type="submit" class ="nav-btn" id="ps2next">Next</button>
-               <span class="skip">Skip</span>
+</head>
+
+<body>
+
+    <h2 class="back" id="back">&#10094;</h2>
+    <h2 class="registration-heading">Registering as Pet Sitter</h2>
+
+
+    <main>
+        <form action="pet-sitter3.html" class="form" id="pet-sitter-boarding">
+            <div class="profile-pic-div">
+                <img src="images/profile-pic-default.png" alt="profile-picture" id="profile-picture">
+                <input class="textbar" type="file" id="pet-sitter-img" name="img" accept="image/*">
+                <label for="pet-sitter-img" id="upload-btn">Upload Photo</label>
 
 
 
-            </form>
-       </main>
-   </body>
+            </div>
+
+
+
+
+            <button type="submit" class="nav-btn" id="ps2next">Next</button>
+            <span class="skip">Skip</span>
+
+
+
+        </form>
+    </main>
+</body>
+
 </html>
