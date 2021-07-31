@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+
 }
 
 .signupContents {
@@ -28,9 +31,10 @@ h3 {
     background-color: #fa5c00;
     color: white;
     padding: 0 30% 0 30%;
-    height: 40px;
-    border-radius: 20px;
+    height: 48px;
+    border-radius: 25px;
     border: none;
+    align-self: center;
 }
 
 .logoTitle {
@@ -63,7 +67,7 @@ footer {
 }
 
 .footerSection {
-    border-top: solid grey 1px;
+   
     box-shadow: 10px 0 0 0 #000000;
     height: 8%;
     /* position: absolute; */
@@ -82,7 +86,9 @@ header {
     padding: 1%;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 5px #000000
+    box-shadow: 0 0 5px #000000;
+    height: 80px;
+    
 }
 
 .menuNav {
@@ -110,7 +116,7 @@ header {
 }
 
 .logo {
-    width: 30vw;
+    width: 15vw;
     padding-left: 10%;
 }
 
@@ -198,7 +204,7 @@ header {
         text-align: center;
     }
     .listItem {
-        padding: 20%;
+        padding: 5% 20% 15% 20%;
     }
     .userRegistration {
         padding: 0 10% 0 10%;
@@ -240,14 +246,12 @@ header {
         padding: 0 5% 0 5%;
     }
     .serviceList {
-        padding: 0 15% 0 15%;
+        padding: 0 13% 0 13%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 1rem;
     }
-    .ourServices {
-        padding-bottom: 7vh;
-    }
+   
     .featuredSitters {
         background-color: #f9f9f9;
     }
@@ -256,20 +260,28 @@ header {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
         justify-content: center;
+      
     }
     .reviewImg {
-        max-width: 60%;
+        max-width: 40%;
+        padding:10px;
     }
+  
     .listItemReviewDetails {
-        display: flex;
-        flex-direction: column;
-        padding: 20%;
+        display: grid;
+        /* flex-direction: column; */
+        padding-left: 30%;
         text-align: start;
         align-items: start;
+        align-self: center;
+        grid-template-columns: 1fr;
+        PADDING-BOTTOM: 10%;
     }
     .listItemReview {
         display: grid;
         grid-template-columns: 1fr;
+        padding-bottom: 10%;
+        
     }
     .cusName,
     .cusReview {
@@ -279,9 +291,9 @@ header {
     .buttonLearnMore {
         background-color: #fa5c00;
         color: white;
-        padding: 0 30% 0 30%;
-        height: 40px;
-        border-radius: 20px;
+        padding: 0 10% 0 10%;
+        height: 48px;
+        border-radius: 25px;
         border: none;
     }
     .learnMoreButton {
@@ -292,6 +304,8 @@ header {
         border-radius: 100%;
         margin: auto;
     }
+
+    
     .carousel {
         position: relative;
         /* box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64); */
@@ -393,9 +407,22 @@ header {
         z-index: 9999;
         text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
     }
+    .dotted{
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        height: 90%;
+        width: 33%;
+        border-radius: 100%;
+        border: dashed 1px orange;
+    }
+
     .indexHead {
         height: 75vh;
-        background-color: #e5feff;
+        background-image:url('bb.png');
+       background-repeat: repeat;
+
+        background: repeating-linear-gradient(to top,  #dedb45 0%,#dedb45 50%,#e1f9fc 50%,#e1f9fc 100%);
         display: flex;
         justify-content: space-evenly;
         align-items: flex-end;
@@ -404,41 +431,48 @@ header {
     .headerImage {
         width: 25%;
         transform: scaleX(-1);
+        align-self: center;
+        
     }
     .serviceEnquiry {
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-self: center;
-        height: 500px;
-        width: 500px;
+        height: 95%;
+        width: 95%;
         background-color: #fa9e69;
         border-radius: 100%;
         /* position: absolute; */
         bottom: -10px;
     }
     .serviceEnqCon {
-        height: 500px;
+        width: 100%;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: flex-start;
-        padding-left: 10%;
+        /* padding-left: 10%; */
     }
     .enquiryFormLabel {
         color: white;
-        text-align: center;
+         text-align: center; 
+        align-self: center; 
+     
     }
     .enquiryInputClass {
-        border-radius: 15px;
+        border-radius: 25px;
         border: 0px solid rgba(0, 0, 0, 0.3);
-        height: 30px;
-        width: 80%;
+        height: 48px;
+        width: 60%;
+        align-self: center;
     }
     .enquiryButton {
         margin-top: 8%;
         width: 60%;
         align-self: center;
+        display: flex;
+        justify-content: center;
     }
     #enquiryService {
         margin-bottom: 25px;

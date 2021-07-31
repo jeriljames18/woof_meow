@@ -426,7 +426,7 @@ function changeBookingStatus(booking_id) {
 
 function goToProfilePage(email_id) {
     localStorage.setItem("emailId", email_id);
-    window.location.href("./index_dhruv.html");
+    window.location.href = "./index_dhruv.html";
 }
 
 function goToLiveTracking(booking_id, bookingName) {
@@ -494,8 +494,10 @@ function startLiveTracking() {
 }
 
 /********************************* SAVING FUNCTION *********************************/
+import "firebase/storage";
+import firebase from "firebase/app";
 
-function saveImage() {
+function saveImage(strFileLocation) {
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -506,23 +508,19 @@ function saveImage() {
 
     // Get a reference to the storage service, which is used to create references in your storage bucket
     var storageRef = firebase.storage().ref();
-
-
-    var mountainsRef = storageRef.child('mountains.jpg');
-
-    // Create a reference to 'images/mountains.jpg'
-    var mountainImagesRef = storageRef.child('images/mountains.jpg');
+    var pictureRef = storageRef.child(strFileLocation);
+    var imageRef = storageRef.child(strFileLocation);
 
     // While the file names are the same, the references point to different files
-    mountainsRef.name === mountainImagesRef.name; // true
-    mountainsRef.fullPath === mountainImagesRef.fullPath; // false 
+    pictureRef.name === imageRef.name; // true
+    pictureRef.fullPath === imageRef.fullPath; // false 
 
     var metadata = {
         contentType: 'image/jpeg',
     };
 
     // Upload the file and metadata
-    var uploadTask = storageRef.child('images/mountains.jpg').put(file, metadata);
+    var uploadTask = storageRef.child(strFileLocation).put(file, metadata);
 
 }
 
@@ -572,14 +570,9 @@ function saveSchedule() {
 }
 
 /********************************************************************************************************/
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
+
+
+
 
 let evntlstener;
 

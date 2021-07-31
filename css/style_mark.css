@@ -58,7 +58,6 @@ nav {
     width: 90%;
     min-height: 300px;
     max-height: 550px;
-    margin-left: 2%;
     border: 1px solid black;
     background-color: whitesmoke;
     grid-column: 1 span;
@@ -306,10 +305,12 @@ picture img {
 
 @media only screen and (max-width: 600px) {
     #mobile {
-        display: block;
+        display: unset;
         height: 50px;
         padding: 0;
         margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
     }
     .menuNav {
         visibility: hidden;
@@ -324,12 +325,12 @@ picture img {
     }
     .profile-info {
         order: 2;
-        align-content: center;
+        align-self: center;
     }
     #tracking_map {
         margin-bottom: 1rem;
         order: 1;
-        align-content: center;
+        align-self: center;
     }
     .ongoing,
     .previous_list {
@@ -348,43 +349,32 @@ picture img {
         height: auto;
         width: 100%;
     }
-    .topnav {
-        visibility: visible;
-        overflow: hidden;
-        position: relative;
-        height: 10%;
+    #hamitems a {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border-top: 1px solid #333;
     }
-    .topnav #myLinks {
+    /* (B) SHOW HAMBURGER ICON */
+    #hamnav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #hamnav label {
+        display: inline-block;
+        color: white;
+        background: #a02620;
+        font-style: normal;
+        font-size: 1.2em;
+        padding: 10px;
+    }
+    /* (C) TOGGLE SHOW/HIDE MENU */
+    #hamitems {
         display: none;
+        grid-column: 2 span;
     }
-    .topnav a {
-        color: #fa5c00;
-        padding: 1vh 2vw;
-        text-decoration: none;
-        font-size: 17px;
+    #hamnav input:checked~#hamitems {
         display: block;
-        height: 50px;
-    }
-    .topnav a.icon {
-        display: block;
-        position: absolute;
-        height: 50px;
-        right: 0;
-        top: 0;
-    }
-    .topnav a:hover {
-        background-color: #fa5c00;
-        color: white;
-    }
-    .active {
-        background-color: #04AA6D;
-        color: white;
-    }
-    .logo {
-        padding: 0;
-        margin: 0 auto;
-        transform: scale(0.5, 0.5);
-        object-fit: cover;
     }
 }
 
