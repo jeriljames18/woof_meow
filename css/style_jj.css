@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -28,20 +29,12 @@ h3 {
     background-color: #fa5c00;
     color: white;
     padding: 0 30% 0 30%;
-    height: 48px;
-    border-radius: 25px;
+    height: 40px;
+    border-radius: 20px;
     border: none;
-    align-self: center;
 }
 
-.buttonRegistration:hover {
-    background-color: white;
-    color: #fa5c00;
-    cursor: pointer;
-    font-weight: bolder;
-}
-
-.buttonRegistration .logoTitle {
+.logoTitle {
     width: 30px;
 }
 
@@ -71,6 +64,7 @@ footer {
 }
 
 .footerSection {
+    border-top: solid grey 1px;
     box-shadow: 10px 0 0 0 #000000;
     height: 8%;
     /* position: absolute; */
@@ -89,8 +83,7 @@ header {
     padding: 1%;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 5px #000000;
-    height: 80px;
+    box-shadow: 0 0 5px #000000
 }
 
 .menuNav {
@@ -117,14 +110,8 @@ header {
     text-decoration: none;
 }
 
-li.menu:nth-child(1),
-li.menu:nth-child(2),
-li.menu:nth-child(3) {
-    color: #4B4B4A;
-}
-
 .logo {
-    width: 15vw;
+    width: 30vw;
     padding-left: 10%;
 }
 
@@ -158,29 +145,179 @@ li.menu:nth-child(3) {
     border-color: rgba(75, 75, 74, 0.5);
 }
 
+.headerImageSittter {
+    background-image: url(../images/are-Rottweilers-good-guard-dogs-1.jpg);
+    height: 10vh;
+    object-fit: cover;
+}
+
+.sitter_profile_image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: -100px;
+}
+
+.sitter_details {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sitter_name {
+
+    font-weight: bold;
+    color: #4B4B4A;
+    font-size: 1.5rem;
+}
+
+.pro_pic {
+    width: 10%;
+    border-radius: 100px;
+
+}
+
+.features_sitter {
+    display: flex;
+
+}
+
+.ratingBox,
+.repeatedClients,
+.perNightCharge {
+    border: black 1px solid;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 2%;
+    width: 200px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.about-sitter-details {
+    background-color: #f9f9f9;
+    margin-top: 5%;
+    padding: 0 7% 7% 7%;
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    justify-content: space-evenly;
+    align-content: center;
+    justify-items: center;
+}
+
+.sitter_intro {
+    width: 75%;
+}
+
+.sitter_services {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 600px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 600px;
+}
+
+.mapouter {
+    padding-top: 2%;
+}
+
+.skills {
+    padding-top: 5%;
+}
+
+.reviewss {
+    margin: 5%;
+}
+
+.all_reviews {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.review_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
+.review {
+    border: 1px solid lavender;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px -1px grey;
+    display: flex;
+    padding: 2%;
+}
+
+.buttonsForSitter {
+    display: flex;
+    padding: 0 25% 0 25%;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 5%;
+}
+
+.sitterProfileButton1,
+.sitterProfileButton2 {
+    width: 20vw;
+}
+
+.buttonRegistration2 {
+    background-color: white;
+    color: #fa5c00;
+    padding: 0 30% 0 30%;
+    height: 40px;
+    border-radius: 20px;
+    border: #fa5c00 solid 1px;
+}
+
 @media screen and (max-width:600px) {
+
     header,
     footer {
         display: none;
     }
+
     .userRegistration,
     .signupTitle,
     .userLogin {
         padding: 0 10% 0 10%;
     }
+
     .innerWrap {
         display: flex;
         flex-flow: column;
     }
+
     .registrationButton {
         margin-top: 10%;
         display: flex;
         justify-content: center;
         align-content: center;
     }
+
     .buttonRegistration {
         padding: 0 30% 0 30%;
     }
+
     #petServicePetBoading1,
     #petServicePetBoading2,
     #petServicePetBoading3 {
@@ -188,16 +325,72 @@ li.menu:nth-child(3) {
         border: rgba(75, 75, 74, 0.6) solid 1px;
         border-radius: 10px;
         text-align: center;
+
     }
+
     #petServicePetBoading1:hover,
     #petServicePetBoading2:hover,
     #petServicePetBoading3:hover {
         border-color: #fa5c00;
         border-width: 2px;
     }
+
     .locationLabelClass {
         margin-left: 15px;
         margin-top: 20px;
+    }
+
+    .headerImgaeSitterPage {
+        object-fit: cover;
+    }
+
+    .about-sitter-details {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+    }
+
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 500px;
+        width: 100%;
+    }
+
+    .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        height: 500px;
+        width: 100%;
+    }
+
+    .all_reviews {
+        margin-top: 5%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2rem;
+    }
+
+    .buttonsForSitter {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-top: 20px;
+    }
+
+    .features_sitter {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .ratingBox,
+    .repeatedClients,
+    .perNightCharge {
+        border: black 1px solid;
+        border-radius: 15px;
+        padding: 5px;
+        margin: 1%;
+        width:100px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
     }
 }
 
@@ -205,15 +398,19 @@ li.menu:nth-child(3) {
     .registrationInputClass {
         width: 20vw;
     }
+
     .titleImages {
         display: none;
     }
+
     .signupTitle {
         text-align: center;
     }
+
     .listItem {
-        padding: 5% 20% 15% 20%;
+        padding: 20%;
     }
+
     .userRegistration {
         padding: 0 10% 0 10%;
         display: grid;
@@ -221,118 +418,142 @@ li.menu:nth-child(3) {
         grid-row-gap: 1vw;
         grid-template-columns: repeat(2, 1fr);
     }
+
     .userLogin {
         padding: 0 30% 0 30%;
         display: flex;
         flex-flow: column;
     }
+
     .innerWrap {
         display: flex;
         justify-content: space-between;
     }
+
     .registrationButton {
         display: flex;
         justify-content: center;
         padding: 5% 30% 0 30%;
     }
+
     .forget {
         padding-top: 10%;
     }
+
     .ourServiceh1 {
         padding: 4%;
         text-align: center;
         font-family: 'Roboto', sans-serif;
         color: #4b4b4a;
     }
+
     .serviceTitle,
     .serviceContent {
         text-align: center;
         font-family: 'Roboto', sans-serif;
         color: #4b4b4a;
     }
+
     .serviceContent {
         padding: 0 5% 0 5%;
     }
+
     .serviceList {
-        padding: 0 13% 0 13%;
+        padding: 0 15% 0 15%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 1rem;
     }
+
+    .ourServices {
+        padding-bottom: 7vh;
+    }
+
     .featuredSitters {
         background-color: #f9f9f9;
     }
+
     .featuredList {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
         justify-content: center;
     }
+
     .reviewImg {
-        max-width: 40%;
-        padding: 10px;
+        max-width: 60%;
     }
+
     .listItemReviewDetails {
-        display: grid;
-        /* flex-direction: column; */
-        padding-left: 30%;
+        display: flex;
+        flex-direction: column;
+        padding: 20%;
         text-align: start;
         align-items: start;
-        align-self: center;
-        grid-template-columns: 1fr;
-        PADDING-BOTTOM: 10%;
     }
+
     .listItemReview {
         display: grid;
         grid-template-columns: 1fr;
-        padding-bottom: 10%;
     }
+
     .cusName,
     .cusReview {
         font-family: 'Roboto', sans-serif;
         color: #4b4b4a;
     }
+
     .buttonLearnMore {
         background-color: #fa5c00;
         color: white;
-        padding: 0 10% 0 10%;
-        height: 48px;
-        border-radius: 25px;
+        padding: 0 30% 0 30%;
+        height: 40px;
+        border-radius: 20px;
         border: none;
     }
+
     .learnMoreButton {
         padding-top: 10px;
     }
+
     .reviewImg {
         border: 2px dashed #fa5c00;
         border-radius: 100%;
+
         margin: auto;
     }
+
+
     .carousel {
         position: relative;
         /* box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64); */
         margin-top: 26px;
     }
+
     .carousel-inner {
         position: relative;
         overflow: hidden;
         width: 100%;
     }
+
     .carousel-open:checked+.carousel-item {
         position: static;
         opacity: 100;
     }
+
     .carousel-item {
         position: absolute;
         opacity: 0;
         -webkit-transition: opacity 0.6s ease-out;
         transition: opacity 0.6s ease-out;
     }
+
     .carousel-item img {
         display: block;
         height: auto;
         /* max-width: 100%; */
     }
+
     .carousel-control {
         background: rgba(0, 0, 0, 0.28);
         border-radius: 50%;
@@ -352,21 +573,26 @@ li.menu:nth-child(3) {
         width: 40px;
         z-index: 10;
     }
+
     .carousel-control.prev {
         left: 2%;
     }
+
     .carousel-control.next {
         right: 2%;
     }
+
     .carousel-control:hover {
         background: rgba(0, 0, 0, 0.8);
         color: #aaaaaa;
     }
+
     #carousel-1:checked~.control-1,
     #carousel-2:checked~.control-2,
     #carousel-3:checked~.control-3 {
         display: block;
     }
+
     .carousel-indicators {
         list-style: none;
         margin: 0;
@@ -378,10 +604,12 @@ li.menu:nth-child(3) {
         text-align: center;
         z-index: 10;
     }
+
     .carousel-indicators li {
         display: inline-block;
         margin: 0 5px;
     }
+
     .carousel-bullet {
         color: rgba(0, 0, 0, 0.25);
         border-color: #ccc921;
@@ -389,14 +617,17 @@ li.menu:nth-child(3) {
         display: block;
         font-size: 35px;
     }
+
     .carousel-bullet:hover {
         color: #ccc921;
     }
+
     #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
     #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
     #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
         color: #ccc921;
     }
+
     #title {
         width: 100%;
         position: absolute;
@@ -409,69 +640,60 @@ li.menu:nth-child(3) {
         z-index: 9999;
         text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
     }
-    .dotted {
-        display: flex;
-        justify-content: center;
-        align-self: center;
-        height: 90%;
-        width: 33%;
-        border-radius: 100%;
-        border: dashed 1px orange;
-    }
+
     .indexHead {
         height: 75vh;
-        background-image: url('bb.png');
-        background-repeat: repeat;
-        background: repeating-linear-gradient(to top, #dedb45 0%, #dedb45 50%, #e1f9fc 50%, #e1f9fc 100%);
+        background-color: #e5feff;
         display: flex;
         justify-content: space-evenly;
         align-items: flex-end;
         /* grid-template-columns: 1fr 1fr; */
     }
+
     .headerImage {
         width: 25%;
         transform: scaleX(-1);
-        align-self: center;
     }
+
     .serviceEnquiry {
         display: flex;
         flex-flow: column;
         justify-content: center;
-        align-self: center;
-        height: 95%;
-        width: 95%;
+        /* align-items: center; */
+        height: 500px;
+        width: 500px;
         background-color: #fa9e69;
         border-radius: 100%;
         /* position: absolute; */
         bottom: -10px;
     }
+
     .serviceEnqCon {
-        width: 100%;
+        height: 500px;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: flex-start;
-        /* padding-left: 10%; */
+        padding-left: 10%;
     }
+
     .enquiryFormLabel {
         color: white;
         text-align: center;
-        align-self: center;
     }
+
     .enquiryInputClass {
-        border-radius: 25px;
+        border-radius: 15px;
         border: 0px solid rgba(0, 0, 0, 0.3);
-        height: 48px;
-        width: 60%;
-        align-self: center;
+        height: 30px;
+        width: 80%;
     }
+
     .enquiryButton {
         margin-top: 8%;
         width: 60%;
-        align-self: center;
-        display: flex;
-        justify-content: center;
     }
+
     #enquiryService {
         margin-bottom: 25px;
     }

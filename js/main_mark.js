@@ -569,7 +569,16 @@ function saveSchedule() {
 
 /********************************************************************************************************/
 
-
+$(function() {
+    $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(1, 'hour'),
+        locale: {
+            format: 'MM/DD/YY hh:mm A'
+        }
+    });
+});
 
 
 let evntlstener;

@@ -349,33 +349,6 @@ picture img {
         height: auto;
         width: 100%;
     }
-    #hamitems a {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        border-top: 1px solid #333;
-    }
-    /* (B) SHOW HAMBURGER ICON */
-    #hamnav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    #hamnav label {
-        display: inline-block;
-        color: white;
-        background: #a02620;
-        font-style: normal;
-        font-size: 1.2em;
-        padding: 10px;
-    }
-    /* (C) TOGGLE SHOW/HIDE MENU */
-    #hamitems {
-        display: none;
-        grid-column: 2 span;
-    }
-    #hamnav input:checked~#hamitems {
-        display: block;
-    }
 }
 
 
