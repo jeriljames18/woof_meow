@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Pet-Sitter Boarding</title>
-       <link rel="stylesheet" href="style.css">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-       <script src="js/ps4.js" defer></script>
 
-       
-   </head>
-   <body>
-        
-           <h2 class="back" id="back";>&#10094;</h2>
-           <h2 class="registration-heading">Registering as Pet Sitter</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-Sitter Boarding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="js/ps4.js" defer></script>
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
 
-       
-       <main>
-           <form action="" class="form" id="pet-sitter-boarding-4">
-               <div class="form-div">
-                   <label for="pet-sitter-features">Please tick all that apply to you-</label>
-                   <br>
-                   <br>
+</head>
 
-                   <div class="services-div">
-                       <input type="checkbox" name="pet-sitter-service" id="no-children">
-                       <label class="options" for="no-children">- No children around</label>
-                       <input type="checkbox" name="pet-sitter-service" id="apartment">
-                       <label class="options" for="apartment">- Live in an apartment</label>
-                       <input type="checkbox" name="pet-sitter-service" id="non-smoke">
-                       <label class="options" for="non-smoke">- Non-smoking household</label>
-                       <input type="checkbox" name="pet-sitter-service" id="fence-yard">
-                       <label class="options" for="fence-yard">- Have a fenced yard/balcony</label>
-                       <input type="checkbox" name="pet-sitter-service" id="trained-only">
-                       <label class="options" for="trained-only">- Take trained dogs only</label>
-                       <input type="checkbox" name="pet-sitter-service" id="breaks">
-                       <label class="options" for="breaks">- Timely potty breaks for the pet</label>
-                       <input type="checkbox" name="pet-sitter-service" id="bed-allowed">
-                       <label class="options" for="bed-allowed">- Pets allowed on bed</label>
-                       
-                   </div>
-                           
-                           
-                           
-                       
-                   </div>
-                   <button type="submit" id="ps4next" class="nav-btn">Register</button>
-               </div>
+<body>
 
-            </form>
-       </main>
-   </body>
+    <h2 class="back" id="back" ;>&#10094;</h2>
+    <h2 class="registration-heading">Registering as Pet Sitter</h2>
+
+
+    <main>
+        <form action="" class="form" id="pet-sitter-boarding-4">
+            <div class="form-div">
+                <label for="pet-sitter-features">Please tick all that apply to you-</label>
+                <br>
+                <br>
+
+                <div class="services-div">
+                    <input type="checkbox" name="pet-sitter-service" id="no-children">
+                    <label class="options" for="no-children">- No children around</label>
+                    <input type="checkbox" name="pet-sitter-service" id="apartment">
+                    <label class="options" for="apartment">- Live in an apartment</label>
+                    <input type="checkbox" name="pet-sitter-service" id="non-smoke">
+                    <label class="options" for="non-smoke">- Non-smoking household</label>
+                    <input type="checkbox" name="pet-sitter-service" id="fence-yard">
+                    <label class="options" for="fence-yard">- Have a fenced yard/balcony</label>
+                    <input type="checkbox" name="pet-sitter-service" id="trained-only">
+                    <label class="options" for="trained-only">- Take trained dogs only</label>
+                    <input type="checkbox" name="pet-sitter-service" id="breaks">
+                    <label class="options" for="breaks">- Timely potty breaks for the pet</label>
+                    <input type="checkbox" name="pet-sitter-service" id="bed-allowed">
+                    <label class="options" for="bed-allowed">- Pets allowed on bed</label>
+
+                </div>
+
+
+
+
+            </div>
+            <button type="submit" id="ps4next" class="nav-btn">Register</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+
 </html>

@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Pet-Sitter Boarding</title>
-       
-       <link rel="stylesheet" href="css/style_ss.css">
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
 
-       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-Sitter Boarding</title>
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+    <link rel="stylesheet" href="css/style_ss.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
-        <script src="js/ps1.js" defer></script>
-       
-   </head>
-   <body>
-       
-           <h2 class="back" id="back">&#10094;</h2>
-           <h2 class="registration-heading">Registering as Pet Sitter</h2>
+    <script src="js/ps1.js" defer></script>
 
-       
-       <main>
-           <form action="pet-sitter2.html" class="form" id="pet-sitter-boarding-1">
-               <div class="form-div">
-                   <label for="username">Username</label>
-                   <br>
-                   <input class= "textbar" type="text" id="username" required>
-                   <br>
-                   <label for="email">Email</label>
-                   <br>
-                   <input class= "textbar" type="email" name="email" id="email">
-                   <br>
-                   <label for="phone">Phone</label>
-                   <br>
-                   <input class= "textbar" type="tel" name="phone" id="phone">
-                   <br>
-                   <label for="address">Address</label>
-                   <br>
-                   <input class= "textbar"  type="text" id="address">
-                   <br>
-                   <label for="password">Password</label>
-                   <br>
-                   <input class= "textbar" type="password" name="password" id="password">
-                   <label for="password2">Confirm password</label>
-                   <br>
-                   <input class= "textbar" type="password" name="password2" id="password2">
+</head>
 
-               </div>  
-               <div class="message-area">
-                   
+<body>
+
+    <h2 class="back" id="back">&#10094;</h2>
+    <h2 class="registration-heading">Registering as Pet Sitter</h2>
+
+
+    <main>
+        <form action="pet-sitter2.html" class="form" id="pet-sitter-boarding-1">
+            <div class="form-div">
+                <label for="username">Username</label>
+                <br>
+                <input class="textbar" type="text" id="username" required>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <input class="textbar" type="email" name="email" id="email">
+                <br>
+                <label for="phone">Phone</label>
+                <br>
+                <input class="textbar" type="tel" name="phone" id="phone">
+                <br>
+                <label for="address">Address</label>
+                <br>
+                <input class="textbar" type="text" id="address">
+                <br>
+                <label for="password">Password</label>
+                <br>
+                <input class="textbar" type="password" name="password" id="password">
+                <label for="password2">Confirm password</label>
+                <br>
+                <input class="textbar" type="password" name="password2" id="password2">
+
+            </div>
+            <div class="message-area">
+
                 <i class="password-mismatch">Passwords do not match. Try again</i>
             </div>
-               
+
             <button type="submit" class="nav-btn" id="ps1next">Register</button>
             
                 
@@ -62,7 +64,9 @@
 
 
 
-            </form>
-       </main>
-   </body>
+
+        </form>
+    </main>
+</body>
+
 </html>

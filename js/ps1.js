@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let db= firebase.firestore();
+let db = firebase.firestore();
 
 
 
@@ -60,7 +60,7 @@ async function saveMessage(name, email, phone, address, password) {
         upPassword: password    
     })
 
-    
+
 
     .then(function() {
         console.log("Document written");

@@ -21,13 +21,13 @@ const uploadBtn = document.querySelector('#upload-btn');
 
 //if user hover on img div 
 
-imgDiv.addEventListener('mouseenter', function(){
+imgDiv.addEventListener('mouseenter', function() {
     uploadBtn.style.display = "block";
 });
 
 //if we hover out from img div
 
-imgDiv.addEventListener('mouseleave', function(){
+imgDiv.addEventListener('mouseleave', function() {
     uploadBtn.style.display = "none";
 });
 
@@ -35,7 +35,7 @@ imgDiv.addEventListener('mouseleave', function(){
 
 //when we choose a photo to upload
 
-file.addEventListener('change', function(){
+file.addEventListener('change', function() {
     //this refers to file
     const choosenFile = this.files[0];
 
@@ -43,22 +43,45 @@ file.addEventListener('change', function(){
 
         const reader = new FileReader(); //FileReader is a predefined function of JS
 
-        reader.addEventListener('load', function(){
+        reader.addEventListener('load', function() {
             img.setAttribute('src', reader.result);
         });
 
         reader.readAsDataURL(choosenFile);
+        saveImage(choosenFile)
 
-        
     }
 });
 
+function saveImage(strFileLocation) {
 
-document.querySelector('.skip').addEventListener('click', ()=> {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+
+    var storageRef = firebase.storage().ref();
+
+    let filename = strFileLocation.name;
+    var photoRef = storageRef.child(filename);
+
+    let emailId = localStorage.getItem('userEmailId');
+    var photoImagesRef = storageRef.child(emailId);
+
+    // While the file names are the same, the references point to different files
+    photoRef.name === photoImagesRef.name; // true
+    photoRef.fullPath === photoImagesRef.fullPath; // false 
+
+    photoImagesRef.put(photoRef.name);
+}
+
+document.querySelector('.skip').addEventListener('click', () => {
     window.location.href = "pet-sitter3.html";
 })
 
 
-back.addEventListener("click", ()=>{
+back.addEventListener("click", () => {
     window.location.href = "pet-sitter1.html";
 });

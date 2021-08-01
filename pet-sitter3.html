@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Pet-Sitter Boarding</title>
-       <link rel="stylesheet" href="style.css">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-       <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-       <script src="js/ps3.js" defer></script>
-       
-   </head>
-   <body>
-         
-           <h2 class="back" id="back";>&#10094;</h2>
-           <h2 class="registration-heading">Registering as Pet Sitter</h2>
 
-       
-       <main>
-           <form action="pet-sitter4.html" class="form" id="pet-sitter-boarding-3">
-               <div class="form-div">
-                   <label for="pet-preference">Pet preferences:</label>
-                   <br>
-                   <div class="services-div">
-                       <input type="radio" name="pet-preference" id="ppcat">
-                       <label for="ppcat">Cat</label>
-                       <input type="radio" name="pet-preference" id="ppdog">
-                       <label for="ppdog">Dog</label>
-                       <input type="radio" name="pet-preference" id="ppboth">
-                       <label for="ppboth">Both</label>
-                   </div>
-                   <br>
-                   
-                       <label for="select-service">Please select your service: </label>
-                   
-                   
-                   
-                       <div class="services-div">
-                        <input type="checkbox" name="select-service" id="pet-boarding">
-                           <label for="pet-boarding" class="top">Pet Boarding<label for="pet-boarding" class="bottom">in the sitter's place</label></label>
-                           
-                           
-                           
-                      
-                       
-                        <input type="checkbox" name="select-service" id="house-sitting">
-                           <label for="house-sitting" class="top">House Sitting <label for="house-sitting" class="bottom">in your home</label></label>
-                           
-                           
-                          
-                       
-                       
-                        <input type="checkbox" name="select-service" id="pet-walking">
-                           <label for="pet-walking" class="top">Pet walking<label for="pet-walking" class="bottom">in your neighbourhood</label></label>
-                           
-                           
-                           
-                       
-                   </div>
-                   <button type="submit" id="ps3next" class="nav-btn">Next</button>
-               </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-Sitter Boarding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="js/ps3.js" defer></script>
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+</head>
 
-            </form>
-       </main>
-   </body>
+<body>
+
+    <h2 class="back" id="back" ;>&#10094;</h2>
+    <h2 class="registration-heading">Registering as Pet Sitter</h2>
+
+
+    <main>
+        <form action="pet-sitter4.html" class="form" id="pet-sitter-boarding-3">
+            <div class="form-div">
+                <label for="pet-preference">Pet preferences:</label>
+                <br>
+                <div class="services-div">
+                    <input type="radio" name="pet-preference" id="ppcat">
+                    <label for="ppcat">Cat</label>
+                    <input type="radio" name="pet-preference" id="ppdog">
+                    <label for="ppdog">Dog</label>
+                    <input type="radio" name="pet-preference" id="ppboth">
+                    <label for="ppboth">Both</label>
+                </div>
+                <br>
+
+                <label for="select-service">Please select your service: </label>
+
+
+
+                <div class="services-div">
+                    <input type="checkbox" name="select-service" id="pet-boarding">
+                    <label for="pet-boarding" class="top">Pet Boarding<label for="pet-boarding" class="bottom">in the sitter's place</label></label>
+
+
+
+
+
+                    <input type="checkbox" name="select-service" id="house-sitting">
+                    <label for="house-sitting" class="top">House Sitting <label for="house-sitting" class="bottom">in your home</label></label>
+
+
+
+
+
+                    <input type="checkbox" name="select-service" id="pet-walking">
+                    <label for="pet-walking" class="top">Pet walking<label for="pet-walking" class="bottom">in your neighbourhood</label></label>
+
+
+
+
+                </div>
+                <button type="submit" id="ps3next" class="nav-btn">Next</button>
+            </div>
+
+        </form>
+    </main>
+</body>
+
 </html>
