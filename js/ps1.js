@@ -23,21 +23,26 @@ ps1next.addEventListener('click', submitForm);
 
 
 function submitForm(e) {
-    // e.preventDefault();
+    e.preventDefault();
 
 
-let name = getInputVal('username');
-let email = getInputVal('email');
-let phone = getInputVal('phone');
-let address = getInputVal('address');
-let password = getInputVal('password');
-let cpassword = getInputVal('password2');
+    let name = getInputVal('username');
+    let email = getInputVal('email');
+    let phone = getInputVal('phone');
+    let address = getInputVal('address');
+    let password = getInputVal('password');
+    let cpassword = getInputVal('password2');
+
+    localStorage.setItem("emailId", email);
+    console.log(localStorage.getItem("emailId"));
 
 
 
 
     if (password === cpassword) {
+        
         saveMessage(name, email, phone, address, password);
+
     }
     else {
         e.preventDefault();
@@ -46,27 +51,37 @@ let cpassword = getInputVal('password2');
     }
 }
 
-function saveMessage(name, email, phone, address, password) {
-    db.collection('dbUserProfile').doc().set({
-        name: name,
-        email: email,
-        phone: phone,
-        address:address,
-        password: password    
+async function saveMessage(name, email, phone, address, password) {
+    await db.collection('dbUserProfile').doc(email).set({
+        upName: name,
+        upEmail: email,
+        upPhone: phone,
+        upAddress:address,
+        upPassword: password    
     })
 
     
 
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+    .then(function() {
+        console.log("Document written");
+        window.location.href = "pet-sitter2.html";
     })
-    .catch((error) => {
+    .catch(function(error) {
         console.error("Error adding document: ", error);
     });
+
+    
     
     
         
 }
+
+
+
+
+// back.addEventListener("click", ()=>{
+//     window.location.href = 
+// })
 
 
 
