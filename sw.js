@@ -3,13 +3,15 @@ const CACHE_NAME = 'offline';
 const OFFLINE_URL = '/offline.html';
 
 const urlsToCache = ["/index.html?source=pwa",
-    "/index.html",
+    "/",
     "/signup.html",
     "/css/",
     "/js/",
     "/icon/",
     "/images/",
     "/booking.html",
+    "/index_dhruv.html",
+    "/livetracking.html",
     "/bookinglist.html",
     "/pet_services.html",
     "/pet-registration1.html",
