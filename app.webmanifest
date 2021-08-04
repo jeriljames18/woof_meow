@@ -1,0 +1,20 @@
+{
+    "short_name": "Woof-and-Meow",
+    "name": "Woof and Meow",
+    "icons": [{
+            "src": "./images/woof.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/woof2.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html?source=pwa",
+    "display": "fullscreen",
+    "background_color": "#E5E5E5",
+    "theme_color": "#fa5c00",
+    "prefer_related_applications": false
+}

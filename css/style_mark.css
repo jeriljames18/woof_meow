@@ -354,6 +354,12 @@
         text-decoration: none;
         cursor: pointer;
     }
+    
+    .offline img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
     /*************Mobile View************/
     
     @media only screen and (max-width: 600px) {
