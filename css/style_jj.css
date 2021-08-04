@@ -221,7 +221,7 @@ header {
     }
     .innerWrap {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .registrationButton {
         display: flex;

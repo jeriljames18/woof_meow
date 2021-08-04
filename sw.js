@@ -6,9 +6,12 @@ const urlsToCache = ["/index.html?source=pwa",
     "/",
     "/signup.html",
     "/css/",
+    "/css/style_mark.css",
+    "/css/style_jj.css",
     "/js/",
     "/icon/",
     "/images/",
+    "/images/offline-page.png",
     "/booking.html",
     "/index_dhruv.html",
     "/livetracking.html",
@@ -29,10 +32,10 @@ const urlsToCache = ["/index.html?source=pwa",
 
 self.addEventListener('install', (event) => {
     event.waitUntil((async() => {
-        const cache = await caches.open(CACHE_NAME);
+        const cache = await caches.open(urlsToCache);
         // Setting {cache: 'reload'} in the new request will ensure that the response
         // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-        await cache.add(new Request(OFFLINE_URL, { cache: 'reload' }));
+        await cache.add(new Request(urlsToCache, { cache: 'reload' }));
     })());
 });
 
@@ -50,6 +53,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+    // We only want to call event.respondWith() if this is a navigation request
+    // for an HTML page.
     if (event.request.mode === 'navigate') {
         event.respondWith((async() => {
             try {
@@ -63,8 +68,10 @@ self.addEventListener('fetch', (event) => {
                 return networkResponse;
             } catch (error) {
 
-                const cache = await caches.open(CACHE_NAME);
-                const cachedResponse = await cache.match(event.request);
+                console.log('Fetch failed; returning offline page instead.', error);
+
+                const cache = await caches.open(urlsToCache);
+                const cachedResponse = await cache.match(OFFLINE_URL);
                 return cachedResponse;
             }
         })());
