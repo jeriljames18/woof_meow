@@ -30,4 +30,20 @@ pr2next.addEventListener('click', (e)=> {
     let medicalC = document.getElementById('medicalc').value;
     let additonal = document.getElementById('misc').value;
 
+    db.collection('PetInformation').doc(lastDoc).set({
+        childFriendly: childFriendly,
+        dogFriendly: dogFriendly,
+        catFriendly: catFriendly,
+        medicalC: medicalC,
+        additonalInfo: additonal
+    })
+
+    .then(function(){
+        console.log('Document written');
+        window.location.href = "index.html";
+    })
+    .catch(function(error){
+        console.log('An error occured', error);
+    })
+
 })
