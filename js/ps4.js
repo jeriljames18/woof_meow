@@ -1,5 +1,3 @@
-
-
 let docId = localStorage.getItem("emailId");
 const firebaseConfig = {
     apiKey: "AIzaSyB5ksPgFIbI9sijrkBW3NkFagTFzCPG0t4",
@@ -14,16 +12,16 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let db= firebase.firestore();
+let db = firebase.firestore();
 
-ps4next.addEventListener('click', async (e)=> {
+ps4next.addEventListener('click', async(e) => {
     e.preventDefault();
     let moreServices = [];
     let moreS = document.getElementsByName('pet-sitter-service');
-    
+
     for (let more of moreS) {
         if (more.checked)
-        moreServices.push(more.id);
+            moreServices.push(more.id);
     }
 
     await db.collection('dbUserProfile').doc(docId).update({
@@ -31,13 +29,13 @@ ps4next.addEventListener('click', async (e)=> {
     })
 
     .then(function() {
-        console.log("Document updated");
-        window.location.href = "login.html";
-    })
-    .catch(function(error){
-        console.log("Document writing failed", error);
-    })
-    
+            console.log("Document updated");
+            window.location.href = "index.html";
+        })
+        .catch(function(error) {
+            console.log("Document writing failed", error);
+        })
+
 
 })
 
@@ -46,6 +44,6 @@ ps4next.addEventListener('click', async (e)=> {
 
 
 
-back.addEventListener("click", ()=>{
+back.addEventListener("click", () => {
     window.location.href = "pet-sitter3.html";
 });

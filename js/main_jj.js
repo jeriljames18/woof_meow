@@ -66,7 +66,7 @@ function loginUser() {
             // Signed in
             var user = userCredential.user;
             localStorage.setItem("userAccountEmail", user.email);
-            window.location.href = "./index.html";
+            window.location.href = "./main.html";
             // ...
         })
         .catch((error) => {
