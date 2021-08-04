@@ -1,6 +1,7 @@
 
 
 let docId = localStorage.getItem("emailId");
+console.log(docId);
 const firebaseConfig = {
     apiKey: "AIzaSyB5ksPgFIbI9sijrkBW3NkFagTFzCPG0t4",
     authDomain: "woof-and-meow.firebaseapp.com",
