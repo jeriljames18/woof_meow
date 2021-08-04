@@ -25,7 +25,7 @@ pr2next.addEventListener('click', (e)=> {
     e.preventDefault();
     let childFriendly = document.querySelector('input[name="friendlych"]:checked').value;
     console.log(childFriendly);
-    let dogFriendly = document.getElementById('input[name="friendlyd"]:checked').value;
+    let dogFriendly = document.querySelector('input[name="friendlyd"]:checked').value;
     let catFriendly = document.querySelector('input[name="friendlyca"]:checked').value;
     let medicalC = document.getElementById('medicalc').value;
     let additonal = document.getElementById('misc').value;

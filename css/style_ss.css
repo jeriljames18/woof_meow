@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans';
-    margin: 15px;
+    margin: 0px;
 }
 
 h1, h2, h3 {
@@ -57,10 +57,18 @@ h1, h2, h3 {
       
   }
 
+
+
   .form-div {
-      width: 50%;
+      width: 100%;
       margin: 0 auto;
       margin-top: 50px;
+  }
+
+  @media screen and (min-width:800px) {
+    .form-div {
+      width: 50%;
+    }
   }
 
   #profile-picture {
@@ -260,6 +268,10 @@ input[type=checkbox] {
      grid-template-columns: 1fr 10fr;
  }
 
+ header {
+   grid-column: span 2;
+ }
+
  main {
      grid-column: span 1/3;
  }
@@ -355,4 +367,35 @@ input[type=checkbox] {
       left: 30%;
       background: transparent;
   } */
+
+  header {
+    display: none;
+    
+}
+
+
+
+.logo {
+  width: 250px;
+  padding-left: 22%;
+}
+
+@media screen and (min-width:800px) {
+  header {
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    /* box-shadow: 0 0 5px #000000; */
+    height: 80px;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  border-top: 1px solid black;
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  padding-left: 8%;
+}
 
