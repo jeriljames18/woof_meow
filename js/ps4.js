@@ -32,7 +32,7 @@ ps4next.addEventListener('click', async (e)=> {
 
     .then(function() {
         console.log("Document updated");
-        // window.location.href = "";
+        window.location.href = "login.html";
     })
     .catch(function(error){
         console.log("Document writing failed", error);
