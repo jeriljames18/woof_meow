@@ -67,7 +67,7 @@ function saveImage(strFileLocation) {
     let filename = strFileLocation.name;
     var photoRef = storageRef.child(filename);
 
-    let emailId = localStorage.getItem('userEmailId');
+    let emailId = localStorage.getItem('emailId');
     var photoImagesRef = storageRef.child(emailId);
 
     // While the file names are the same, the references point to different files
@@ -78,6 +78,10 @@ function saveImage(strFileLocation) {
 }
 
 document.querySelector('.skip').addEventListener('click', () => {
+    window.location.href = "pet-sitter3.html";
+})
+
+ps2next.addEventListener('click', ()=> {
     window.location.href = "pet-sitter3.html";
 })
 

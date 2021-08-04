@@ -40,12 +40,11 @@ function submitForm(e) {
 
 
     if (password === cpassword) {
-        
+
         saveMessage(name, email, phone, address, password);
 
-    }
-    else {
-        e.preventDefault();
+    } else {
+
         document.querySelector('.message-area').style.display = "block";
         document.getElementById('password2').focus();
     }
@@ -56,36 +55,29 @@ async function saveMessage(name, email, phone, address, password) {
         upName: name,
         upEmail: email,
         upPhone: phone,
-        upAddress:address,
-        upPassword: password    
+        upAddress: address,
+        upPassword: password
     })
 
 
 
     .then(function() {
-        console.log("Document written");
-        window.location.href = "pet-sitter2.html";
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
+            console.log("Document written");
+            window.location.href = "pet-sitter2.html";
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
 
-    
-    
-    
-        
+
+
+
+
 }
 
 
 
 
-// back.addEventListener("click", ()=>{
-//     window.location.href = 
-// })
-
-
-
-
-// back.addEventListener("click", ()=>{
-//     window.location.href = 
-// })
+back.addEventListener("click", () => {
+    window.location.href = "main.html";
+})

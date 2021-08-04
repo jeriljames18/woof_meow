@@ -155,9 +155,9 @@ function errorHandler(err) {
 
 function initMap(lat, long, isTracking) {
 
-    if (isTracking) {
-        getLocationUpdate();
-    }
+    // if (isTracking) {
+    //     getLocationUpdate();
+    // }
 
     if (typeof lat == 'undefined' && typeof long == 'undefined') {
         lat = 0;
@@ -211,19 +211,34 @@ function getSitterLocationByBookingId(booking_id) {
     let arrBookingList = new bookingInformation;
     var db = firebase.firestore();
 
+    const coordinates = [];
 
+    boolForSitter = true;
 
-    var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
+    if (boolForSitter) {
+        navigator.geolocation.watchPosition(
+            data => {
+                console.log(data);
+                // coordinates.push([data.coords.latitude, data.coords.longitude]);
+                initMap(data.coords.latitude, data.coords.longitude, true);
+            },
+            error => console.log(error), {
+                enableHighAccuracy: true
+            }
+        );
+    }
 
-    docRef.get().then((doc) => {
+    // var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
 
-        arrBookingList = doc.data();
+    // docRef.get().then((doc) => {
 
-        initMap(arrBookingList.trackLat, arrBookingList.trackLong, true);
+    //     arrBookingList = doc.data();
 
-    }).catch((error) => {
-        console.log("Error getting document:", error);
-    });
+    //     initMap(arrBookingList.trackLat, arrBookingList.trackLong, true);
+
+    // }).catch((error) => {
+    //     console.log("Error getting document:", error);
+    // });
 }
 
 /********************************************************************************************************/
@@ -435,6 +450,12 @@ function goToLiveTracking(booking_id, bookingName) {
     window.location.href = "./livetracking.html";
 }
 
+function gotoSearch() {
+    localStorage.setItem("servicetype", $("#enquiryService").val());
+    localStorage.setItem("zipcode", $("zipcode").val());
+    window.location.href = "./search.html";
+}
+
 function getLiveTrackingMessage(strServiceType) {
 
     switch (strServiceType) {
@@ -569,16 +590,68 @@ function saveSchedule() {
 
 /********************************************************************************************************/
 
-$(function() {
-    $('input[name="datetimes"]').daterangepicker({
-        timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(1, 'hour'),
-        locale: {
-            format: 'MM/DD/YY hh:mm A'
+// $(function() {
+//     $('input[name="datetimes"]').daterangepicker({
+//         timePicker: true,
+//         startDate: moment().startOf('hour'),
+//         endDate: moment().startOf('hour').add(1, 'hour'),
+//         locale: {
+//             format: 'MM/DD/YY hh:mm A'
+//         }
+//     });
+// });
+
+function getSchedule() {
+    $("#booking-text").trigger("click");
+}
+
+function getBooking() {
+
+
+    let newRow = (
+        "<div id='myModal' class='modal'>" +
+        "<div class='modal-content'>" +
+        "<span class='close'>&times;</span>" +
+        "<p>Some text in the Modal..</p>" +
+        "</div></div>"
+
+
+        `<button class = 'end-track' type='button' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
+        "</div>"
+    );
+
+    $(".headerImageSittter").append(newRow);
+
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-    });
-});
+    }
+
+}
+
+
 
 
 let evntlstener;
@@ -587,6 +660,25 @@ evntlstener = document.getElementById('calendar_save');
 if (evntlstener) {
     evntlstener.addEventListener('click', saveSchedule);
 }
+
+evntlstener = document.getElementById('setBooking');
+if (evntlstener) {
+    evntlstener.addEventListener('click', getSchedule);
+}
+
+
+evntlstener = document.getElementById('booknow');
+if (evntlstener) {
+    evntlstener.addEventListener('click', getBooking);
+}
+
+evntlstener = document.getElementById('btnSearch');
+if (evntlstener) {
+    evntlstener.addEventListener('click', gotoSearch);
+}
+
+
+
 /***********MOBILE NAV**************** */
 
 const nav = document.querySelector("#nav");
@@ -594,44 +686,49 @@ const menu = document.querySelector("#menu");
 const menuToggle = document.querySelector(".nav__toggle");
 let isMenuOpen = false;
 
-// TOGGLE MENU ACTIVE STATE
-menuToggle.addEventListener("click", (e) => {
-    e.preventDefault();
-    isMenuOpen = !isMenuOpen;
+if (menuToggle) {
+    // TOGGLE MENU ACTIVE STATE
+    menuToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        isMenuOpen = !isMenuOpen;
 
-    // toggle a11y attributes and active class
-    menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
-    menu.hidden = !isMenuOpen;
-    nav.classList.toggle("nav--open");
+        // toggle a11y attributes and active class
+        menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
+        menu.hidden = !isMenuOpen;
+        nav.classList.toggle("nav--open");
 
-    if (!isMenuOpen) {
-        $(".trackmap").css("z-index", "1");
-    } else {
+        if (!isMenuOpen) {
+            $(".trackmap").css("z-index", "1");
+        } else {
 
-        $(".trackmap").css("z-index", "-1");
-    }
+            $(".trackmap").css("z-index", "-1");
+        }
 
-});
+    });
 
-// TRAP TAB INSIDE NAV WHEN OPEN
-nav.addEventListener("keydown", (e) => {
-    // abort if menu isn't open or modifier keys are pressed
-    if (!isMenuOpen || e.ctrlKey || e.metaKey || e.altKey) {
-        return;
-    }
+}
 
-    // listen for tab press and move focus
-    // if we're on either end of the navigation
-    const menuLinks = menu.querySelectorAll(".nav__link");
-    if (e.keyCode === 9) {
-        if (e.shiftKey) {
-            if (document.activeElement === menuLinks[0]) {
-                menuToggle.focus();
+if (nav) {
+    // TRAP TAB INSIDE NAV WHEN OPEN
+    nav.addEventListener("keydown", (e) => {
+        // abort if menu isn't open or modifier keys are pressed
+        if (!isMenuOpen || e.ctrlKey || e.metaKey || e.altKey) {
+            return;
+        }
+
+        // listen for tab press and move focus
+        // if we're on either end of the navigation
+        const menuLinks = menu.querySelectorAll(".nav__link");
+        if (e.keyCode === 9) {
+            if (e.shiftKey) {
+                if (document.activeElement === menuLinks[0]) {
+                    menuToggle.focus();
+                    e.preventDefault();
+                }
+            } else if (document.activeElement === menuToggle) {
+                menuLinks[0].focus();
                 e.preventDefault();
             }
-        } else if (document.activeElement === menuToggle) {
-            menuLinks[0].focus();
-            e.preventDefault();
         }
-    }
-});
+    });
+}
