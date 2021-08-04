@@ -12,19 +12,25 @@
 
     <link rel="stylesheet" href="./css/style_mark.css">
     <link rel="stylesheet" href="css/style_jj.css">
+    <link rel="stylesheet" href="css/style_calendar.css">
     <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
 
     <script src="./js/main_mark.js" defer></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
 
-    <title>Search Result</title>
+    <title>Appointment</title>
 </head>
 
-<body onload="searchPetSitter()">
+<body>
+
     <header>
         <a href="./index.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
@@ -39,11 +45,9 @@
     </header>
 
 
-    <!-- Top Navigation Menu -->
-
     <header class="header-nav" role="banner">
 
-        <i class="fas fa-arrow-circle-left  fa-2x" onclick="history.go(-1)"></i>
+        <a href="history.go(-1)"> <i class="fas fa-arrow-circle-left  fa-2x"></i></a>
 
         <nav id="nav" class="nav" role="navigation">
 
@@ -78,37 +82,19 @@
 
     </header>
 
-    <!-- Top Navigation Menu-->
 
 
 
-    <div class="wrapper">
 
-        <div class="profile-info">
+    <input type="text" name="datetimes" id="booking-text" />
 
-            <p class="no-of-sitter"></p>
-
-        </div>
-
-
-        <div id="tracking_map" class="trackmap">
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgoU0N7zevRRvC0lmUftyCBlP8yCIysFg&callback=initMap&libraries=&v=weekly" async>
-            </script>
-        </div>
-
-    </div>
-
-    <!-- <div class="button_info">
-        <button id="calendar_save"> Save Schedule </button>
-        <!--  <button id = "info_modify"> Modify</button>
-<button id = "info_delete"> Delete</button> 
-    </div> -->
 
     <footer>
         <div class="footerSection"></div>
         <p class="copywright">Designed and Developed by Elite Group</p>
         </div>
     </footer>
+
 </body>
 
 </html>

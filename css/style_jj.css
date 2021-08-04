@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .signupContents {
@@ -37,11 +37,10 @@ h3 {
 .buttonRegistration:hover {
     background-color: white;
     color: #fa5c00;
-    cursor: pointer;
-    font-weight: bolder;
+    border: 1px solid #fa5c00;
 }
 
-.buttonRegistration .logoTitle {
+.logoTitle {
     width: 30px;
 }
 
@@ -115,12 +114,6 @@ header {
 
 .menu li a {
     text-decoration: none;
-}
-
-li.menu:nth-child(1),
-li.menu:nth-child(2),
-li.menu:nth-child(3) {
-    color: #4B4B4A;
 }
 
 .logo {
@@ -459,11 +452,19 @@ li.menu:nth-child(3) {
         align-self: center;
     }
     .enquiryInputClass {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
         border-radius: 25px;
         border: 0px solid rgba(0, 0, 0, 0.3);
         height: 48px;
-        width: 60%;
+        background-color: white;
+        color: #fa5c00;
+        padding: 0 20% 0 20%;
         align-self: center;
+    }
+    #zipcode {
+        width: 25%;
     }
     .enquiryButton {
         margin-top: 8%;
@@ -474,5 +475,14 @@ li.menu:nth-child(3) {
     }
     #enquiryService {
         margin-bottom: 25px;
+    }
+    /**************************************************/
+    select option {
+        background: white;
+        color: #fa5c00;
+        height: 48px;
+        border-radius: 25px;
+        border: none;
+        align-self: center;
     }
 }

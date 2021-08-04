@@ -1,186 +1,202 @@
-<head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
-    <link rel="stylesheet" href="./css/styles_dhruv.css">
-    <link rel="stylesheet" href="./css/style_jj.css">
+<!DOCTYPE html>
+<html lang="en">
 
-    <script src="./js/main_dhruv.js"></script>
-    <script src="./js/main_mark.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Woof & Meow | Sitter Profile</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/420bb7a61d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style_calendar.css">
+    <link rel="stylesheet" href="./css/style_mark.css">
+    <link rel="stylesheet" href="css/style_jj.css">
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+
+    <script src="./js/main_mark.js" defer></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </head>
 
-<body class="profile-page" style="margin-top:100px;">
-
+<body>
     <header>
-        <img class="logo" src="./icon/logo4.svg" alt="">
+        <a href="./index.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
             <ul class="menu">
                 <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
-                <li>Become a Sitter</li>
+                <li><a href="pet-sitter1.html">Become a Sitter</a></li>
                 <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
-                <li><a href="#" class="loginList">Login</a></li>
+                <li><a href="./login.html" class="loginList">Login</a></li>
                 <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
     </header>
 
 
-    <div class="main main-raised">
-        <div class="profile-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 ml-auto mr-auto">
-                        <div class="profile">
-                            <div class="avatar">
-                                <img src="2.png" alt="Circle Image" class="img-raised rounded-circle img-fluid" class="img-fluid">
-                            </div>
-                            <div class="name">
-                                <h3 class="title">Martin Jones</h3>
-                                <div class="rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
+    <!-- Top Navigation Menu -->
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="description text-center">
-                    <p>
-                        Dog Lover and having dog since childhood. Currently, living in vancouver
-                    </p>
-                    <div>
-                        <button type="button" class="btn btn-dark"><i class="fas fa-star"></i>4.5</button>
-                        <button type="button" class="btn btn-dark">10 repeat clients</button>
-                        <button type="button" class="btn btn-dark">$30 per night</button>
+    <header class="header-nav" role="banner">
 
-                    </div>
-                </div>
-                <div>
-                    <h6>Martin Home</h6>
+        <i class="fas fa-arrow-circle-left  fa-2x" onclick="history.go(-1)"></i>
 
-                </div>
-                <div style="background-color: rgba(92, 86, 86, 0.212);">
-                    <ol>
+        <nav id="nav" class="nav" role="navigation">
 
-                        <li>No Children's present </li>
-                        <li>Lives in a apartment</li>
-                        <li>Non-smoking household</li>
-                        <li>Have a fence yard</li>
-                        <li>Crate-trained dogs only</li>
-                        <li>Dogs over 1 year old</li>
-                        <li>Potty breaks every 2-4 hours</li>
-                        <li>dogs allowed on bed</li>
-                        </li>
-                    </ol>
-                </div>
+            <!-- ACTUAL NAVIGATION MENU -->
+            <ul class="nav__menu" id="menu" tabindex="-1" aria-label="main navigation" hidden>
 
-                <div>
-                    <h6>About Sitter</h6>
-                </div>
-                <div style="background-color: rgba(92, 86, 86, 0.212);">
-                    <p style="width: 40%; font-size: 15px;">
+                <li class="nav__item"><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
+                <li class="nav__item"><a href="pet-sitter1.html">Become a Sitter</a></li>
+                <li class="nav__item"><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
+                <li class="nav__item"><a href="./login.html" class="loginList">Login</a></li>
+                <li class="nav__item"><a class="signupList" href="./user_signup.html">Signup</a></li>
+            </ul>
 
-                        I am professional pet-sitter for around 6 years. I have two pets - sia and mia which are very friendly with other pets too. in past i have worked with different clients.
+            <!-- MENU TOGGLE BUTTON -->
+            <a href="#nav" class="nav__toggle" role="button" aria-expanded="false" aria-controls="menu">
+                <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+              <title>Toggle Menu</title>
+              <g>
+                <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5" />
+                <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5" />
+                <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5" />
+                <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5" />
+                <circle class="menuicon__circle" r="23" cx="25" cy="25" />
+              </g>
+            </svg>
+            </a>
 
-                    </p>
-                </div>
-                <div>
-                    <h6>Location</h6>
-                </div>
-                <p style="background-color: rgba(92, 86, 86, 0.212);text-align: center; font-size: 15px;">
+            <!-- ANIMATED BACKGROUND ELEMENT -->
+            <div class="splash"></div>
 
-                    3.4 Kms Away, Vancouver BC
-                </p>
+        </nav>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10413.499601918835!2d-123.1493466216517!3d49.283665409361255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548673f143a94fb3%3A0xbb9196ea9b81f38b!2sVancouver%2C%20BC%2C%20Canada!5e0!3m2!1sen!2sin!4v1626868405196!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </header>
 
-                <div style="margin-top: 20px; font-size: 10px;">
-                    <h6>All Reviews</h6>
-                </div>
-
-                <div class="card">
-                    <div class="row ml-2 mt-2">
-                        <div> <img class="profile-pic" style=" width: 150px; height: 100px;" src="1.png">
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h5>Maria Lara</h5>
-                            <div>
-
-                                <p>
-                                    <span class="text-muted"></span>
-                                    <span class="fa fa-star star-active ml-3"></span>
-                                    <span class="fa fa-star star-active"></span>
-                                    <span class="fa fa-star star-active"></span>
-                                    <span class="fa fa-star star-active"></span>
-                                    <span> <i class="far fa-star"></i></span>
-                                </p>
+    <!-- Top Navigation Menu-->
 
 
-                            </div>
-                        </div>
-                        <p class="content">Martin jones is a amazing host for my dog, she took care for her very well And, her prompt reply is amazing</p>
-                    </div>
-                    <div class="card">
-                        <div class="row ml-2 mt-3">
-                            <div>
-                                <img class="profile-pic" style=" width: 150px; height: 100px;" src="1.png">
-                            </div>
-                            <div class="d-flex flex-column">
-                                <h5>Maria Lara</h5>
-                                <div>
-
-                                    <p>
-                                        <span class="text-muted"></span>
-                                        <span class="fa fa-star star-active ml-3"></span>
-                                        <span class="fa fa-star star-active"></span>
-                                        <span class="fa fa-star star-active"></span>
-                                        <span class="fa fa-star star-active"></span>
-                                        <span> <i class="far fa-star"></i></span>
-                                    </p>
-
-
-                                </div>
-                            </div>
-                            <p class="content">Martin jones is a amazing host for my dog, she took care for her very well And, her prompt reply is amazing</p>
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-            </div>
-
-        </div>
-
-
+    <div class="headerImageSittter">
+        <!-- <img class="headerImgaeSitterPage" src="images/are-Rottweilers-good-guard-dogs-1.jpg" alt=""> -->
     </div>
+    <div class="sitter_profile_image">
+        <img class="pro_pic" src="images/profile-pic-default.png" alt="">
+    </div>
+    <div class="sitter_details">
+        <label class="sitter_name" for="name">Martin Jones</label>
+        <p class="description">
+            Dog Lover and owner since childhood. Currently living in Vancouver
+        </p>
+        <div class="features_sitter">
+            <div class="ratingBox">5 <i class="fas fa-camera"></i></div>
+            <div class="repeatedClients"> 10 Repeated Clients</div>
+            <div class="perNightCharge">30 $ per Night</div>
+        </div>
+    </div>
+    <div class="about-sitter-details">
+        <div class="about_sitter">
+            <h3>About Sitter</h3>
+            <p class="sitter_intro">I’m a professional pet-sitter for around 6 years. I have two pets - Sia and Mia who are very friendly with other pets too. In the past, I have worked with different clients.</p>
+            <p>I’m available for the following services:</p>
+            <ul class="sitter_services">
+                <li>Pet Walking</li>
+                <li>House Sitting</li>
+                <li>Pet Boarding</li>
+            </ul>
+            <h3>Location</h3>
+            <h3>3.4 Kms Away Vancouver</h3>
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=langara%20college&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://getasearch.com">getasearch</a><br>
+                </div>
+            </div>
+        </div>
+        <div class="sitter_skills">
+            <h3>Martin Jones’ Home</h3>
+            <ul>
+                <li>No children present</li>
+                <li>Non-smoking household </li>
+                <li>Lives in an apartment</li>
+                <li>
+                    Dogs over 1 year old
+                </li>
+                <li>Have a fence yard</li>
+                <li>Crate-trained dogs only</li>
+            </ul>
+            <h3 class="skills">Skills</h3>
+            <ul>
+                <li>Emergency First Aid</li>
+                <li>Cooking fresh treats</li>
+            </ul>
+        </div>
+    </div>
+    <section class="reviewss">
+        <h3>All Reviews</h3>
+        <div class="all_reviews">
+            <div class="review">
+                <img class="review_img" src="images/profile-pic-default.png" alt="">
+                <div class="cus_rev_details">
+                    <h3>Maria Smith</h3>
+                    <div class="rating">
 
+                    </div>
+                    <p>He watched our dog for a day and we were completely at ease from th moment he took responsibility</p>
+                </div>
+            </div>
+            <div class="review">
+                <img class="review_img" src="images/profile-pic-default.png" alt="">
+                <div class="cus_rev_details">
+                    <h3>Maria Smith</h3>
+                    <div class="rating">
 
+                    </div>
+                    <p>He watched our dog for a day and we were completely at ease from th moment he took responsibility</p>
+                </div>
+            </div>
+            <div class="review">
+                <img class="review_img" src="images/profile-pic-default.png" alt="">
+                <div class="cus_rev_details">
+                    <h3>Maria Smith</h3>
+                    <div class="rating">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+                    </div>
+                    <p>He watched our dog for a day and we were completely at ease from th moment he took responsibility</p>
+                </div>
+            </div>
+            <div class="review">
+                <img class="review_img" src="images/profile-pic-default.png" alt="">
+                <div class="cus_rev_details">
+                    <h3>Maria Smith</h3>
+                    <div class="rating">
 
-
+                    </div>
+                    <p>He watched our dog for a day and we were completely at ease from th moment he took responsibility</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="buttonsForSitter">
+        <div class="sitterProfileButton1">
+            <input type="text" name="datetimes" id="booking-text" />
+            <input type="submit" onclick="" class="buttonRegistration" id="setBooking" name="NEXT" value="SET TIME">
+        </div>
+        <div class="sitterProfileButton2">
+            <input type="submit" onclick="" class="buttonRegistration2" id="booknow" name="NEXT" value="BOOK NOW">
+        </div>
+    </section>
     <footer>
         <div class="footerSection"></div>
         <p class="copywright">Designed and Developed by Elite Group</p>
         </div>
     </footer>
-
 </body>
+
+</html>
