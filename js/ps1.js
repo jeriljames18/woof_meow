@@ -79,13 +79,9 @@ async function saveMessage(name, email, phone, address, password) {
 
 
 
-// back.addEventListener("click", ()=>{
-//     window.location.href = 
-// })
+back.addEventListener("click", ()=>{
+    window.location.href = "index.html";
+})
 
 
 
-
-// back.addEventListener("click", ()=>{
-//     window.location.href = 
-// })
