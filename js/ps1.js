@@ -45,7 +45,7 @@ function submitForm(e) {
 
     }
     else {
-        e.preventDefault();
+        
         document.querySelector('.message-area').style.display = "block";
         document.getElementById('password2').focus();
     }

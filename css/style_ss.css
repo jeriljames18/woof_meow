@@ -32,7 +32,12 @@ h1, h2, h3 {
     text-decoration: none;
     text-align: center;
     max-width: 150px;
-    margin: 150px auto 20px auto;
+    margin: 100px auto 20px auto;
+    display: flex;
+    border: 0;
+    cursor: pointer;
+    justify-content: center;
+    border: 1px solid white;
     
     
   }
@@ -47,6 +52,15 @@ h1, h2, h3 {
   .textbar {
       width: 98%;
       margin: 10px 0;
+      border-radius: 15px;
+      border: 1px solid black;
+      
+  }
+
+  .form-div {
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 50px;
   }
 
   #profile-picture {
@@ -59,12 +73,14 @@ h1, h2, h3 {
     width: 200px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 54%;
     transform: translate(-50%,-50%);
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
   }
+
+ 
 
   #pet-sitter-img {
       display: none;
@@ -88,12 +104,8 @@ h1, h2, h3 {
   }
 
   #ps2next {
-      position: absolute;
-      bottom: 0;
-      margin-left: auto;
-      margin-right: auto;
-      right: 0;
-      left: 0;
+      margin-top: 520px;
+     
 
   }
 
@@ -101,22 +113,27 @@ h1, h2, h3 {
       font-style: italic;
       font-size: small;
       padding-left: 15px;
+      display: block;
+      padding-top: 20px;
+      color: #CCC921;
   }
 
   .top {
-      display: inline-block;
+      display: block;
+      padding-left: 5px;
+      border: 1px solid black;
+      border-radius: 5px;
+      
   }
 
-  .ps-services {
-      border: 1px solid black;
-  }
+ 
 
   #house-sitting, #spet-boarding {
       margin-bottom: 1px;
   }
 
   .services-div {
-      margin-top: 15px;
+      margin-top: 5px;
   }
 
   #spet-boarding {
@@ -126,3 +143,216 @@ h1, h2, h3 {
   .question-div {
       margin-bottom: 15px;
   }
+
+  .back {
+      padding: 0 20px;
+      
+      
+  }
+
+  .back:active {
+      color:#fa5c00;
+      background-color: black;
+  }
+    
+    
+ 
+
+  .back:hover {
+    cursor: pointer;
+  }
+
+  .message-area {
+      display: none;
+      text-align: center;
+      color: red;
+      margin-top: 5px;
+  }
+
+  .skip {
+      justify-content: center;
+      display: flex;
+      color:rgba(0, 0, 0, 0.6);
+  }
+
+  .skip:hover {
+      cursor: pointer;
+      color:#fa5c00;
+  }
+
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #CCC921;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid white;
+}
+
+input[type=checkbox] {
+    display: none;
+ }
+
+ input[type=checkbox]:checked + label:before {
+    content: "✓ ";
+ }
+ 
+ /* <!--Add styling on check --> */
+ input[type=checkbox]:checked+label {
+    border: solid 2px #fa5c00;
+    color: #fa5c00;
+ }
+ 
+ .top:nth-child(2), .top:nth-child(4) {
+     margin-bottom: 3px;
+ }
+
+ .top:nth-child(2) {
+     border-bottom-right-radius: 0;
+     border-bottom-left-radius: 0;
+ }
+
+ .top:nth-child(4) {
+    border-radius: 0;
+ }
+
+ .top:nth-child(6) {
+     border-top-right-radius: 0;
+     border-top-left-radius: 0;
+ }
+ 
+ #ps3next {
+     margin-top: 200px;
+ }
+
+ .options {
+     display: block;
+     margin: 1px;
+     padding: 10px;
+     
+ }
+
+ .options:hover {
+     color: #fa5c00;
+ }
+
+ body {
+     display: grid;
+     grid-template-columns: 1fr 10fr;
+ }
+
+ main {
+     grid-column: span 1/3;
+ }
+
+ /* @keyframes ldio-y4bn6cxm8ph {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+  }
+  .ldio-y4bn6cxm8ph div {
+    left: 97px;
+    top: 83px;
+    position: absolute;
+    animation: ldio-y4bn6cxm8ph linear 1s infinite;
+    background: #fa5c00;
+    width: 6px;
+    height: 2px;
+    border-radius: 1.26px / 1px;
+    transform-origin: 3px 17px;
+  }.ldio-y4bn6cxm8ph div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -0.9166666666666666s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -0.8333333333333334s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.75s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.6666666666666666s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.5833333333333334s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.5s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.4166666666666667s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.3333333333333333s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.25s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.16666666666666666s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.08333333333333333s;
+    background: #fa5c00;
+  }.ldio-y4bn6cxm8ph div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+    background: #fa5c00;
+  }
+  .loadingio-spinner-spinner-8oye0mggico {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: #ffffff;
+  }
+  .ldio-y4bn6cxm8ph {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  /* }
+  .ldio-y4bn6cxm8ph div { box-sizing: content-box; } */ 
+  /* generated by https://loading.io/ */
+
+  /* main {
+      position: relative;;
+  }
+
+  .loadingio-spinner-spinner-8oye0mggico {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      background: transparent;
+  } */
+
