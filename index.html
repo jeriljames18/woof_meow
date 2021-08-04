@@ -5,174 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Woof & Meow | Index</title>
-
-    <script src="js/main_jj.js"></script>
-    <script src="js/main.js"></script>
+    <title>Woof & Meow | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style_jj.css">
-
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+    <script src="https://kit.fontawesome.com/420bb7a61d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <a href="./index.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
+        <a href="./main.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
             <ul class="menu">
                 <li><a href="./search.html" class="search-sitter">Browse Sitters</a></li>
                 <li><a href="pet-sitter1.html">Become a Sitter</a></li>
                 <li><a href="./bookinglist.html" class="bookingList">Booking List</a></li>
-                <li><a href="./login.html" class="loginList">Login</a></li>
+                <li><a href="./index.html" class="loginList">Login</a></li>
                 <li><a class="signupList" href="./user_signup.html">Signup</a></li>
             </ul>
         </nav>
     </header>
-    <div class="webIndex">
-        <div class="indexHead">
-            <div class="dotted">
-                <div class="serviceEnquiry">
-                    <div class="serviceEnqCon">
-                        <label class="enquiryFormLabel" for="">Select a Service</label>
-                        <!-- <input type="dropdown" class="enquiryInputClass" name="field1" id="enquiryService" /> -->
 
-
-
-                        <select id="enquiryService" class="enquiryInputClass">
-                                <option value="Pet Boarding">Pet Boarding</option>
-                                <option value="Pet Walking">Pet Walking</option>
-                                <option value="House Sitting">House Sitting</option>
-                              </select>
-
-
-
-
-                        <label class="enquiryFormLabel" for="">Zip Code</label>
-                        <input type="text" class="enquiryInputClass" name="field1" id="zipcode" />
-                        <div class="enquiryButton">
-                            <input type="button" onclick="" class="buttonRegistration" name="login" value="SEARCH">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img class="headerImage" src="icon/cat and dog.svg" alt="">
+    <div class="signupContents">
+        <div class="titleImages">
+            <img class="logoTitle" src="images/Untitled-1.jpg">
+            <img class="iconTitle" src="images/chevron-left-solid.svg" alt="">
         </div>
-        <div class="ourServices">
-            <h1 class="ourServiceh1">OUR SERVICES</h1>
-            <div class="serviceList">
-                <div class="listItem">
-                    <img src="icon/boarding.svg">
-                    <h2 class="serviceTitle">
-                        Boarding
-                    </h2>
-                    <p class="serviceContent">
-                        Board your pets for few hours at your trusted pet-sitters
-                    </p>
-                </div>
-                <div class="listItem"><img class="serviceImage" class="serviceImage" src="icon/home sitting.svg">
-                    <h2 class="serviceTitle">
-                        House Sitting
-                    </h2>
-                    <p class="serviceContent">
-                        Connect with your pet-siiter to Board your pets, with our trusted pet-sitters home
-                    </p>
-                </div>
-                <div class="listItem"><img class="serviceImage" src="icon/Services icons.svg">
-                    <h2 class="serviceTitle">
-                        Dog Walking
-                    </h2>
-                    <p class="serviceContent">
-                        connect with your pet-sitter to take your dog for walk in your neighbourhood area
-                    </p>
-                </div>
+        <h3 class="signupTitle">
+            Login
+        </h3>
+        <form id="userLogin" class="userLogin">
+
+            <div class="innerWrap">
+                <label>Username : </label>
+                <input type="text" class="registrationInputClass" name="field1" />
             </div>
-        </div>
-        <div class="featuredSitters">
-            <h1 class="ourServiceh1">FEATURED SITTERS</h1>
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-                    <div class="carousel-item">
-                        <div class="featuredList">
-                            <div class="listItemReviewDetails">
-                                <h3 class="cusName">
-                                    Leila Smith
-                                </h3>
-                                <p class="cusReview">
-                                    I love animals and look for any opportunity to stop and pet a dog or cat that passes me. I live a short walking distance from kitslano beach and hidden beach (dog beach) and can take your dog/dogs out for nice walks.
-                                </p>
-                                <div class="learnMoreButton">
-                                    <input type="button" onclick="loginUser();" class="buttonLearnMore" name="login" value="LEARN MORE">
-                                </div>
-                            </div>
-
-                            <div class="listItemReview">
-
-                                <img class="reviewImg" src="images/featured/girl-with-dog.jpg">
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                    <div class="carousel-item">
-                        <div class="featuredList">
-                            <div class="listItemReviewDetails">
-                                <h3 class="cusName">
-                                    Leila Smith
-                                </h3>
-                                <p class="cusReview">
-                                    We have had three dogs but are currently dog-less. We are a family of dog lovers and have been on GoFetch since the beginning and hosted over 70+ dog stays. We love LOVE dogs and enjoy having them stay with us.
-                                </p>
-                                <div class="learnMoreButton">
-                                    <input type="button" onclick="loginUser();" class="buttonLearnMore" name="login" value="LEARN MORE">
-                                </div>
-                            </div>
-                            <div class="listItemReview">
-                                <img class="reviewImg" src="images/featured/woman-with-husky.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                    <div class="carousel-item">
-                        <div class="featuredList">
-                            <div class="listItemReviewDetails">
-                                <h3 class="cusName">
-                                    Leila Smith
-                                </h3>
-                                <p class="cusReview">
-                                    I'm a dog mom to Nala, a 1+-year-old rescued Formosan Mountain Dog mix from Taiwan. Caring for Nala has taught me a lot about patience, love, and consistent positive reinforcement training—thanks to her nervous nature from being an ex-street pup.
-                                </p>
-                                <div class="learnMoreButton">
-                                    <input type="button" onclick="loginUser();" class="buttonLearnMore" name="login" value="LEARN MORE">
-                                </div>
-                            </div>
-                            <div class="listItemReview">
-                                <img class="reviewImg" src="images/featured/young-woman-park-with-her-white-dog.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <label for="carousel-3" class="carousel-control prev control-1">‹</label>
-                    <label for="carousel-2" class="carousel-control next control-1">›</label>
-                    <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                    <label for="carousel-3" class="carousel-control next control-2">›</label>
-                    <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                    <label for="carousel-1" class="carousel-control next control-3">›</label>
-                    <ol class="carousel-indicators">
-                        <li>
-                            <label for="carousel-1" class="carousel-bullet">•</label>
-                        </li>
-                        <li>
-                            <label for="carousel-2" class="carousel-bullet">•</label>
-                        </li>
-                        <li>
-                            <label for="carousel-3" class="carousel-bullet">•</label>
-                        </li>
-                    </ol>
-                </div>
+            <div class="innerWrap">
+                <label>Password : </label>
+                <input type="password" class="registrationInputClass" name="field1" />
             </div>
-        </div>
+            <div class="innerWrap forget">
+                <label class="forgetPassword"> Forget Password? </label>
+            </div>
+            <div class="innerWrap">
+                <label> Not a Member yet?<span class="joinClass"> Join Now!</span> </label>
+            </div>
+            <div class="registrationButton">
+                <input type="submit" onclick="loginUser();" class="buttonRegistration" name="NEXT" value="LOGIN">
+            </div>
+        </form>
     </div>
-    </div>
-
     <footer>
         <div class="footerSection"></div>
         <p class="copywright">Designed and Developed by Elite Group</p>
