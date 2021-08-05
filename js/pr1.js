@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 let db= firebase.firestore();
 
 
-pr1next.addEventListener('click', (e)=> {
+pr2next.addEventListener('click', (e)=> {
     e.preventDefault();
     let petType = document.querySelector('input[name="pet-type"]:checked').value;
     console.log(petType);
@@ -25,19 +25,34 @@ pr1next.addEventListener('click', (e)=> {
     let petWeight = document.querySelector('input[name="pet-weight"]:checked').value;
     let petSex = document.querySelector('input[name="pet-sex"]:checked').value;
     let petFeeding = document.querySelector('input[name="feeding-schedule"]:checked').value;
+    let childFriendly = document.querySelector('input[name="friendlych"]:checked').value;
+    console.log(childFriendly);
+    let dogFriendly = document.querySelector('input[name="friendlyd"]:checked').value;
+    let catFriendly = document.querySelector('input[name="friendlyca"]:checked').value;
+    let medicalC = document.getElementById('medicalc').value;
+    let additonal = document.getElementById('misc').value;
     
     db.collection('PetInformation').doc(lastDoc).set({
         petType: petType,
         petName: petName,
         petWeight: petWeight,
         petSex: petSex,
-        petFeeding: petFeeding
+        petFeeding: petFeeding,
+        childFriendly: childFriendly,
+        dogFriendly: dogFriendly,
+        catFriendly: catFriendly,
+        medicalC: medicalC,
+        additonalInfo: additonal
 
     })
 
     .then(function(){
         console.log('Document written');
-        window.location.href="pet-registration2.html";
+        document.querySelector('.success-message-area').style.display = "block";
+        setTimeout(function(){
+            window.location.href="index.html";
+        }, 2000);
+        
     })
     .catch(function(error){
         console.log('An error occured', error);
@@ -50,5 +65,7 @@ pr1next.addEventListener('click', (e)=> {
 
 });
 
-
+back.addEventListener("click", ()=>{
+    window.location.href = "index.html";
+});
 

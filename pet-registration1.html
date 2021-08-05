@@ -27,7 +27,8 @@
     <main>
         <form action="pet-registration2.html" class="form" id="pet-boarding-1">
 
-            <div class="form-div">
+            <div class="form-div-1 form-div">
+                <br>
                 <label for="pet-type"> Pet type:</label>
                 <br>
                 <div class="services-div">
@@ -72,12 +73,63 @@
                     <input class="input-btn" type="radio" value="Night" name="feeding-schedule">
                     <label for="feeding-schedule">Night</label>
                 </div>
+                <!-- <br>
                 <br>
-                <br>
-                <p class="nav-btn" id="pr1next">Next</p>
+                <p class="nav-btn" id="pr1next">Next</p> -->
             </div>
+            <div class="form-div-2 form-div">
+                <br>
+                <label>Friendly with children?</label>
+                <div class="services-div">
+                    <input type="radio" name="friendlych" id="chyes" value="yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" name="friendlych" id="chno" value="no">
+                    <label for="no">No</label>
+                    <input type="radio" name="friendlych" id="chmaybe" value="maybe">
+                    <label for="maybe">Maybe</label>
+                </div>
+                <br>
+                <label>Friendly with dogs?</label>
+                <div class="services-div">
+                    <input type="radio" name="friendlyd" id="dyes" value="yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" name="friendlyd" id="dno" value="no">
+                    <label for="no">No</label>
+                    <input type="radio" name="friendlyd" id="dmaybe" value="maybe">
+                    <label for="maybe">Maybe</label>
+                </div>
+                <br>
+                <label>Friendly with cats?</label>
+                <div class="services-div">
+                    <input type="radio" name="friendlyca" id="cayes" value="yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" name="friendlyca" id="cano" value="no">
+                    <label for="no">No</label>
+                    <input type="radio" name="friendlyca" id="camaybe" value="maybe">
+                    <label for="maybe">Maybe</label>
+                </div>
+                <br>
+                <div class="question-div">
+                    <br>
+                    <label for="medicalc">Any medical conditions?</label>
+                    <br>
+                    <input class="textbar" type="text" id="medicalc">
+                </div>
 
+                <br>
+                <label for="misc">Anything else the sitter should know about?</label>
+                <br>
+                <textarea id="misc" rows="4" cols="50" class="textbar"> </textarea>
+                
+            </div>
+            
         </form>
+        <div class="success-message-area">
+
+            <i class="pet-successful">You've successfully registered your pet and now, you shall be redirected to the login page</i>
+        </div>
+        <p class="nav-btn" id="pr2next">Register</p>
+
     </main>
     <footer>
         <div class="footerSection"></div>
