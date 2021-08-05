@@ -52,25 +52,37 @@ h1, h2, h3 {
   .textbar {
       width: 98%;
       margin: 10px 0;
-      border-radius: 15px;
-      border: 1px solid black;
+      border-radius: 25px;
+      border: 1px solid grey;
+      height: 48px;
       
   }
 
 
 
   .form-div {
-      width: 100%;
+      width: 60%;
       margin: 0 auto;
       margin-top: 50px;
   }
 
   @media screen and (min-width:800px) {
     .form-div {
-      width: 50%;
+      width: 80%;
     }
   }
 
+  @media screen and (min-width:1000px){
+    .form-div {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width:1300px) {
+    .form-div {
+      width: 60%;
+    }
+  }
   #profile-picture {
       height: 100%;
       width: 100%;
@@ -266,6 +278,7 @@ input[type=checkbox] {
  body {
      display: grid;
      grid-template-columns: 1fr 10fr;
+     color: #4B4B4A;
  }
 
  header {
@@ -399,3 +412,30 @@ footer {
   padding-left: 8%;
 }
 
+input[type="radio"]+label {
+  padding-right: 20px;
+}
+
+br+label, br+p {
+  
+  font-weight:bold;
+}
+@media screen and (min-width:800px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+
+.formDiv {
+  margin-right: 25px;
+}
+
+.success-message-area {
+  color: green;
+  display:none;
+  text-align: center;
+  margin-top: 5px;
+}
