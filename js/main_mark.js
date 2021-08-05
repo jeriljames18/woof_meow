@@ -179,12 +179,15 @@ function initMap(lat, long, isTracking) {
 
 
 
+
     new google.maps.Marker({
         position: mapCoordinates,
         map,
         icon: image
     });
 }
+
+
 
 
 function memberTrack(email, fullname) {
@@ -220,7 +223,11 @@ function getSitterLocationByBookingId(booking_id) {
             data => {
                 console.log(data);
                 // coordinates.push([data.coords.latitude, data.coords.longitude]);
-                initMap(data.coords.latitude, data.coords.longitude, true);
+
+                initMap(data.coords.latitude, data.coords.longitude);
+
+
+
             },
             error => console.log(error), {
                 enableHighAccuracy: true
@@ -450,6 +457,15 @@ function goToLiveTracking(booking_id, bookingName) {
     window.location.href = "./livetracking.html";
 }
 
+
+function goToLandingPage() {
+    window.location.href = "./services.html";
+}
+
+function goToPetServices() {
+    window.location.href = "./pet_services.html";
+}
+
 function gotoSearch() {
     localStorage.setItem("servicetype", $("#enquiryService").val());
     localStorage.setItem("zipcode", $("zipcode").val());
@@ -469,6 +485,18 @@ function getLiveTrackingMessage(strServiceType) {
     }
 }
 
+function checkMobileLayout() {
+    localStorage.setItem('first-time', true);
+
+    if (localStorage.getItem('first-time') == true) {
+        localStorage.setItem('first-time', false);
+
+        if (screen.width <= 600) {
+            window.location.href = "./loading.html";
+        }
+
+    }
+}
 
 function startLiveTracking() {
 
