@@ -20,11 +20,12 @@ h3 {
 .registrationInputClass {
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    height: 42px;
+    height: 25px;
     /* width: 250px; */
 }
 
-.buttonRegistration {
+.buttonRegistration,
+.buttonRegistration2 {
     background-color: #fa5c00;
     color: white;
     padding: 0 30% 0 30%;
@@ -34,7 +35,8 @@ h3 {
     align-self: center;
 }
 
-.buttonRegistration:hover {
+.buttonRegistration:hover,
+.buttonRegistration2:hover {
     background-color: white;
     color: #fa5c00;
     border: 1px solid #fa5c00;
@@ -151,144 +153,6 @@ header {
     border-color: rgba(75, 75, 74, 0.5);
 }
 
-.headerImageSittter {
-    background-image: url(../images/are-Rottweilers-good-guard-dogs-1.jpg);
-    height: 10vh;
-    object-fit: cover;
-    position: relative;
-}
-
-.sitter_profile_image {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-top: -100px;
-    position: absolute;
-    bottom: -55%;
-    width: 100%;
-}
-
-.sitter_details {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    padding-top: 55px;
-}
-
-.sitter_name {
-    font-weight: bold;
-    color: #4B4B4A;
-    font-size: 1.5rem;
-}
-
-.pro_pic {
-    width: 10%;
-    border-radius: 100px;
-}
-
-.features_sitter {
-    display: flex;
-}
-
-.ratingBox,
-.repeatedClients,
-.perNightCharge {
-    border: black 1px solid;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 2%;
-    width: 200px;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.about-sitter-details {
-    background-color: #f9f9f9;
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-gap: 3rem;
-    padding: 5% 10% 10% 10%;
-}
-
-.sitter_intro {
-    width: 80%;
-}
-
-.sitter_services {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    align-content: start;
-    margin: 0;
-}
-
-.sitter_services li {
-    margin: 0;
-}
-
-.homeJhones li,
-.skillsClass li {
-    display: flex;
-    flex-direction: column;
-    list-style-type: circle;
-}
-
-.reviewss {
-    padding: 6%;
-}
-
-.review_img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.cus_rev_details {
-    font-style: italic;
-    padding-left: 10px;
-}
-
-.all_reviews {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
-}
-
-.review {
-    display: flex;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    padding: 2%;
-}
-
-.sitterProfileButton1,
-.sitterProfileButton2 {
-    width: 40vw;
-}
-
-.buttonRegistration2 {
-    background-color: white;
-    color: #fa5c00;
-    padding: 0 30% 0 30%;
-    height: 48px;
-    border-radius: 20px;
-    border: #fa5c00 solid 1px;
-}
-
-#gmap_canvas {
-    width: 500px;
-}
-
-.buttonsForSitter {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 10% 3% 10%;
-}
-
 @media screen and (max-width:600px) {
     header,
     footer {
@@ -311,7 +175,6 @@ header {
     }
     .buttonRegistration {
         padding: 0 30% 0 30%;
-        margin-top: 10%;
     }
     #petServicePetBoading1,
     #petServicePetBoading2,
@@ -331,19 +194,128 @@ header {
         margin-left: 15px;
         margin-top: 20px;
     }
-    .headerImgaeSitterPage {
+    .headerImageSittter {
+        background-image: url(../images/are-Rottweilers-good-guard-dogs-1.jpg);
+        height: 10vh;
         object-fit: cover;
     }
-    .headerImageSittter {
-        position: relative;
-    }
     .sitter_profile_image {
-        position: absolute;
-        bottom: -25px;
-        ;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin-top: -100px;
     }
     .sitter_details {
-        padding-top: 40px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .sitter_name {
+        font-weight: bold;
+        color: #4B4B4A;
+        font-size: 1.5rem;
+    }
+    .pro_pic {
+        width: 10%;
+        border-radius: 100px;
+    }
+    .features_sitter {
+        display: flex;
+    }
+    .ratingBox,
+    .repeatedClients,
+    .perNightCharge {
+        border: black 1px solid;
+        border-radius: 15px;
+        padding: 10px;
+        margin: 2%;
+        width: 200px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .about-sitter-details {
+        background-color: #f9f9f9;
+        margin-top: 5%;
+        padding: 0 7% 7% 7%;
+        display: grid;
+        grid-template-columns: 60fr 40fr;
+        justify-content: space-evenly;
+        align-content: center;
+        justify-items: center;
+    }
+    .sitter_intro {
+        width: 75%;
+    }
+    .sitter_services {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 500px;
+        width: 600px;
+    }
+    .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        height: 500px;
+        width: 600px;
+    }
+    .mapouter {
+        padding-top: 2%;
+    }
+    .skills {
+        padding-top: 5%;
+    }
+    .reviewss {
+        margin: 5%;
+    }
+    .all_reviews {
+        margin-top: 5%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+    .review_img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        margin-right: 10px;
+    }
+    .review {
+        border: 1px solid lavender;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px -1px grey;
+        display: flex;
+        padding: 2%;
+    }
+    .buttonsForSitter {
+        display: flex;
+        padding: 0 25% 0 25%;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        padding-bottom: 5%;
+    }
+    .sitterProfileButton1,
+    .sitterProfileButton2 {
+        width: 20vw;
+    }
+    .buttonRegistration2 {
+        background-color: white;
+        color: #fa5c00;
+        padding: 0 30% 0 30%;
+        height: 40px;
+        border-radius: 20px;
+        border: #fa5c00 solid 1px;
+    }
+    .headerImgaeSitterPage {
+        object-fit: cover;
     }
     .about-sitter-details {
         display: flex;
@@ -386,14 +358,6 @@ header {
         width: 100px;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-    }
-    .buttonsForSitter {
-        display: flex;
-        justify-content: space-around;
-        padding: 0 5% 3% 5%;
-    }
-    .pro_pic {
-        width: 20%;
     }
 }
 
