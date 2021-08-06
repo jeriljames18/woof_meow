@@ -6,18 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Woof & Meow | Login</title>
-    <link rel="manifest" href="./app.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style_jj.css">
 
-    <script src="js/main_mark.js" defer></script>
-    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/420bb7a61d.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="./css/style_mark.css">
+    <link rel="stylesheet" href="css/style_jj.css">
+    <link rel="ICON" href="./icon/logo3.svg" type="image/ico" />
 
+    <script src="./js/main_mark.js" defer></script>
+    <script src="js/main_jj.js" defer></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script>
         // Register the service worker
         if ('serviceWorker' in navigator) {
@@ -40,7 +44,7 @@
 
 </head>
 
-<body onload="checkMobileLayout()">
+<body>
     <header>
         <a href="./main.html" class="header-logo"><img class="logo" src="./icon/logo4.svg" alt=""></a>
         <nav class="menuNav">
@@ -62,31 +66,31 @@
         <h3 class="signupTitle">
             Login
         </h3>
-        <form id="userLogin" class="userLogin">
+        <div id="userLogin" class="userLogin">
 
             <div class="innerWrap">
                 <label>Username : </label>
-                <input type="text" class="registrationInputClass" name="field1" />
+                <input type="text" class="registrationInputClass" name="field1" id="userLoginName" />
             </div>
             <div class="innerWrap">
                 <label>Password : </label>
-                <input type="password" class="registrationInputClass" name="field1" />
+                <input type="password" class="registrationInputClass" name="field1" id="userLoginPassword" />
             </div>
             <div class="innerWrap forget">
                 <label class="forgetPassword"> Forget Password? </label>
             </div>
             <div class="innerWrap">
-                <label> Not a Member yet?<span class="joinClass"> Join Now!</span> </label>
+                <label> Not a Member yet?<span class="joinClass"> <a href="user_signup.html">Join Now!</a></span> </label>
             </div>
             <div class="registrationButton">
-                <input type="submit" onclick="loginUser();" class="buttonRegistration" name="NEXT" value="LOGIN">
+                <button class="buttonRegistration" id='loginclick'>LOGIN</button>
+
             </div>
-        </form>
-    </div>
-    <footer>
-        <div class="footerSection"></div>
-        <p class="copywright">Designed and Developed by Elite Group</p>
         </div>
+        <footer>
+            <div class="footerSection"></div>
+            <p class="copywright">Designed and Developed by Elite Group</p>
+    </div>
     </footer>
 </body>
 

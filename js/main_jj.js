@@ -1,6 +1,3 @@
-//user sign up
-
-
 function addUserAccount() {
 
     let username = document.getElementById('userName').value;
@@ -16,32 +13,32 @@ function addUserAccount() {
     } else {
         firebase.app(); // if already initialized, use that one
     }
-
+    let CloudDB = firebase.firestore();
 
     if (password === cPassword) {
 
 
         firebase.auth().createUserWithEmailAndPassword(accountEmail, password)
             .then((userCredential) => {
-                var user = userCredential.user;
-                console.log(username)
-                let CloudDB = firebase.firestore();
-                CloudDB.collection('userProfile').doc().set({
-                    user_name: username,
-                    user_email: accountEmail,
-                    user_phone: accountMobileNo,
-                    user_address: accoundAddress,
-                });
-                window.alert("User Registration Successful");
+                let user = userCredential.user;
+
+
                 localStorage.setItem("userAccountEmail", user.email);
-                window.location.href = "./index.html";
+
             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 window.alert(errorCode + ": " + errorMessage);
             });
-
+        let CloudDB = firebase.firestore();
+        CloudDB.collection('dbUserProfile').doc(accountEmail).set({
+            upUsername: username,
+            upPhone: accountMobileNo,
+            upAddress: accoundAddress,
+        });
+        window.alert("User Registration Successful");
+        window.location.href = "./index.html";
 
     } else {
         window.alert("Passwords are not the same with the confirmation password.");
@@ -50,10 +47,17 @@ function addUserAccount() {
 
 //user Login 
 
+
+
+evntlstener = document.getElementById('loginclick');
+if (evntlstener) {
+    evntlstener.addEventListener('click', loginUser);
+}
+
 function loginUser() {
 
     var logInEmail = document.getElementById('userLoginName').value;
-    var password = document.getElementById('userLoginPassword').value;
+    var strpassword = document.getElementById('userLoginPassword').value;
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -61,12 +65,14 @@ function loginUser() {
     } else {
         firebase.app(); // if already initialized, use that one
     }
-    firebase.auth().signInWithEmailAndPassword(logInEmail, password)
+
+
+    firebase.auth().signInWithEmailAndPassword(logInEmail, strpassword)
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
             localStorage.setItem("userAccountEmail", user.email);
-            window.location.href = "./main.html";
+            window.location.href = "./search.html";
             // ...
         })
         .catch((error) => {

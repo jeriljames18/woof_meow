@@ -24,7 +24,8 @@ h3 {
     /* width: 250px; */
 }
 
-.buttonRegistration {
+.buttonRegistration,
+.buttonRegistration2 {
     background-color: #fa5c00;
     color: white;
     padding: 0 30% 0 30%;
@@ -34,7 +35,8 @@ h3 {
     align-self: center;
 }
 
-.buttonRegistration:hover {
+.buttonRegistration:hover,
+.buttonRegistration2:hover {
     background-color: white;
     color: #fa5c00;
     border: 1px solid #fa5c00;

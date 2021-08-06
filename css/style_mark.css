@@ -342,7 +342,7 @@
     /* The Close Button */
     
     .close {
-        color: #aaaaaa;
+        color: white;
         float: right;
         font-size: 28px;
         font-weight: bold;
@@ -371,6 +371,7 @@
         width: 300px;
         text-align: center;
         padding: 0 3% 0 3%;
+        visibility: hidden;
     }
     /****MODAL*****/
     /* Modal Header */
