@@ -226,7 +226,7 @@ function getSitterLocationByBookingId(booking_id) {
                 console.log(data);
                 // coordinates.push([data.coords.latitude, data.coords.longitude]);
 
-                initMap(data.coords.latitude, data.coords.longitude);
+                initMap(data.coords.latitude, data.coords.longitude, true);
 
 
 
