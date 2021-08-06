@@ -8,6 +8,9 @@ const urlsToCache = ["/index.html?source=pwa",
     "/css/",
     "/css/style_mark.css",
     "/css/style_jj.css",
+    "/css/style_fh.css",
+    "/css/style_ss.css",
+    "/css/style_calendar.css",
     "/js/",
     "/icon/",
     "/images/",
@@ -25,7 +28,9 @@ const urlsToCache = ["/index.html?source=pwa",
     "/pet-sitter4.html",
     "/search.html",
     "/user_signup.html",
-    "/offline.html"
+    "/offline.html",
+    "/loading.html",
+    "/services.html"
 ];
 
 'use strict';

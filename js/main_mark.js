@@ -349,7 +349,9 @@ function getSearchServiceParameters(strServiceName) {
 
 function searchPetSitter() {
 
-    let strServiceType = "upPetWalk"; //getSearchServiceParameters(strServiceName);
+    let strServiceName = localStorage.getItem('servicetype');
+
+    let strServiceType = getSearchServiceParameters(strServiceName);
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -468,10 +470,17 @@ function goToPetServices() {
 }
 
 function gotoSearch() {
-    localStorage.setItem("servicetype", $("#enquiryService").val());
-    localStorage.setItem("zipcode", $("zipcode").val());
+    localStorage.setItem('servicetype', $("#enquiryService").val());
+    localStorage.setItem('zipcode', $("zipcode").val());
     window.location.href = "./search.html";
 }
+
+function gotoSearch2() {
+    localStorage.setItem('zipcode', $("serviceLocationH4").val());
+    window.location.href = "./search.html";
+}
+
+
 
 function getLiveTrackingMessage(strServiceType) {
 
@@ -487,16 +496,18 @@ function getLiveTrackingMessage(strServiceType) {
 }
 
 function checkMobileLayout() {
-    localStorage.setItem('first-time', true);
 
-    if (localStorage.getItem('first-time') == true) {
-        localStorage.setItem('first-time', false);
+    // localStorage.removeItem('first-time');
+    // let sample = localStorage.getItem('first-time');
 
-        if (screen.width <= 600) {
-            window.location.href = "./loading.html";
-        }
+    // if (sample == null || sample == undefined) {
+    //     localStorage.setItem('first-time', true);
 
-    }
+    //     if (screen.width <= 600) {
+    //         window.location.href = "./loading.html";
+    //     }
+
+    // }
 }
 
 function startLiveTracking() {
@@ -624,20 +635,38 @@ function getSchedule() {
 }
 
 
-// $(function() {
-//     $("#booking-text").daterangepicker({
-//         timePicker: true,
-//         startDate: moment().startOf('hour'),
-//         endDate: moment().startOf('hour').add(1, 'hour'),
-//         locale: {
-//             format: 'MM/DD/YY hh:mm A'
-//         }
-//     });
-// });
+$(function() {
+    $("#booking-text").daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(1, 'hour'),
+        locale: {
+            format: 'MM/DD/YY hh:mm A'
+        }
+    });
+});
 
 
 
+function getService(intService) {
+    switch (intService) {
+        case "1":
 
+            localStorage.setItem('servicetype', "Pet Boarding");
+            break;
+
+        case "2":
+            localStorage.setItem('servicetype', "House Sitting");
+
+            break;
+        default:
+
+            localStorage.setItem('servicetype', "Pet Walking");
+            break;
+    }
+
+
+}
 
 
 
@@ -655,6 +684,12 @@ if (evntlstener) {
 }
 
 
+
+evntlstener = document.getElementById('ps-search');
+if (evntlstener) {
+    evntlstener.addEventListener('click', gotoSearch2);
+}
+
 evntlstener = document.getElementById('booknow');
 if (evntlstener) {
     evntlstener.addEventListener('click', getBooking);
@@ -665,6 +700,10 @@ if (evntlstener) {
     evntlstener.addEventListener('click', gotoSearch);
 }
 
+evntlstener = document.getElementById('lastservices');
+if (evntlstener) {
+    evntlstener.addEventListener('click', goToPetServices);
+}
 
 
 
@@ -678,7 +717,8 @@ var btn = document.getElementById("booknow");
 var span = document.getElementsByClassName("close")[0];
 
 
-function getBooking(strSchedule, strFullName) {
+function getBooking(strSchedule, strFullName, strAddress, intMobile, strServiceType, strSitterEmail) {
+
 
 
 

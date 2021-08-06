@@ -12,6 +12,9 @@
     <script src="js/main_mark.js" defer></script>
     <link rel="stylesheet" href="css/style_fh.css">
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </head>
 
 <body>
@@ -56,19 +59,19 @@
 
                     </div>
                 </div>
+
                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                <div class="carousel-item">
-                    <div class="servicesList">
+                <div class="carousel-item" onclick="goToPetServices();">
+                    <div class="servicesList ">
                         <div class="listItemServices">
-                            <img class="servicesImg" src="images/walking.svg">
+                            <img class="servicesImg" src="images/walking.svg" onclick="goToPetServices();">
                         </div>
-                        <div class="listItemServicesDetails">
+                        <div class="listItemServicesDetails" onclick="goToPetServices();">
                             <h2 class="cusName">
                                 Dog Walking
                             </h2>
                             <p class="cusServices">
                                 Connect with your pet-sitter to take your dog for walk in your neighbourhood area </p>
-
                         </div>
 
                     </div>
@@ -85,7 +88,12 @@
                         <label for="carousel-3" class="carousel-bullet">•</label>
                     </li>
                 </ol>
+
             </div>
+        </div>
+
+        <div class="learnMoreButton">
+            <input type="button" onclick="goToPetServices();" class="buttonLearnMore" name="login" value="TRY NOW">
         </div>
     </div>
     </div>
