@@ -154,11 +154,11 @@ function errorHandler(err) {
     }
 }
 
-function initMap(lat, long) {
+function initMap(lat, long, isTracking) {
 
-    // if (isTracking) {
-    //     getLocationUpdate();
-    // }
+    if (isTracking) {
+        getLocationUpdate();
+    }
 
     if (typeof lat == 'undefined' && typeof long == 'undefined') {
         lat = 0;
@@ -175,7 +175,7 @@ function initMap(lat, long) {
 
     //woofandmeow.surge.sh/images/dog.svg
     const image = {
-        url: "//woofandmeow.surge.sh/images/Dog.svg", // url
+        url: "http://woofandmeow.surge.sh/images/Dog.svg", // url
         scaledSize: new google.maps.Size(50, 50), // size
     };
 
