@@ -524,9 +524,12 @@ function gotoSearch() {
 function gotoSearch2() {
     localStorage.setItem("zipcode", $("serviceLocationH4").val());
     window.location.href = "./search.html";
+    // window.location.replace("./search.html");
 }
 
-
+function removefirsttimecounter() {
+    localStorage.setItem('first-time', true);
+}
 
 function getLiveTrackingMessage(strServiceType) {
 
@@ -543,17 +546,17 @@ function getLiveTrackingMessage(strServiceType) {
 
 function checkMobileLayout() {
 
-    // localStorage.removeItem('first-time');
-    // let sample = localStorage.getItem('first-time');
 
-    // if (sample == null || sample == undefined) {
-    //     localStorage.setItem('first-time', true);
+    let sample = localStorage.getItem('first-time');
 
-    //     if (screen.width <= 600) {
-    //         window.location.href = "./loading.html";
-    //     }
+    if (sample == null || sample == undefined) {
 
-    // }
+
+        if (screen.width <= 600) {
+            window.location.href = "./loading.html";
+        }
+
+    }
 }
 
 function startLiveTracking() {
@@ -780,10 +783,10 @@ if (evntlstener) {
 
 
 
-evntlstener = document.getElementById('ps-search');
-if (evntlstener) {
-    evntlstener.addEventListener('click', gotoSearch2);
-}
+// evntlstener = document.getElementById('ps-search');
+// if (evntlstener) {
+//     evntlstener.addEventListener('click', gotoSearch2);
+// }
 
 evntlstener = document.getElementById('booknow');
 if (evntlstener) {

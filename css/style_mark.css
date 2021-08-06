@@ -614,8 +614,9 @@
             color: #fa5c00;
         }
         #price {
-            width: 80%;
+            width: 90%;
             height: 24px;
+            font-size: 12px;
             margin-bottom: 10%;
         }
     }
