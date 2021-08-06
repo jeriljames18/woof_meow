@@ -154,7 +154,7 @@ function errorHandler(err) {
     }
 }
 
-function initMap(lat, long, isTracking) {
+function initMap(lat, long) {
 
     // if (isTracking) {
     //     getLocationUpdate();
@@ -253,6 +253,12 @@ function getSitterLocationByBookingId(booking_id) {
 function loadProfilePage() {
 
     let sitterEmailId = localStorage.getItem("emailId");
+    let profilepic = localStorage.getItem("profilepic");
+
+    let profilepic2 = "<img class='pro_pic' src='" + profilepic + "' alt=''>";
+    $(".sitter_profile_image").append(profilepic2);
+
+
 
     // if (!firebase.apps.length) {
     //     firebase.initializeApp(firebaseConfig);
@@ -366,8 +372,9 @@ function getSearchServiceParameters(strServiceName) {
 function searchPetSitter() {
 
     let strServiceName = localStorage.getItem("servicetype");
+    let intCount = 0;
 
-    let strServiceType = getSearchServiceParameters(strServiceName);
+    let strServiceType = "upPetWalk"; //getSearchServiceParameters(strServiceName);
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -385,14 +392,27 @@ function searchPetSitter() {
             console.log(doc.id);
 
 
+
             let strImageLocation = "";
             let starIconShaded = "./icon/star.svg";
             let starIconUnShaded = "./icon/star_shaded.svg";
             let intNumberOfReturnedClient = "2";
             let intSitterRate = "20";
 
+
+            switch (intCount) {
+                case 0:
+                    strImageLocation = "./images/martinjones.jpg"
+                    break;
+                case 1:
+                    strImageLocation = "./images/barondavis.jpg"
+                    break;
+                default:
+                    strImageLocation = "./icon/pexels-photo-8090146.jpeg"
+            }
+
             newRow = (
-                `<div id='search-wrapper' onclick='goToProfilePage("${doc.id}")'>` +
+                `<div id='search-wrapper' onclick='goToProfilePage("${doc.id}", "${strImageLocation}")'>` +
 
                 "<div class='search'>" +
                 "<img class='profile' src='" + strImageLocation + "' alt=''>" +
@@ -413,6 +433,7 @@ function searchPetSitter() {
                 "</div>"
             );
 
+            intCount += 1;
 
             console.log(newRow);
 
@@ -457,7 +478,7 @@ function changeBookingStatus(booking_id) {
     var db = firebase.firestore();
     var docRef = db.collection("dbServiceBooking").doc(booking_id.replace(/\s/g, ''));
 
-    docRef.update("sbStatus", 1);
+    docRef.update('sbStatus', 1);
     $(`.booking-status-${booking_id}`).html('Confirmed');
     $(`.start-track-${booking_id}`).show();
 
@@ -465,10 +486,11 @@ function changeBookingStatus(booking_id) {
 
 }
 
-function goToProfilePage(email_id) {
+function goToProfilePage(email_id, strimageloc) {
 
 
     let userEmail = localStorage.getItem("user-email-Id");
+    localStorage.setItem("profilepic", strimageloc);
     if (userEmail == undefined) {
         window.location.href = "./index.html";
     } else {
@@ -593,14 +615,14 @@ function endLiveTracking(strbookingID) {
 
 
     newRow = (
-        "<p>Pet-sitter's Name: <b>" + strbookingID + "</b></p>"
+        "<p><b>Do you want to end the service?</b></p>" +
         // `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
         // "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
         // "<p><b>Time:</b> " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
         // "</div>" +
         // "<p>" + arrBookingList.sbServiceType + "</p>" +
         // `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
-        //`<button class = 'end-track' type='button' onclick='saveSchedule("${localStorage.getItem("user-email-Id")}", "${localStorage.getItem("emailId")}", "${datefrom.trim()}", "${dateto.trim()}", "${arrProfileList.upAddress}", "${arrProfileList.upUsername}", "Pet Walking")'> Confirm Booking </button>`
+        `<button class = 'end-track' type='button' onclick='updateSchedule("${strbookingID}", "2")'> YES </button>`
         // "</div>"
     );
 
@@ -609,6 +631,22 @@ function endLiveTracking(strbookingID) {
 
 
 
+}
+
+function updateSchedule(bookingId, intUpdatebooking) {
+
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+    var docRef = db.collection("dbServiceBooking").doc(bookingId.replace(/\s/g, ''));
+    docRef.update('sbStatus', intUpdatebooking);
+    window.alert("The service is completed.");
+    window.location.href = "./bookinglist.html";
 }
 
 function saveImage(strFileLocation) {

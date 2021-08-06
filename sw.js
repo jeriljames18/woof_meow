@@ -29,7 +29,7 @@ const urlsToCache = ["/index.html?source=pwa",
     "/search.html",
     "/user_signup.html",
     "/offline.html",
-    "/loading.html",
+    "/loading.html?source=pwa",
     "/services.html"
 ];
 
