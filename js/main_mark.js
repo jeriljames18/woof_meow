@@ -252,6 +252,22 @@ function getSitterLocationByBookingId(booking_id) {
 /********************************************************************************************************/
 function loadProfilePage() {
 
+    let sitterEmailId = localStorage.getItem("emailId");
+
+    // if (!firebase.apps.length) {
+    //     firebase.initializeApp(firebaseConfig);
+    // } else {
+    //     firebase.app(); // if already initialized, use that one
+    // }
+
+    // var db = firebase.firestore();
+
+    // let docRef = db.collection("dbUserProfile").doc(sitterEmailId.replace(/\s/g, ''));
+    // docRef.get().then((doc) => {
+    //     let arrProfileList = new PetSitterProfile;
+    //     arrProfileList = doc.data();
+    // });
+
 }
 
 function callSitter(intMobileNumber) {
@@ -349,7 +365,7 @@ function getSearchServiceParameters(strServiceName) {
 
 function searchPetSitter() {
 
-    let strServiceName = localStorage.getItem('servicetype');
+    let strServiceName = localStorage.getItem("servicetype");
 
     let strServiceType = getSearchServiceParameters(strServiceName);
 
@@ -450,8 +466,16 @@ function changeBookingStatus(booking_id) {
 }
 
 function goToProfilePage(email_id) {
-    localStorage.setItem("emailId", email_id);
-    window.location.href = "./index_dhruv.html";
+
+
+    let userEmail = localStorage.getItem("user-email-Id");
+    if (userEmail == undefined) {
+        window.location.href = "./index.html";
+    } else {
+        localStorage.setItem("emailId", email_id);
+        window.location.href = "./index_dhruv.html";
+    }
+
 }
 
 function goToLiveTracking(booking_id, bookingName) {
@@ -470,13 +494,13 @@ function goToPetServices() {
 }
 
 function gotoSearch() {
-    localStorage.setItem('servicetype', $("#enquiryService").val());
-    localStorage.setItem('zipcode', $("zipcode").val());
+    localStorage.setItem("servicetype", $("#enquiryService").val());
+    localStorage.setItem("zipcode", $("zipcode").val());
     window.location.href = "./search.html";
 }
 
 function gotoSearch2() {
-    localStorage.setItem('zipcode', $("serviceLocationH4").val());
+    localStorage.setItem("zipcode", $("serviceLocationH4").val());
     window.location.href = "./search.html";
 }
 
@@ -541,12 +565,14 @@ function startLiveTracking() {
             "</div>" +
             "<p>" + arrBookingList.sbServiceType + "</p>" +
             `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
-            `<button class = 'end-track' type='button' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
+            `<button class = 'end-track' type='button' id = 'endlive' onclick='endLiveTracking("${booking_id}")'> End Tracking </button>` +
             "</div>"
         );
 
+
         $(".live-info").append(newRow);
 
+        setModal();
         getSitterLocationByBookingId(booking_id);
 
     }).catch((error) => {
@@ -555,6 +581,35 @@ function startLiveTracking() {
 }
 
 /********************************* SAVING FUNCTION *********************************/
+function endLiveTracking(strbookingID) {
+
+
+
+
+    $(".modal-body2").empty();
+
+    let newRow;
+
+
+
+    newRow = (
+        "<p>Pet-sitter's Name: <b>" + strbookingID + "</b></p>"
+        // `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
+        // "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+        // "<p><b>Time:</b> " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+        // "</div>" +
+        // "<p>" + arrBookingList.sbServiceType + "</p>" +
+        // `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
+        //`<button class = 'end-track' type='button' onclick='saveSchedule("${localStorage.getItem("user-email-Id")}", "${localStorage.getItem("emailId")}", "${datefrom.trim()}", "${dateto.trim()}", "${arrProfileList.upAddress}", "${arrProfileList.upUsername}", "Pet Walking")'> Confirm Booking </button>`
+        // "</div>"
+    );
+
+    $(".modal-body2").append(newRow);
+
+
+
+
+}
 
 function saveImage(strFileLocation) {
 
@@ -583,7 +638,7 @@ function saveImage(strFileLocation) {
 
 }
 
-function saveSchedule() {
+function saveSchedule(UserEmail, SitterEmail, dateFrom, dateTo, address, fullname, ServiceType) {
     // Initialize Firebase
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -595,16 +650,15 @@ function saveSchedule() {
     var db = firebase.firestore();
 
     db.collection("dbServiceBooking").doc().set({
-        sbUserEmail: "userEmail121111@gmail.com",
-        sbSitterEmail: "sitterEmail543@yahoo.com",
-        sbDateFrom: "24/7/2021",
-        sbDateTo: "24/7/2021",
-        sbTimeStart: "15:00",
-        sbTimeEnd: "16:00",
+        sbUserEmail: UserEmail,
+        sbSitterEmail: SitterEmail,
+        sbDateFrom: dateFrom,
+        sbDateTo: dateTo,
         sbStatus: 0,
         sbRating: 0,
-        trackLat: 104,
-        trackLong: 222
+        sbAddress: address,
+        sbSitterName: fullname,
+        sbServiceType: ServiceType
             /* db.collection("dbUserProfile").doc("userEmailTest3@gmail.com").set({
                 upUsername: "test_user3",
                 upAddress: "123 sample address City, BC 123455",
@@ -621,7 +675,10 @@ function saveSchedule() {
     })
 
     .then(() => {
-            console.log("SAVED SUCCESSFULLY!");
+            window.alert("BOOKED SUCCESSFULLY!");
+
+            console.log("BOOKED SUCCESSFULLY!");
+            window.location.href = "./bookinglist.html";
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
@@ -652,16 +709,16 @@ function getService(intService) {
     switch (intService) {
         case "1":
 
-            localStorage.setItem('servicetype', "Pet Boarding");
+            localStorage.setItem("servicetype", "Pet Boarding");
             break;
 
         case "2":
-            localStorage.setItem('servicetype', "House Sitting");
+            localStorage.setItem("servicetype", "House Sitting");
 
             break;
         default:
 
-            localStorage.setItem('servicetype', "Pet Walking");
+            localStorage.setItem("servicetype", "Pet Walking");
             break;
     }
 
@@ -709,28 +766,85 @@ if (evntlstener) {
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var modal2 = document.getElementById("myModal2");
 
 // Get the button that opens the modal
 var btn = document.getElementById("booknow");
+
+
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 
-function getBooking(strSchedule, strFullName, strAddress, intMobile, strServiceType, strSitterEmail) {
+function getBooking(e) {
+
+    e.preventDefault;
+    let sitterEmailId = localStorage.getItem("emailId");
+
+    $(".modal-body").empty();
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    } else {
+        firebase.app(); // if already initialized, use that one
+    }
+
+    var db = firebase.firestore();
+
+    let docRef = db.collection("dbUserProfile").doc(sitterEmailId.replace(/\s/g, ''));
+    docRef.get().then((doc) => {
+        let arrProfileList = new PetSitterProfile;
+        arrProfileList = doc.data();
+        // strSchedule, strFullName, strAddress, intMobile, strServiceType, strSitterEmail
+        var strSchedule = document.getElementById("booking-text").value;
+
+        var temp = new Array();
+
+        temp = strSchedule.split("-");
+        let datefrom = temp[0].toString();
+        let dateto = temp[1].toString();
+        let newRow;
+
+        if (newRow == undefined) {
 
 
 
+            newRow = (
+                "<p>Pet-sitter's Name: <b>" + arrProfileList.upUsername + "</b></p>" +
+                '<p> Service type: <select id="enquiryService" class="enquiryInputClass">' +
+                '<option value="Pet Boarding">Pet Boarding</option>' +
+                '<option value="Pet Walking">Pet Walking</option>' +
+                '<option value="House Sitting">House Sitting</option>' +
+                '</select></p>' +
+                "<p>From: <b>" + datefrom.trim() + "</b></p>" +
+                "<p>To: <b>" + dateto.trim() + "</b></p>" +
+                // `<p> ${getLiveTrackingMessage(arrBookingList.sbServiceType )} </p>` +
+                // "<p><b>Date:</b> " + arrBookingList.sbDateFrom + " to " + arrBookingList.sbDateTo + "</p>" +
+                // "<p><b>Time:</b> " + arrBookingList.sbTimeStart + " to " + arrBookingList.sbTimeEnd + "</p>" +
+                // "</div>" +
+                // "<p>" + arrBookingList.sbServiceType + "</p>" +
+                // `<button class = 'call-sitter' type='button' onclick='callSitter("${arrBookingList.sbMobile}")'>  Call Sitter </button>` +
+                `<button class = 'end-track' type='button' onclick='saveSchedule("${localStorage.getItem("user-email-Id")}", "${localStorage.getItem("emailId")}", "${datefrom.trim()}", "${dateto.trim()}", "${arrProfileList.upAddress}", "${arrProfileList.upUsername}", "Pet Walking")'> Confirm Booking </button>`
+                // "</div>"
+            );
+
+            $(".modal-body").append(newRow);
+
+
+        }
+    });
 
 }
+
 
 // When the user clicks on the button, open the modal
 if (modal) {
     btn.onclick = function() {
         modal.style.display = "block";
 
-        let newRow = "<p> SAMPLE </p>"
-        $('.modal-body').append(newRow);
+        getBooking();
+
 
     }
 
@@ -747,6 +861,29 @@ if (modal) {
     }
 
 
+}
+
+function setModal() {
+    // When the user clicks on the button, open the modal
+    var btn2 = document.getElementById("endlive");
+    if (modal2) {
+        btn2.onclick = function() {
+            modal2.style.display = "block";
+            endLiveTracking(localStorage.getItem("bookingId"));
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+    }
 }
 
 

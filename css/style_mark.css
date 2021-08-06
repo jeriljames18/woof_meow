@@ -383,7 +383,8 @@
     }
     /* Modal Body */
     
-    .modal-body {
+    .modal-body,
+    .modal-body2 {
         padding: 2px 16px;
     }
     /* Modal Footer */

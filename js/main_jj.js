@@ -72,6 +72,7 @@ function loginUser() {
             // Signed in
             var user = userCredential.user;
             localStorage.setItem("userAccountEmail", user.email);
+            localStorage.setItem("user-email-Id", user.email);
             window.location.href = "./search.html";
             // ...
         })
