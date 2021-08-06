@@ -173,8 +173,9 @@ function initMap(lat, long) {
     });
 
 
+    //woofandmeow.surge.sh/images/dog.svg
     const image = {
-        url: "./images/dog.svg", // url
+        url: "//woofandmeow.surge.sh/images/Dog.svg", // url
         scaledSize: new google.maps.Size(50, 50), // size
     };
 
